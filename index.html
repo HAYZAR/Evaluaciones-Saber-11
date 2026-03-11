@@ -8,12 +8,10 @@
   :root {
     --blue:   #1a56db;
     --violet: #7e3af2;
-    --teal:   #0694a2;
-    --orange: #d97706;
-    --bg:     #f0f4ff;
+    --teal:   #059669;
+    --bg:     #eef2ff;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background: var(--bg);
@@ -24,280 +22,316 @@
 
   /* ── HEADER ── */
   header {
-    background: linear-gradient(135deg, #1a237e 0%, #1a56db 60%, #7e3af2 100%);
+    background: linear-gradient(135deg, #1e1b4b 0%, #1a56db 55%, #6d28d9 100%);
     color: #fff;
     text-align: center;
-    padding: 48px 24px 36px;
+    padding: 56px 24px 44px;
     position: relative;
     overflow: hidden;
   }
-  header::before {
+  header::after {
     content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
   }
-  .school-badge {
+  .badge {
     display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
     border-radius: 999px;
-    padding: 5px 18px;
-    font-size: .8rem;
-    letter-spacing: .08em;
+    padding: 5px 20px;
+    font-size: .75rem;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   header h1 {
-    font-size: clamp(1.6rem, 5vw, 2.6rem);
-    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 900;
     letter-spacing: -.5px;
-    line-height: 1.2;
-    margin-bottom: 10px;
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
-  header h1 span { color: #a5f3fc; }
-  header p.subtitle {
-    font-size: 1rem;
-    opacity: .85;
-    max-width: 520px;
+  header h1 em { font-style: normal; color: #a5f3fc; }
+  header p {
+    font-size: .95rem;
+    opacity: .82;
+    max-width: 480px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  /* ── CARDS GRID ── */
+  /* ── STATS ROW ── */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    max-width: 580px;
+    margin: 36px auto 0;
+    overflow: hidden;
+  }
+  .stat {
+    flex: 1;
+    padding: 16px 10px;
+    text-align: center;
+    border-right: 1px solid #f1f5f9;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #1a56db, #7e3af2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-lbl {
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+
+  /* ── MAIN ── */
   main {
     flex: 1;
-    max-width: 880px;
+    max-width: 860px;
     width: 100%;
     margin: 0 auto;
     padding: 48px 20px 64px;
   }
   .section-label {
     text-align: center;
-    font-size: .75rem;
+    font-size: .72rem;
     font-weight: 700;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: #64748b;
-    margin-bottom: 28px;
+    color: #94a3b8;
+    margin-bottom: 30px;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+    gap: 24px;
   }
 
+  /* ── CARD ── */
   .card {
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,.08);
-    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    cursor: pointer;
+    transition: transform .22s, box-shadow .22s;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: inherit;
+    position: relative;
   }
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 36px rgba(0,0,0,.14);
+    transform: translateY(-7px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.13);
   }
+  .card:hover .cta-btn { filter: brightness(1.1); }
 
-  .card-banner {
-    height: 10px;
+  .card-stripe {
+    height: 6px;
   }
-  .card-1 .card-banner { background: linear-gradient(90deg, #1a56db, #7e3af2); }
-  .card-2 .card-banner { background: linear-gradient(90deg, #0694a2, #10b981); }
+  .c1 .card-stripe { background: linear-gradient(90deg, #1a56db 0%, #7e3af2 100%); }
+  .c2 .card-stripe { background: linear-gradient(90deg, #0694a2 0%, #059669 100%); }
 
-  .card-body {
-    padding: 28px 28px 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  .card-inner { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+
+  .card-emoji {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+    flex-shrink: 0;
   }
-  .card-icon {
-    font-size: 2.4rem;
-    margin-bottom: 14px;
-    line-height: 1;
-  }
+  .c1 .card-emoji { background: #ede9fe; }
+  .c2 .card-emoji { background: #d1fae5; }
+
   .card-title {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #0f172a;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     line-height: 1.3;
   }
   .card-desc {
-    font-size: .9rem;
+    font-size: .88rem;
     color: #475569;
-    line-height: 1.6;
+    line-height: 1.65;
     flex: 1;
     margin-bottom: 20px;
   }
+  .card-desc em { font-style: italic; color: #334155; }
 
-  /* pill tags */
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
   .tag {
-    font-size: .72rem;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 999px;
+    font-size: .7rem; font-weight: 600;
+    padding: 4px 11px; border-radius: 999px;
   }
-  .card-1 .tag { background: #dbeafe; color: #1e40af; }
-  .card-2 .tag { background: #ccfbf1; color: #065f46; }
+  .c1 .tag { background: #ede9fe; color: #5b21b6; }
+  .c2 .tag { background: #d1fae5; color: #065f46; }
 
-  .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: .88rem;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .87rem; font-weight: 700;
+    padding: 11px 22px; border-radius: 11px;
+    border: none; cursor: pointer;
+    color: #fff; align-self: flex-start;
+    transition: transform .15s, filter .15s;
     text-decoration: none;
-    align-self: flex-start;
-    transition: filter .15s, transform .15s;
   }
-  .card-cta:hover { filter: brightness(1.1); transform: scale(1.03); }
-  .card-1 .card-cta { background: linear-gradient(135deg, #1a56db, #7e3af2); color: #fff; }
-  .card-2 .card-cta { background: linear-gradient(135deg, #0694a2, #10b981); color: #fff; }
+  .c1 .cta-btn { background: linear-gradient(135deg, #1a56db, #7e3af2); }
+  .c2 .cta-btn { background: linear-gradient(135deg, #0694a2, #059669); }
 
-  .card-meta {
-    display: flex;
-    gap: 18px;
-    padding: 14px 28px;
+  .card-footer {
+    display: flex; gap: 0;
     border-top: 1px solid #f1f5f9;
     background: #fafbff;
   }
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  .c2 .card-footer { background: #f0fdf8; }
+  .kpi {
+    flex: 1; text-align: center;
+    padding: 14px 8px;
+    border-right: 1px solid #f1f5f9;
   }
-  .meta-val {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #0f172a;
-  }
-  .meta-lbl {
-    font-size: .7rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: #94a3b8;
-  }
+  .kpi:last-child { border-right: none; }
+  .kpi-val { font-size: 1.15rem; font-weight: 900; color: #0f172a; }
+  .kpi-lbl { font-size: .63rem; text-transform: uppercase; letter-spacing: .07em; color: #94a3b8; margin-top: 2px; }
 
-  /* ── INFO STRIP ── */
-  .info-strip {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 32px;
-    background: #fff;
-    border-top: 1px solid #e2e8f0;
-    padding: 20px 24px;
+  /* ── FEATURES ── */
+  .features {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin-top: 40px;
   }
-  .info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: .82rem;
-    color: #64748b;
+  .feat {
+    display: flex; align-items: center; gap: 7px;
+    background: #fff; border-radius: 999px;
+    padding: 7px 16px;
+    font-size: .8rem; color: #475569;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
   }
-  .info-item strong { color: #0f172a; }
+  .feat strong { color: #0f172a; }
 
   /* ── FOOTER ── */
   footer {
     background: #0f172a;
-    color: #94a3b8;
+    color: #64748b;
     text-align: center;
-    padding: 18px 24px;
+    padding: 20px 24px;
     font-size: .78rem;
-    line-height: 1.7;
+    line-height: 1.8;
   }
-  footer strong { color: #e2e8f0; }
+  footer strong { color: #cbd5e1; }
+  footer a { color: #818cf8; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 520px) {
-    header { padding: 36px 18px 28px; }
-    .card-body { padding: 22px 20px 18px; }
-    .card-meta { padding: 12px 20px; gap: 14px; }
+  @media (max-width: 500px) {
+    header { padding: 40px 18px 36px; }
+    .card-inner { padding: 22px 20px 18px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════ HEADER ═══════════════ -->
+<!-- ═══ HEADER ═══ -->
 <header>
-  <div class="school-badge">IED Los Rosales · Barranquilla</div>
-  <h1>Evaluaciones de <span>Física</span><br>Grado 11</h1>
-  <p class="subtitle">Material de refuerzo basado en los resultados Saber 11 ICFES 2025 · Competencias priorizadas por %PRI</p>
+  <div class="badge">IED Los Rosales · Barranquilla</div>
+  <h1>Evaluaciones de <em>Física</em><br>Grado 11</h1>
+  <p>Material de refuerzo basado en los resultados<br><strong>Saber 11 ICFES 2025</strong> · Competencias priorizadas por %PRI</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val">27</div><div class="stat-lbl">Preguntas</div></div>
+    <div class="stat"><div class="stat-val">7</div><div class="stat-lbl">Bloques</div></div>
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Competencias</div></div>
+    <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Retroalimentación</div></div>
+  </div>
 </header>
 
-<!-- ═══════════════ CARDS ═══════════════ -->
+<!-- ═══ CARDS ═══ -->
 <main>
-  <p class="section-label">Selecciona una evaluación para comenzar</p>
+  <p class="section-label">Elige una evaluación para comenzar</p>
+
   <div class="grid">
 
     <!-- Card 1 -->
-    <a class="card card-1" href="saber11_fisica.html">
-      <div class="card-banner"></div>
-      <div class="card-body">
-        <div class="card-icon">📋</div>
+    <div class="card c1" onclick="location.href='saber11_fisica.html'">
+      <div class="card-stripe"></div>
+      <div class="card-inner">
+        <div class="card-emoji">📋</div>
         <div class="card-title">Evaluaciones Tipo Saber</div>
-        <div class="card-desc">
-          Tres evaluaciones con preguntas de selección múltiple en el formato oficial ICFES. Trabaja las competencias con mayor índice de respuestas incorrectas: <em>derivar conclusiones, evaluar predicciones y asociar fenómenos</em>.
-        </div>
+        <p class="card-desc">
+          Tres evaluaciones en el formato oficial ICFES. Trabaja las competencias con mayor %PRI en tu institución:
+          <em>derivar conclusiones, evaluar predicciones y asociar fenómenos</em>.
+        </p>
         <div class="tags">
           <span class="tag">Indagación</span>
           <span class="tag">Explicación de fenómenos</span>
           <span class="tag">Uso comprensivo</span>
           <span class="tag">Formato ICFES</span>
         </div>
-        <a class="card-cta" href="saber11_fisica.html">Iniciar evaluación →</a>
+        <a class="cta-btn" href="saber11_fisica.html" onclick="event.stopPropagation()">
+          Iniciar evaluación &rarr;
+        </a>
       </div>
-      <div class="card-meta">
-        <div class="meta-item"><span class="meta-val">3</span><span class="meta-lbl">Evaluaciones</span></div>
-        <div class="meta-item"><span class="meta-val">15</span><span class="meta-lbl">Preguntas</span></div>
-        <div class="meta-item"><span class="meta-val">100%</span><span class="meta-lbl">Retroalimentación</span></div>
+      <div class="card-footer">
+        <div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Evaluaciones</div></div>
+        <div class="kpi"><div class="kpi-val">15</div><div class="kpi-lbl">Preguntas</div></div>
+        <div class="kpi"><div class="kpi-val">~25 min</div><div class="kpi-lbl">Por sesión</div></div>
       </div>
-    </a>
+    </div>
 
     <!-- Card 2 -->
-    <a class="card card-2" href="saber11_contextos.html">
-      <div class="card-banner"></div>
-      <div class="card-body">
-        <div class="card-icon">🌍</div>
+    <div class="card c2" onclick="location.href='saber11_contextos.html'">
+      <div class="card-stripe"></div>
+      <div class="card-inner">
+        <div class="card-emoji">🌍</div>
         <div class="card-title">Problemas con Contexto Real</div>
-        <div class="card-desc">
-          Física aplicada a situaciones cercanas y motivadoras: el Río Magdalena, el Carnaval de Barranquilla, figuras del deporte colombiano, tecnología actual e hitos de la historia de la ciencia.
-        </div>
+        <p class="card-desc">
+          Física en situaciones cercanas y motivadoras: el Río Magdalena, el Carnaval, figuras del deporte colombiano,
+          tecnología actual e hitos de la historia de la ciencia.
+        </p>
         <div class="tags">
           <span class="tag">🌊 Local</span>
           <span class="tag">⚽ Deportes</span>
           <span class="tag">🚀 Tecnología</span>
           <span class="tag">🔭 Historia</span>
         </div>
-        <a class="card-cta" href="saber11_contextos.html">Explorar contextos →</a>
+        <a class="cta-btn" href="saber11_contextos.html" onclick="event.stopPropagation()">
+          Explorar contextos &rarr;
+        </a>
       </div>
-      <div class="card-meta">
-        <div class="meta-item"><span class="meta-val">4</span><span class="meta-lbl">Bloques</span></div>
-        <div class="meta-item"><span class="meta-val">12</span><span class="meta-lbl">Preguntas</span></div>
-        <div class="meta-item"><span class="meta-val">100%</span><span class="meta-lbl">Retroalimentación</span></div>
+      <div class="card-footer">
+        <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Bloques</div></div>
+        <div class="kpi"><div class="kpi-val">12</div><div class="kpi-lbl">Preguntas</div></div>
+        <div class="kpi"><div class="kpi-val">~20 min</div><div class="kpi-lbl">Por sesión</div></div>
       </div>
-    </a>
+    </div>
 
+  </div><!-- /grid -->
+
+  <!-- feature pills -->
+  <div class="features">
+    <div class="feat">📊 <span>Basado en <strong>Saber 11 · 2025</strong></span></div>
+    <div class="feat">📱 <span>Compatible con <strong>móvil y PC</strong></span></div>
+    <div class="feat">⚡ <span><strong>Sin registro</strong> · sin conexión</span></div>
+    <div class="feat">✅ <span>Respuesta y <strong>justificación</strong> inmediata</span></div>
   </div>
+
 </main>
 
-<!-- ═══════════════ INFO STRIP ═══════════════ -->
-<div class="info-strip">
-  <div class="info-item">📊 <span>Basado en resultados <strong>Saber 11 · 2025</strong></span></div>
-  <div class="info-item">🎯 <span>Competencias priorizadas por <strong>%PRI</strong></span></div>
-  <div class="info-item">📱 <span>Compatible con <strong>móvil y PC</strong></span></div>
-  <div class="info-item">✅ <span><strong>Sin registro</strong> · funciona sin conexión</span></div>
-</div>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <strong>Hayzar Hernández B.</strong> · Docente de Física · IED Los Rosales · Barranquilla<br>
   Material pedagógico de uso libre para fines educativos · 2025
