@@ -156,6 +156,22 @@
     line-height: 1.7;
     white-space: pre-line;
   }
+  .context-box p { white-space: normal; margin-bottom: 10px; }
+  .context-box table {
+    width: 100%; border-collapse: collapse;
+    margin: 10px 0 4px; font-size: .86rem;
+    white-space: normal;
+  }
+  .context-box th {
+    background: #dbeafe; color: #1e40af;
+    font-weight: 700; padding: 7px 14px;
+    text-align: center; border: 1px solid #bfdbfe;
+  }
+  .context-box td {
+    padding: 6px 14px; text-align: center;
+    border: 1px solid #e2e8f0; color: #1e293b;
+  }
+  .context-box tr:nth-child(even) td { background: #f0f7ff; }
 
   .q-stem {
     font-size: 1rem;
@@ -429,7 +445,7 @@ const QUESTIONS = [
   // ─── EVAL 1 ───────────────────────────────────────────────
   {
     eval: 0, num: 1,
-    context: "Un estudiante investiga el movimiento de un carro sobre una rampa. Mide la fuerza de empuje aplicada (F) y la aceleración resultante (a), obteniendo:\n\nF (N):        2    4    6    8    10\na (m/s²):    1    2    3    4     5",
+    context: `<p>Un estudiante investiga el movimiento de un carro sobre una rampa. Mide la fuerza de empuje aplicada (F) y la aceleración resultante (a), obteniendo:</p><table><tr><th>F (N)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr><tr><th>a (m/s²)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr></table>`,
     stem: "A partir de los datos obtenidos, ¿cuál de las siguientes conclusiones se puede derivar correctamente del experimento?",
     opts: [
       "La aceleración del carro es independiente de la fuerza aplicada, porque la masa no cambia.",
@@ -443,7 +459,7 @@ const QUESTIONS = [
   },
   {
     eval: 0, num: 2,
-    context: "Una estudiante suelta una pelota desde lo alto de un edificio y mide su velocidad en distintos instantes durante la caída libre:\n\nTiempo (s):         0     1      2      3\nVelocidad (m/s):   0    9,8  19,6  29,4",
+    context: `<p>Una estudiante suelta una pelota desde lo alto de un edificio y mide su velocidad en distintos instantes durante la caída libre:</p><table><tr><th>Tiempo (s)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><th>Velocidad (m/s)</th><td>0</td><td>9,8</td><td>19,6</td><td>29,4</td></tr></table>`,
     stem: "Basándose en los datos del experimento, ¿cuáles son las conclusiones más válidas?",
     opts: [
       "La velocidad aumenta de forma no uniforme y la pelota alcanza velocidad máxima al tercer segundo.",
@@ -485,7 +501,7 @@ const QUESTIONS = [
   },
   {
     eval: 0, num: 5,
-    context: "Un investigador mide la velocidad del sonido en tres medios:\n\nMedio              Velocidad del sonido (m/s)\nAire (20°C)                     343\nAgua (25°C)                   1480\nHierro (20°C)                 5120",
+    context: `<p>Un investigador mide la velocidad del sonido en tres medios:</p><table><tr><th>Medio</th><th>Velocidad del sonido (m/s)</th></tr><tr><td>Aire (20°C)</td><td>343</td></tr><tr><td>Agua (25°C)</td><td>1 480</td></tr><tr><td>Hierro (20°C)</td><td>5 120</td></tr></table>`,
     stem: "A partir de los datos, ¿cuál es la conclusión correcta sobre la propagación del sonido?",
     opts: [
       "El sonido se propaga más rápido en el aire porque es el medio menos denso y opone menor resistencia.",
@@ -715,7 +731,7 @@ function renderQ() {
   const ctx = document.getElementById('q-context');
   if (q.context) {
     ctx.style.display = '';
-    ctx.textContent = q.context;
+    ctx.innerHTML = q.context;
   } else {
     ctx.style.display = 'none';
   }

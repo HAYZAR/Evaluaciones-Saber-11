@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Física en Contexto · Saber 11</title>
+<style>
+  :root {
+    --bg:     #f0f4ff;
+    --card:   #ffffff;
+    --text:   #1e293b;
+    --muted:  #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0,0,0,.10);
+
+    /* bloque local */  --local:  #0f766e; --local-bg:  #ccfbf1; --local-dark:  #134e4a;
+    /* bloque deporte */ --sport:  #b45309; --sport-bg:  #fef3c7; --sport-dark:  #78350f;
+    /* bloque tecno */  --tech:   #6d28d9; --tech-bg:   #ede9fe; --tech-dark:   #3b0764;
+    /* bloque historia*/ --hist:  #be123c; --hist-bg:   #ffe4e6; --hist-dark:   #881337;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 0 0 60px; }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #134e4a 0%, #1e3a8a 40%, #3b0764 100%);
+    color: #fff; padding: 28px 24px 24px; text-align: center; position: relative; overflow: hidden;
+  }
+  header::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  header .badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 99px; padding: 4px 14px; font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.2; }
+  header p  { margin-top: 6px; font-size: .9rem; opacity: .85; }
+  header .meta { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  header .meta span { background: rgba(255,255,255,.15); border-radius: 99px; padding: 3px 12px; font-size: .8rem; }
+
+  /* ── WRAP ── */
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ── HOME ── */
+  #home { padding-top: 32px; }
+  .intro-box { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 26px; margin-bottom: 28px; border-left: 5px solid #1e3a8a; }
+  .intro-box h2 { font-size: 1.05rem; color: #1e3a8a; margin-bottom: 8px; }
+  .intro-box p  { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+
+  .block-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: 24px; }
+  .block-card {
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 22px 18px; cursor: pointer;
+    transition: transform .18s, box-shadow .18s;
+    border-top: 5px solid transparent; position: relative; overflow: hidden;
+  }
+  .block-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.14); }
+  .block-card.bl  { border-color: var(--local); }
+  .block-card.bs  { border-color: var(--sport); }
+  .block-card.bt  { border-color: var(--tech);  }
+  .block-card.bh  { border-color: var(--hist);  }
+  .block-card .icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
+  .block-card h3  { font-size: .98rem; font-weight: 700; margin-bottom: 5px; }
+  .block-card p   { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+  .block-card .pill { display: inline-block; margin-top: 10px; border-radius: 99px; padding: 3px 10px; font-size: .75rem; font-weight: 700; }
+  .bl .pill { background: var(--local-bg); color: var(--local); }
+  .bs .pill { background: var(--sport-bg); color: var(--sport); }
+  .bt .pill { background: var(--tech-bg);  color: var(--tech);  }
+  .bh .pill { background: var(--hist-bg);  color: var(--hist);  }
+  .block-card .qs-badge { position: absolute; top: 12px; right: 12px; background: var(--border); color: var(--muted); border-radius: 99px; padding: 2px 8px; font-size: .72rem; font-weight: 700; }
+
+  .all-btn-row { text-align: center; margin-bottom: 10px; }
+
+  /* ── PROGRESS ── */
+  .progress-wrap { padding: 20px 0 8px; }
+  .progress-meta { display: flex; justify-content: space-between; font-size: .82rem; color: var(--muted); margin-bottom: 6px; }
+  .progress-bar  { background: #e2e8f0; border-radius: 99px; height: 8px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--local), var(--tech)); transition: width .4s ease; }
+
+  /* ── QUESTION CARD ── */
+  #quiz { padding-top: 12px; }
+  .q-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 24px 20px; margin-bottom: 16px; }
+
+  .block-tag { display: inline-flex; align-items: center; gap: 7px; border-radius: 99px; padding: 5px 14px; font-size: .8rem; font-weight: 700; margin-bottom: 14px; }
+  .block-tag.bl { background: var(--local-bg); color: var(--local); }
+  .block-tag.bs { background: var(--sport-bg); color: var(--sport); }
+  .block-tag.bt { background: var(--tech-bg);  color: var(--tech);  }
+  .block-tag.bh { background: var(--hist-bg);  color: var(--hist);  }
+
+  .q-header { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .q-num { min-width: 36px; height: 36px; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; flex-shrink: 0; color: #fff; }
+  .bl .q-num { background: var(--local); }
+  .bs .q-num { background: var(--sport); }
+  .bt .q-num { background: var(--tech);  }
+  .bh .q-num { background: var(--hist);  }
+  .q-meta { font-size: .78rem; color: var(--muted); }
+  .q-meta strong { color: var(--text); font-weight: 600; }
+
+  /* context box */
+  .context-box {
+    background: #f8fafc; border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; margin: 14px 0; font-size: .88rem; color: #475569;
+    line-height: 1.7; white-space: pre-line;
+  }
+  .context-box p  { white-space: normal; margin-bottom: 10px; }
+  .context-box p:last-child { margin-bottom: 0; }
+  .context-box table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: .86rem; white-space: normal; }
+  .context-box th   { font-weight: 700; padding: 7px 14px; text-align: center; border: 1px solid; }
+  .context-box td   { padding: 6px 14px; text-align: center; border: 1px solid #e2e8f0; color: #1e293b; }
+  .context-box tr:nth-child(even) td { background: rgba(0,0,0,.03); }
+  .bl .context-box { border-left: 4px solid var(--local); }
+  .bs .context-box { border-left: 4px solid var(--sport); }
+  .bt .context-box { border-left: 4px solid var(--tech);  }
+  .bh .context-box { border-left: 4px solid var(--hist);  }
+  .bl .context-box th { background: var(--local-bg); color: var(--local-dark); border-color: #99f6e4; }
+  .bs .context-box th { background: var(--sport-bg); color: var(--sport-dark); border-color: #fde68a; }
+  .bt .context-box th { background: var(--tech-bg);  color: var(--tech-dark);  border-color: #c4b5fd; }
+  .bh .context-box th { background: var(--hist-bg);  color: var(--hist-dark);  border-color: #fecdd3; }
+
+  .q-stem { font-size: 1rem; font-weight: 600; line-height: 1.6; margin: 14px 0 18px; color: var(--text); }
+
+  .options { display: grid; gap: 10px; }
+  .opt-btn {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: #f8fafc; border: 2px solid var(--border); border-radius: 12px;
+    padding: 14px 16px; cursor: pointer; text-align: left;
+    font-size: .92rem; line-height: 1.55;
+    transition: background .14s, border-color .14s, transform .1s; width: 100%;
+  }
+  .opt-btn:hover:not(:disabled) { background: #f0fdf4; transform: translateX(3px); }
+  .opt-btn .letter {
+    min-width: 28px; height: 28px; border-radius: 99px;
+    background: #e2e8f0; color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .82rem; flex-shrink: 0;
+    transition: background .2s, color .2s;
+  }
+  .opt-btn.correct { background: #f0fdf4; border-color: #22c55e; }
+  .opt-btn.correct .letter { background: #22c55e; color: #fff; }
+  .opt-btn.wrong   { background: #fef2f2; border-color: #f87171; }
+  .opt-btn.wrong   .letter { background: #f87171; color: #fff; }
+  .opt-btn.reveal  { background: #f0fdf4; border-color: #22c55e; opacity: .7; }
+  .opt-btn.reveal  .letter { background: #22c55e; color: #fff; }
+  .opt-btn:disabled { cursor: default; }
+
+  /* feedback */
+  .feedback { margin-top: 16px; border-radius: 12px; padding: 16px 18px; display: none; animation: slideUp .25s ease; }
+  @keyframes slideUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  .feedback.correct { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .feedback.wrong   { background: #fef2f2; border: 1px solid #fecaca; }
+  .feedback .fb-title { font-weight: 700; font-size: .95rem; margin-bottom: 6px; }
+  .feedback.correct .fb-title { color: #15803d; }
+  .feedback.wrong   .fb-title { color: #b91c1c; }
+  .feedback .fb-body { font-size: .88rem; line-height: 1.65; color: var(--text); }
+  .fb-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .fb-tag { border-radius: 99px; padding: 3px 10px; font-size: .75rem; font-weight: 600; }
+  .fb-tag.comp  { background: #dbeafe; color: #1d4ed8; }
+  .fb-tag.topic { background: #fef9c3; color: #854d0e; }
+
+  /* buttons */
+  .btn { display: inline-flex; align-items: center; gap: 8px; border: none; border-radius: 10px; padding: 12px 22px; font-size: .95rem; font-weight: 700; cursor: pointer; transition: background .15s, transform .1s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: linear-gradient(135deg, #0f766e, #1e3a8a); color: #fff; }
+  .btn-ghost   { background: var(--border); color: var(--text); }
+  .btn-row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+
+  /* ── RESULTS ── */
+  #results { padding-top: 28px; }
+  .result-hero { background: linear-gradient(135deg, #134e4a, #1e3a8a, #3b0764); color: #fff; border-radius: var(--radius); padding: 32px 24px; text-align: center; margin-bottom: 20px; }
+  .score-circle { width: 110px; height: 110px; border-radius: 50%; background: rgba(255,255,255,.18); border: 4px solid rgba(255,255,255,.4); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .score-circle .num { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+  .score-circle .den { font-size: .85rem; opacity: .8; }
+  .result-hero h2 { font-size: 1.4rem; }
+  .result-hero p  { opacity: .85; margin-top: 4px; font-size: .9rem; }
+
+  .block-results { display: grid; gap: 12px; margin-bottom: 20px; }
+  .br-row { background: var(--card); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .br-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .br-label { font-weight: 600; font-size: .9rem; }
+  .br-score { font-weight: 800; font-size: 1rem; }
+  .br-bar { background: #e2e8f0; border-radius: 99px; height: 6px; overflow: hidden; }
+  .br-fill { height: 100%; border-radius: 99px; }
+
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+  @media (max-width: 520px) {
+    .q-card { padding: 16px 14px; }
+    header  { padding: 20px 16px; }
+    .btn    { padding: 11px 16px; font-size: .88rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">🌍 Física en Contexto</div>
+  <h1>Física con Contextos Reales<br>Saber 11 · Grado 11</h1>
+  <p>Preguntas basadas en situaciones locales, deportivas, tecnológicas e históricas</p>
+  <div class="meta">
+    <span>🏫 IED Los Rosales</span>
+    <span>📐 12 preguntas · 4 bloques</span>
+    <span>👨‍🏫 Hayzar Hernández B.</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ══ HOME ══════════════════════════════════════════════ -->
+<div id="home" class="screen active">
+  <div style="padding-top:32px"></div>
+  <div class="intro-box">
+    <h2>🎯 ¿Por qué contextos reales?</h2>
+    <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 12 preguntas refuerzan los tres aprendizajes más críticos usando contextos cercanos: <strong>Barranquilla, el deporte colombiano, la tecnología actual y los grandes descubrimientos de la historia de la ciencia.</strong></p>
+  </div>
+
+  <div class="block-grid">
+    <div class="block-card bl" onclick="startBlock(0)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🌊</span>
+      <h3>Locales</h3>
+      <p>Puente Pumarejo, Carnaval de Barranquilla e Hidroeléctrica Ituango.</p>
+      <span class="pill">Barranquilla · Colombia</span>
+    </div>
+    <div class="block-card bs" onclick="startBlock(1)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">⚽</span>
+      <h3>Deportes</h3>
+      <p>Caterine Ibargüen, James Rodríguez y Nairo Quintana en acción.</p>
+      <span class="pill">Deporte colombiano</span>
+    </div>
+    <div class="block-card bt" onclick="startBlock(2)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🚀</span>
+      <h3>Tecnología</h3>
+      <p>SpaceX Falcon 9, WiFi y paneles solares en Colombia.</p>
+      <span class="pill">Ciencia y tecnología</span>
+    </div>
+    <div class="block-card bh" onclick="startBlock(3)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🔭</span>
+      <h3>Historia</h3>
+      <p>Galileo, Newton y Marie Curie: los experimentos que cambiaron la física.</p>
+      <span class="pill">Historia de la ciencia</span>
+    </div>
+  </div>
+
+  <div class="all-btn-row">
+    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 4 bloques completos (12 preguntas)</button>
+  </div>
+</div>
+
+<!-- ══ QUIZ ═════════════════════════════════════════════ -->
+<div id="quiz" class="screen">
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span id="prog-label">Pregunta 1 de 12</span>
+      <span id="prog-score">✅ 0 correctas</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+  </div>
+
+  <div class="q-card" id="q-card">
+    <div id="block-tag" class="block-tag bl"></div>
+    <div class="q-header">
+      <div class="q-num" id="q-num">1</div>
+      <div class="q-meta">
+        <strong id="q-comp"></strong><br>
+        <span id="q-sub"></span>
+      </div>
+    </div>
+    <div class="context-box" id="q-ctx" style="display:none"></div>
+    <div class="q-stem" id="q-stem"></div>
+    <div class="options" id="q-opts"></div>
+    <div class="feedback" id="feedback">
+      <div class="fb-title" id="fb-title"></div>
+      <div class="fb-body"  id="fb-body"></div>
+      <div class="fb-tags">
+        <span class="fb-tag comp"  id="fb-comp"></span>
+        <span class="fb-tag topic" id="fb-topic"></span>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="goHome()">🏠 Inicio</button>
+      <button class="btn btn-primary" id="next-btn" onclick="nextQ()" style="display:none">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RESULTS ═══════════════════════════════════════════ -->
+<div id="results" class="screen">
+  <div class="result-hero">
+    <div class="score-circle">
+      <span class="num" id="res-num">0</span>
+      <span class="den" id="res-den">/ 12</span>
+    </div>
+    <h2 id="res-title">¡Excelente!</h2>
+    <p  id="res-msg"></p>
+  </div>
+  <div class="block-results" id="block-results"></div>
+  <div class="result-actions">
+    <button class="btn btn-ghost"   onclick="goHome()">🏠 Inicio</button>
+    <button class="btn btn-primary" onclick="startAll()">🔄 Repetir</button>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer style="text-align:center;padding:24px 16px 0;color:#64748b;font-size:.8rem">
+  <p>Hayzar Hernández B. · IED Los Rosales · Física Grado 11<br>
+  Evaluaciones basadas en resultados Saber 11 ICFES 2025 · Barranquilla</p>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════════
+//  BLOCKS
+// ════════════════════════════════════════════════════════
+const BLOCKS = [
+  { id:0, cls:"bl", icon:"🌊", label:"Locales",    color:"#0f766e" },
+  { id:1, cls:"bs", icon:"⚽", label:"Deportes",   color:"#b45309" },
+  { id:2, cls:"bt", icon:"🚀", label:"Tecnología", color:"#6d28d9" },
+  { id:3, cls:"bh", icon:"🔭", label:"Historia",   color:"#be123c" },
+];
+
+// ════════════════════════════════════════════════════════
+//  QUESTIONS
+// ════════════════════════════════════════════════════════
+const Q = [
+
+  // ─── BLOQUE 0: LOCALES ─────────────────────────────────
+  {
+    block: 0, num: 1,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Dinámica de fluidos · Río Magdalena",
+    context: `<p>El <strong>Río Magdalena</strong>, en su paso por Barranquilla, varía su ancho en diferentes tramos. Un grupo de estudiantes midió el ancho del río y la velocidad del agua en tres puntos:</p>
+<table>
+  <tr><th>Punto</th><th>Ancho del río (m)</th><th>Velocidad del agua (m/s)</th></tr>
+  <tr><td>A</td><td>800</td><td>0,5</td></tr>
+  <tr><td>B</td><td>400</td><td>1,0</td></tr>
+  <tr><td>C</td><td>200</td><td>2,0</td></tr>
+</table>
+<p>(Se asume profundidad constante en todos los puntos.)</p>`,
+    stem: "¿Con cuál de los siguientes principios físicos se asocia correctamente el comportamiento observado en el río?",
+    opts: [
+      "Principio de Pascal: la presión del agua aumenta cuando el río se estrecha.",
+      "Principio de continuidad: el caudal (área × velocidad) se conserva, por lo que al reducirse el ancho, la velocidad aumenta.",
+      "Segunda Ley de Newton: la fuerza del agua aumenta en los tramos estrechos porque hay más aceleración.",
+      "Ley de conservación de la energía: la energía cinética disminuye cuando el río se estrecha."
+    ],
+    answer: 1,
+    just: "El principio de continuidad establece que el caudal Q = A × v es constante en un fluido incompresible. Al reducirse el área transversal a la mitad (ancho × profundidad), la velocidad se duplica para mantener Q constante: Q_A = 800×0,5 = 400 m³/s ≈ Q_B = 400×1,0 = 400 m³/s.",
+    topic: "Principio de continuidad – Ecuación de continuidad"
+  },
+  {
+    block: 0, num: 2,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Ondas sonoras · Carnaval de Barranquilla",
+    context: `<p>Durante el <strong>Carnaval de Barranquilla</strong>, una estudante mide las características del sonido emitido por diferentes instrumentos de percusión y viento. Registra los siguientes datos:</p>
+<table>
+  <tr><th>Instrumento</th><th>Frecuencia (Hz)</th><th>Longitud de onda (m)</th></tr>
+  <tr><td>Tambor alegre</td><td>170</td><td>2,0</td></tr>
+  <tr><td>Trompeta</td><td>680</td><td>0,5</td></tr>
+  <tr><td>Marimba</td><td>340</td><td>1,0</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál de las siguientes conclusiones se puede derivar correctamente?",
+    opts: [
+      "La velocidad del sonido varía según el instrumento que lo produce.",
+      "La velocidad del sonido es constante (≈ 340 m/s) para los tres instrumentos, y la longitud de onda es inversamente proporcional a la frecuencia.",
+      "El tambor alegre produce un sonido más fuerte porque su frecuencia es menor.",
+      "La longitud de onda es directamente proporcional a la frecuencia en todos los instrumentos."
+    ],
+    answer: 1,
+    just: "Para cada instrumento: v = f × λ. Tambor: 170 × 2,0 = 340 m/s. Trompeta: 680 × 0,5 = 340 m/s. Marimba: 340 × 1,0 = 340 m/s. La velocidad del sonido es constante en el mismo medio (aire). Al ser v constante, λ = v/f, por lo que la longitud de onda es inversamente proporcional a la frecuencia.",
+    topic: "Ondas sonoras – v = f × λ"
+  },
+  {
+    block: 0, num: 3,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Energía · Hidroeléctrica Ituango",
+    context: `<p>La <strong>Hidroeléctrica Ituango</strong> (Antioquia) represa el río Cauca a una altura de 420 m sobre las turbinas. El agua cae por las compuertas y mueve generadores eléctricos. Un estudiante predice que si se duplica la altura de la represa a 840 m, la energía eléctrica generada también se duplicará.</p>`,
+    stem: "¿La predicción del estudiante es correcta? Use la relación entre energía potencial y energía eléctrica generada.",
+    opts: [
+      "No es correcta. La energía generada depende solo del caudal (volumen de agua por segundo), no de la altura.",
+      "Sí es correcta. Al duplicar la altura, la energía potencial gravitacional (Ep = mgh) se duplica, y si la eficiencia es constante, la energía eléctrica también se duplica.",
+      "No es correcta. Al duplicar la altura, la presión del agua disminuye porque las tuberías son más largas.",
+      "Sí es correcta, pero solo si la masa del agua también se duplica al mismo tiempo."
+    ],
+    answer: 1,
+    just: "La energía potencial gravitacional es Ep = mgh. Si h se duplica (de 420 m a 840 m) y la masa de agua por segundo (caudal × densidad) se mantiene constante, Ep se duplica. Con eficiencia constante, la energía eléctrica generada también se duplica. La predicción del estudiante es correcta.",
+    topic: "Energía potencial gravitacional – Ep = mgh"
+  },
+
+  // ─── BLOQUE 1: DEPORTES ────────────────────────────────
+  {
+    block: 1, num: 4,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Cinemática · Caterine Ibargüen",
+    context: `<p><strong>Caterine Ibargüen</strong>, campeona olímpica colombiana de triple salto, en su carrera de aproximación registró los siguientes datos en los últimos 4 segundos antes del salto:</p>
+<table>
+  <tr><th>Tiempo (s)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+  <tr><th>Velocidad (m/s)</th><td>5,0</td><td>6,5</td><td>8,0</td><td>9,5</td><td>11,0</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál de las siguientes conclusiones sobre el movimiento de Caterine es correcta?",
+    opts: [
+      "La aceleración de Caterine es variable, porque su velocidad cambia en cada segundo.",
+      "La aceleración de Caterine es constante e igual a 1,5 m/s², porque la velocidad aumenta 1,5 m/s en cada segundo.",
+      "Caterine alcanza su velocidad máxima en el segundo 2, por lo que su aceleración es cero en ese instante.",
+      "La fuerza que ejerce Caterine sobre el suelo disminuye a medida que aumenta su velocidad."
+    ],
+    answer: 1,
+    just: "El cambio de velocidad por unidad de tiempo es constante: Δv/Δt = 1,5/1 = 1,5 m/s² en cada intervalo. Esto indica aceleración constante (movimiento uniformemente acelerado). La aceleración es la variación de la velocidad en el tiempo, y aquí es siempre 1,5 m/s².",
+    topic: "Cinemática – Movimiento uniformemente acelerado"
+  },
+  {
+    block: 1, num: 5,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Cinemática · James Rodríguez – Tiro libre",
+    context: `<p>En un partido de la Selección Colombia, <strong>James Rodríguez</strong> ejecuta un tiro libre desde 25 m de la portería. La pelota sale con velocidad inicial de 28 m/s a un ángulo de 30° sobre la horizontal. (g = 10 m/s²)</p>
+<p>Un comentarista predice que la pelota tardará más de 2 segundos en llegar a la portería.</p>`,
+    stem: "¿La predicción del comentarista es correcta? Use la componente horizontal del movimiento: x = v₀ · cos(θ) · t.",
+    opts: [
+      "Sí es correcta. La pelota sube y baja, por lo que siempre tardará más de 2 segundos en recorrer 25 m.",
+      "No es correcta. La componente horizontal es v_x = 28 × cos(30°) ≈ 24,2 m/s. El tiempo para recorrer 25 m es t = 25/24,2 ≈ 1,03 s, mucho menos de 2 segundos.",
+      "Sí es correcta. El ángulo de 30° hace que la pelota tarde más porque debe subir antes de ir hacia la portería.",
+      "No se puede determinar sin conocer la altura de la portería y la masa de la pelota."
+    ],
+    answer: 1,
+    just: "La componente horizontal de la velocidad es v_x = 28 × cos(30°) ≈ 28 × 0,866 ≈ 24,2 m/s. Esta componente es constante (no hay fricción del aire en este modelo). El tiempo es t = 25/24,2 ≈ 1,03 s. El comentarista está equivocado; la pelota llega en poco más de 1 segundo.",
+    topic: "Cinemática – Tiro parabólico (componente horizontal)"
+  },
+  {
+    block: 1, num: 6,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Energía mecánica · Nairo Quintana",
+    context: `<p><strong>Nairo Quintana</strong> inicia el descenso de una etapa de montaña. En la cima (punto A, altura = 1 200 m) su velocidad es de 4 m/s. En el punto más bajo (punto B, altura = 0 m) su velocidad es de 50 m/s. La masa del ciclista más la bicicleta es 70 kg. Se ignora la fricción.</p>`,
+    stem: "¿Con cuál principio físico se asocia correctamente la relación entre las velocidades en los puntos A y B?",
+    opts: [
+      "Segunda Ley de Newton: la fuerza gravitacional aumenta la velocidad de Nairo al bajar la montaña.",
+      "Principio de conservación de la energía mecánica: la energía potencial gravitacional en la cima se transforma en energía cinética en el punto más bajo.",
+      "Principio de Arquímedes: el aire ejerce una fuerza de empuje sobre el ciclista que lo impulsa hacia adelante.",
+      "Ley de Hooke: la energía almacenada en los neumáticos de la bicicleta se libera durante el descenso."
+    ],
+    answer: 1,
+    just: "Por conservación de energía mecánica (sin fricción): E_A = E_B → ½mv_A² + mgh_A = ½mv_B² + mgh_B. La energía potencial gravitacional (mgh) en la cima se convierte en energía cinética (½mv²) al bajar. La masa se cancela en ambos lados. Este es el principio de conservación de la energía mecánica.",
+    topic: "Energía mecánica – Conservación Ep ↔ Ec"
+  },
+
+  // ─── BLOQUE 2: TECNOLOGÍA ──────────────────────────────
+  {
+    block: 2, num: 7,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Dinámica · Cohete SpaceX Falcon 9",
+    context: `<p>El cohete <strong>Falcon 9</strong> de SpaceX tiene una masa total al despegue de 549 000 kg. Sus motores generan una fuerza de empuje de 7 607 000 N hacia abajo (gases expulsados), lo que produce una fuerza de reacción hacia arriba. g = 9,8 m/s².</p>
+<p>Un estudiante calcula que la aceleración neta del cohete al despegue es aproximadamente 3,9 m/s².</p>`,
+    stem: "¿La conclusión del estudiante es correcta? Use la Segunda Ley de Newton: F_neta = F_empuje − Peso = m × a.",
+    opts: [
+      "No es correcta. El cohete no puede acelerar hacia arriba porque su peso es mayor que el empuje.",
+      "Sí es correcta. F_neta = 7 607 000 − (549 000 × 9,8) = 7 607 000 − 5 380 200 = 2 226 800 N. a = F_neta/m ≈ 4,06 m/s², cercano al valor calculado.",
+      "No es correcta. La aceleración de un cohete siempre es igual a g = 9,8 m/s² durante el despegue.",
+      "Sí es correcta, pero solo porque el cohete expulsa gases que reducen su masa durante el vuelo."
+    ],
+    answer: 1,
+    just: "F_neta = Empuje − Peso = 7 607 000 − (549 000 × 9,8) = 7 607 000 − 5 380 200 = 2 226 800 N. a = F_neta / m = 2 226 800 / 549 000 ≈ 4,06 m/s². La estimación del estudiante (3,9 m/s²) es razonablemente cercana y la conclusión es correcta en su razonamiento.",
+    topic: "Dinámica – Segunda Ley de Newton (F_neta = ma)"
+  },
+  {
+    block: 2, num: 8,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Ondas electromagnéticas · WiFi y celular",
+    context: `<p>Un teléfono celular funciona en dos bandas de WiFi. Un estudiante registra los siguientes datos. (Velocidad de la luz: c = 3 × 10⁸ m/s)</p>
+<table>
+  <tr><th>Banda</th><th>Frecuencia</th><th>Longitud de onda predicha</th></tr>
+  <tr><td>WiFi 2,4 GHz</td><td>2,4 × 10⁹ Hz</td><td>¿?</td></tr>
+  <tr><td>WiFi 5 GHz</td><td>5,0 × 10⁹ Hz</td><td>¿?</td></tr>
+</table>
+<p>El estudiante predice que la banda de 5 GHz tiene una longitud de onda mayor que la de 2,4 GHz.</p>`,
+    stem: "¿La predicción es correcta? Use la relación λ = c / f.",
+    opts: [
+      "Sí es correcta. A mayor frecuencia, mayor longitud de onda, porque la onda viaja más rápido.",
+      "No es correcta. λ(2,4 GHz) = 3×10⁸ / 2,4×10⁹ ≈ 0,125 m y λ(5 GHz) = 3×10⁸ / 5×10⁹ = 0,06 m. La banda de 5 GHz tiene una longitud de onda MENOR.",
+      "Sí es correcta. Las ondas de mayor frecuencia siempre recorren mayor distancia por ciclo.",
+      "No se puede determinar sin conocer la potencia de emisión del router."
+    ],
+    answer: 1,
+    just: "λ = c/f. Para 2,4 GHz: λ = (3×10⁸)/(2,4×10⁹) = 0,125 m = 12,5 cm. Para 5 GHz: λ = (3×10⁸)/(5×10⁹) = 0,06 m = 6 cm. A mayor frecuencia, menor longitud de onda (son inversamente proporcionales). La predicción del estudiante es incorrecta.",
+    topic: "Ondas electromagnéticas – λ = c/f"
+  },
+  {
+    block: 2, num: 9,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Energía · Panel solar fotovoltaico",
+    context: `<p>Un <strong>panel solar fotovoltaico</strong> instalado en una escuela de Barranquilla transforma la radiación solar en electricidad. En un día soleado, el panel recibe 1 000 W/m² de irradiancia solar y tiene una eficiencia del 20%. El panel tiene un área de 2 m².</p>`,
+    stem: "¿Con cuál secuencia de transformaciones de energía se asocia correctamente el funcionamiento del panel solar?",
+    opts: [
+      "Energía química → Energía luminosa → Energía eléctrica.",
+      "Energía radiante (solar) → Energía eléctrica, mediante el efecto fotovoltaico (los fotones excitan electrones en el material semiconductor).",
+      "Energía térmica → Energía mecánica → Energía eléctrica, igual que una turbina de vapor.",
+      "Energía potencial gravitacional → Energía cinética → Energía eléctrica."
+    ],
+    answer: 1,
+    just: "En un panel solar fotovoltaico, la energía radiante del sol (fotones) excita electrones en el material semiconductor (silicio), generando directamente corriente eléctrica. Este proceso se llama efecto fotovoltaico. La potencia generada es: P = Irradiancia × Área × Eficiencia = 1000 × 2 × 0,20 = 400 W.",
+    topic: "Energía – Efecto fotovoltaico (conversión solar)"
+  },
+
+  // ─── BLOQUE 3: HISTORIA ────────────────────────────────
+  {
+    block: 3, num: 10,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Caída libre · Galileo Galilei (1638)",
+    context: `<p>En 1638, <strong>Galileo Galilei</strong> realizó experimentos con esferas de diferente masa rodando por un plano inclinado para medir los tiempos de caída. Registró los siguientes datos (distancia recorrida vs. tiempo):</p>
+<table>
+  <tr><th>Tiempo (s)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+  <tr><th>Distancia (m)</th><td>0</td><td>1</td><td>4</td><td>9</td><td>16</td></tr>
+</table>
+<p>Este patrón fue el mismo para todas las masas que probó.</p>`,
+    stem: "A partir de los datos de Galileo, ¿cuál de las siguientes conclusiones es la más correcta?",
+    opts: [
+      "La distancia recorrida es directamente proporcional al tiempo, lo que indica velocidad constante.",
+      "La distancia crece como el cuadrado del tiempo (d ∝ t²), lo que indica aceleración constante e independiente de la masa del objeto.",
+      "Los objetos más pesados caen más rápido, porque recorren mayor distancia en el mismo tiempo.",
+      "La aceleración de los objetos varía según su masa, como lo predijo Aristóteles."
+    ],
+    answer: 1,
+    just: "Los datos muestran d = 1, 4, 9, 16 m para t = 1, 2, 3, 4 s, es decir d = t². Esta relación d ∝ t² es característica del movimiento uniformemente acelerado (MUA). El hecho de que el patrón sea igual para todas las masas demuestra que la aceleración gravitacional es independiente de la masa, contradiciendo a Aristóteles y anticipando a Newton.",
+    topic: "Cinemática – d = ½at² (caída libre, Galileo)"
+  },
+  {
+    block: 3, num: 11,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Gravitación · Isaac Newton (1687)",
+    context: `<p>Según la <strong>Ley de Gravitación Universal de Newton</strong> (F = G·m₁·m₂/r²), un estudiante predice que si la distancia entre la Tierra y la Luna se redujera a la mitad, la fuerza gravitacional entre ellas se duplicaría.</p>`,
+    stem: "¿La predicción del estudiante es correcta?",
+    opts: [
+      "Sí es correcta. Si r se reduce a la mitad, F disminuye a la mitad, porque la distancia y la fuerza son inversamente proporcionales.",
+      "No es correcta. Si r se reduce a la mitad, F aumenta 4 veces (se cuadruplica), porque la fuerza es inversamente proporcional al cuadrado de la distancia.",
+      "Sí es correcta. Al reducirse r a la mitad, F = G·m₁·m₂/(r/2)² = 2F, es decir, se duplica.",
+      "No es correcta. La fuerza gravitacional no depende de la distancia, solo de las masas."
+    ],
+    answer: 1,
+    just: "Por la Ley de Gravitación Universal: F = G·m₁·m₂/r². Si r' = r/2: F' = G·m₁·m₂/(r/2)² = G·m₁·m₂/(r²/4) = 4·F. La fuerza se cuadruplica, no se duplica. La predicción del estudiante es incorrecta. La fuerza gravitacional depende del cuadrado de la distancia (ley del cuadrado inverso).",
+    topic: "Gravitación – Ley del cuadrado inverso (Newton)"
+  },
+  {
+    block: 3, num: 12,
+    comp: "Comprender que la investigación científica construye explicaciones",
+    sub: "Indagación · Marie Curie y la radioactividad (1898)",
+    context: `<p><strong>Marie Curie</strong> investigó la radioactividad midiendo la ionización del aire cerca de diferentes muestras de uranio. Encontró que la ionización (y por tanto la radiación emitida) era proporcional a la cantidad de uranio, sin importar su forma química (óxido, sal, metal puro).</p>
+<p>A partir de esto, Curie concluyó que la radioactividad era una propiedad del <em>átomo</em> de uranio, no de los compuestos que formaba.</p>`,
+    stem: "¿Cuál de las siguientes opciones describe mejor el tipo de razonamiento científico que Marie Curie empleó para llegar a su conclusión?",
+    opts: [
+      "Razonamiento deductivo: Curie partió de una teoría atómica ya establecida y la aplicó al uranio para predecir los resultados.",
+      "Razonamiento inductivo: Curie observó un patrón repetido en los datos experimentales (la radioactividad era proporcional a la cantidad de uranio, sin importar el compuesto) y derivó una conclusión general sobre la naturaleza atómica de la radioactividad.",
+      "Razonamiento por analogía: Curie comparó el uranio con otros metales conocidos y concluyó que todos son radioactivos.",
+      "Razonamiento matemático: Curie usó ecuaciones previas de la física clásica para calcular la radioactividad del uranio."
+    ],
+    answer: 1,
+    just: "Curie partió de observaciones experimentales repetidas (datos) y derivó una conclusión general: esto es razonamiento inductivo. Al observar que la radioactividad era proporcional a la cantidad de uranio independientemente del compuesto, infirió que era una propiedad del átomo mismo. Este proceso es la base de la construcción de conocimiento científico a través de la investigación.",
+    topic: "Naturaleza de la ciencia – Razonamiento inductivo (Curie)"
+  }
+];
+
+// ════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════
+let queue = [], cur = 0, correct = 0, answered = false;
+let bScores = {}; // {blockId: {c:0, t:0}}
+
+// ════════════════════════════════════════════════════════
+//  NAV
+// ════════════════════════════════════════════════════════
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function goHome() { show('home'); }
+
+function startBlock(bid) {
+  queue = Q.map((_,i) => i).filter(i => Q[i].block === bid);
+  begin();
+}
+function startAll() {
+  queue = Q.map((_,i) => i);
+  begin();
+}
+function begin() {
+  cur = 0; correct = 0; answered = false;
+  bScores = {};
+  queue.forEach(qi => {
+    const b = Q[qi].block;
+    if (!bScores[b]) bScores[b] = { c: 0, t: 0 };
+    bScores[b].t++;
+  });
+  show('quiz');
+  render();
+}
+
+// ════════════════════════════════════════════════════════
+//  RENDER
+// ════════════════════════════════════════════════════════
+function render() {
+  answered = false;
+  const qi = queue[cur];
+  const q  = Q[qi];
+  const bl = BLOCKS[q.block];
+  const total = queue.length;
+
+  // progress
+  document.getElementById('prog-label').textContent = `Pregunta ${cur + 1} de ${total}`;
+  document.getElementById('prog-score').textContent = `✅ ${correct} correctas`;
+  document.getElementById('prog-fill').style.width  = `${(cur / total) * 100}%`;
+
+  // card class (for colored th, context border, q-num bg)
+  const card = document.getElementById('q-card');
+  card.className = `q-card ${bl.cls}`;
+
+  // block tag
+  const tag = document.getElementById('block-tag');
+  tag.className = `block-tag ${bl.cls}`;
+  tag.textContent = `${bl.icon} ${bl.label}`;
+
+  // number + meta
+  document.getElementById('q-num').textContent  = q.num;
+  document.getElementById('q-comp').textContent = q.comp;
+  document.getElementById('q-sub').textContent  = q.sub;
+
+  // context
+  const ctx = document.getElementById('q-ctx');
+  if (q.context) { ctx.style.display = ''; ctx.innerHTML = q.context; }
+  else            { ctx.style.display = 'none'; }
+
+  // stem
+  document.getElementById('q-stem').textContent = q.stem;
+
+  // options
+  const opts = document.getElementById('q-opts');
+  opts.innerHTML = '';
+  ['A','B','C','D'].forEach((ltr, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<span class="letter">${ltr}</span><span>${q.opts[i]}</span>`;
+    btn.onclick = () => pick(i);
+    opts.appendChild(btn);
+  });
+
+  // reset feedback
+  const fb = document.getElementById('feedback');
+  fb.style.display = 'none';
+  fb.className = 'feedback';
+  document.getElementById('next-btn').style.display = 'none';
+}
+
+// ════════════════════════════════════════════════════════
+//  PICK ANSWER
+// ════════════════════════════════════════════════════════
+function pick(chosen) {
+  if (answered) return;
+  answered = true;
+  const qi = queue[cur], q = Q[qi];
+  const ok = chosen === q.answer;
+
+  document.querySelectorAll('.opt-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === chosen && ok)  btn.classList.add('correct');
+    if (i === chosen && !ok) btn.classList.add('wrong');
+    if (i === q.answer)      btn.classList.add('reveal');
+  });
+
+  if (ok) { correct++; bScores[q.block].c++; }
+  document.getElementById('prog-score').textContent = `✅ ${correct} correctas`;
+
+  const fb = document.getElementById('feedback');
+  fb.style.display = 'block';
+  fb.className = `feedback ${ok ? 'correct' : 'wrong'}`;
+  document.getElementById('fb-title').textContent = ok ? '✅ ¡Correcto!' : '❌ Incorrecto';
+  document.getElementById('fb-body').textContent  = q.just;
+  document.getElementById('fb-comp').textContent  = `📚 ${q.comp}`;
+  document.getElementById('fb-topic').textContent = `🔑 ${q.topic}`;
+
+  const nxt = document.getElementById('next-btn');
+  nxt.style.display = 'inline-flex';
+  nxt.textContent = cur < queue.length - 1 ? 'Siguiente →' : 'Ver resultados 🏆';
+}
+
+// ════════════════════════════════════════════════════════
+//  NEXT
+// ════════════════════════════════════════════════════════
+function nextQ() {
+  cur++;
+  if (cur >= queue.length) showResults();
+  else { render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+}
+
+// ════════════════════════════════════════════════════════
+//  RESULTS
+// ════════════════════════════════════════════════════════
+function showResults() {
+  const total = queue.length;
+  const pct   = Math.round((correct / total) * 100);
+
+  document.getElementById('res-num').textContent = correct;
+  document.getElementById('res-den').textContent = `/ ${total}`;
+
+  let title, msg;
+  if      (pct >= 83) { title = '🏆 ¡Desempeño sobresaliente!'; msg = 'Dominas los conceptos físicos en contextos reales. Nivel 4 en Saber 11.'; }
+  else if (pct >= 67) { title = '📈 ¡Buen dominio!';            msg = 'Comprendes la mayoría de los conceptos. Sigue reforzando los que fallaste.'; }
+  else if (pct >= 50) { title = '💪 ¡Vas por buen camino!';     msg = 'Tienes bases. Revisa las justificaciones de las preguntas incorrectas.'; }
+  else                { title = '🔄 ¡Refuerza los conceptos!';  msg = 'Vuelve a revisar los temas y practica conectar los fenómenos con las leyes físicas.'; }
+
+  document.getElementById('res-title').textContent = title;
+  document.getElementById('res-msg').textContent   = msg;
+
+  const cont = document.getElementById('block-results');
+  cont.innerHTML = '';
+  const bids = [...new Set(queue.map(i => Q[i].block))];
+  bids.forEach(bid => {
+    const bl = BLOCKS[bid];
+    const sc = bScores[bid];
+    if (!sc) return;
+    const epct = Math.round((sc.c / sc.t) * 100);
+    const div = document.createElement('div');
+    div.className = 'br-row';
+    div.innerHTML = `
+      <div class="br-top">
+        <span class="br-label">${bl.icon} ${bl.label}</span>
+        <span class="br-score" style="color:${bl.color}">${sc.c}/${sc.t}</span>
+      </div>
+      <div class="br-bar">
+        <div class="br-fill" style="width:${epct}%;background:${bl.color}"></div>
+      </div>
+      <div style="font-size:.78rem;color:#64748b;margin-top:5px">${epct}% de respuestas correctas</div>
+    `;
+    cont.appendChild(div);
+  });
+  show('results');
+}
+</script>
+</body>
+</html>

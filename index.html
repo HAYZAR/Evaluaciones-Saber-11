@@ -3,40 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluaciones Tipo Saber 11 · Física</title>
+<title>Física 11 · IED Los Rosales</title>
 <style>
   :root {
-    --blue:    #1a56db;
-    --indigo:  #5145cd;
-    --violet:  #7e3af2;
-    --teal:    #0694a2;
-    --green:   #057a55;
-    --red:     #c81e1e;
-    --orange:  #d03801;
-    --yellow:  #c27803;
-    --bg:      #f0f4ff;
-    --card:    #ffffff;
-    --text:    #1e293b;
-    --muted:   #64748b;
-    --border:  #e2e8f0;
-    --radius:  16px;
-    --shadow:  0 4px 24px rgba(0,0,0,.10);
+    --blue:   #1a56db;
+    --violet: #7e3af2;
+    --teal:   #0694a2;
+    --orange: #d97706;
+    --bg:     #f0f4ff;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background: var(--bg);
-    color: var(--text);
     min-height: 100vh;
-    padding: 0 0 60px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* ── HEADER ── */
   header {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #5b21b6 100%);
+    background: linear-gradient(135deg, #1a237e 0%, #1a56db 60%, #7e3af2 100%);
     color: #fff;
-    padding: 28px 24px 24px;
     text-align: center;
+    padding: 48px 24px 36px;
     position: relative;
     overflow: hidden;
   }
@@ -45,824 +36,272 @@
     position: absolute; inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  header .badge {
+  .school-badge {
     display: inline-block;
-    background: rgba(255,255,255,.18);
-    border: 1px solid rgba(255,255,255,.3);
-    border-radius: 99px;
-    padding: 4px 14px;
-    font-size: .75rem;
-    font-weight: 600;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    padding: 5px 18px;
+    font-size: .8rem;
     letter-spacing: .08em;
     text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.2; }
-  header p { margin-top: 6px; font-size: .9rem; opacity: .85; }
-  header .meta {
-    margin-top: 12px;
-    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-  }
-  header .meta span {
-    background: rgba(255,255,255,.15);
-    border-radius: 99px;
-    padding: 3px 12px;
-    font-size: .8rem;
-  }
-
-  /* ── MAIN WRAPPER ── */
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
-
-  /* ── SCREEN ── */
-  .screen { display: none; }
-  .screen.active { display: block; }
-
-  /* ── HOME ── */
-  #home { padding-top: 32px; }
-  .home-intro {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 24px 28px;
-    margin-bottom: 28px;
-    border-left: 5px solid var(--blue);
-  }
-  .home-intro h2 { font-size: 1.1rem; color: var(--blue); margin-bottom: 8px; }
-  .home-intro p { color: var(--muted); font-size: .92rem; line-height: 1.6; }
-
-  .eval-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-  .eval-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 24px 20px;
-    cursor: pointer;
-    transition: transform .18s, box-shadow .18s;
-    border-top: 5px solid transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .eval-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.14); }
-  .eval-card.e1 { border-color: #1a56db; }
-  .eval-card.e2 { border-color: #7e3af2; }
-  .eval-card.e3 { border-color: #0694a2; }
-  .eval-card .icon { font-size: 2.4rem; margin-bottom: 10px; display: block; }
-  .eval-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-  .eval-card p { font-size: .82rem; color: var(--muted); line-height: 1.5; }
-  .eval-card .pill {
-    display: inline-block; margin-top: 10px;
-    border-radius: 99px; padding: 3px 10px; font-size: .75rem; font-weight: 700;
-  }
-  .e1 .pill { background: #dbeafe; color: #1a56db; }
-  .e2 .pill { background: #ede9fe; color: #5145cd; }
-  .e3 .pill { background: #ccfbf1; color: #0694a2; }
-  .eval-card .pri-badge {
-    position: absolute; top: 14px; right: 14px;
-    background: #fee2e2; color: #c81e1e;
-    border-radius: 99px; padding: 2px 8px; font-size: .72rem; font-weight: 700;
-  }
-  .e3 .pri-badge { background: #ccfbf1; color: #0694a2; }
-  .e2 .pri-badge { background: #ede9fe; color: #5145cd; }
-
-  /* ── PROGRESS BAR ── */
-  .progress-wrap { padding: 20px 0 8px; }
-  .progress-meta { display: flex; justify-content: space-between; font-size: .82rem; color: var(--muted); margin-bottom: 6px; }
-  .progress-bar { background: #e2e8f0; border-radius: 99px; height: 8px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #1a56db, #7e3af2); transition: width .4s ease; }
-
-  /* ── QUESTION CARD ── */
-  .q-header {
-    display: flex; gap: 10px; align-items: flex-start;
-    margin-bottom: 12px;
-  }
-  .q-num {
-    background: var(--blue); color: #fff;
-    min-width: 36px; height: 36px; border-radius: 99px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: .9rem; flex-shrink: 0;
-  }
-  .q-meta { font-size: .78rem; color: var(--muted); }
-  .q-meta strong { color: var(--text); font-weight: 600; }
-
-  .context-box {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-    border-left: 4px solid #94a3b8;
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin: 14px 0;
-    font-size: .88rem;
-    color: #475569;
-    line-height: 1.7;
-    white-space: pre-line;
-  }
-  .context-box p { white-space: normal; margin-bottom: 10px; }
-  .context-box table {
-    width: 100%; border-collapse: collapse;
-    margin: 10px 0 4px; font-size: .86rem;
-    white-space: normal;
-  }
-  .context-box th {
-    background: #dbeafe; color: #1e40af;
-    font-weight: 700; padding: 7px 14px;
-    text-align: center; border: 1px solid #bfdbfe;
-  }
-  .context-box td {
-    padding: 6px 14px; text-align: center;
-    border: 1px solid #e2e8f0; color: #1e293b;
-  }
-  .context-box tr:nth-child(even) td { background: #f0f7ff; }
-
-  .q-stem {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.6;
-    margin: 14px 0 18px;
-    color: var(--text);
-  }
-
-  .options { display: grid; gap: 10px; }
-  .opt-btn {
-    display: flex; align-items: flex-start; gap: 12px;
-    background: #f8fafc;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    cursor: pointer;
-    text-align: left;
-    font-size: .92rem;
-    line-height: 1.55;
-    transition: background .14s, border-color .14s, transform .1s;
-    width: 100%;
-  }
-  .opt-btn:hover:not(:disabled) { background: #eff6ff; border-color: #93c5fd; transform: translateX(3px); }
-  .opt-btn .letter {
-    min-width: 28px; height: 28px; border-radius: 99px;
-    background: #e2e8f0; color: var(--muted);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: .82rem; flex-shrink: 0;
-    transition: background .2s, color .2s;
-  }
-  .opt-btn:hover:not(:disabled) .letter { background: #bfdbfe; color: #1d4ed8; }
-  .opt-btn.correct { background: #f0fdf4; border-color: #22c55e; }
-  .opt-btn.correct .letter { background: #22c55e; color: #fff; }
-  .opt-btn.wrong { background: #fef2f2; border-color: #f87171; }
-  .opt-btn.wrong .letter { background: #f87171; color: #fff; }
-  .opt-btn.reveal { background: #f0fdf4; border-color: #22c55e; opacity: .7; }
-  .opt-btn.reveal .letter { background: #22c55e; color: #fff; }
-  .opt-btn:disabled { cursor: default; }
-
-  /* ── FEEDBACK ── */
-  .feedback {
-    margin-top: 16px;
-    border-radius: 12px;
-    padding: 16px 18px;
-    display: none;
-    animation: slideUp .25s ease;
-  }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .feedback.correct { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .feedback.wrong   { background: #fef2f2; border: 1px solid #fecaca; }
-  .feedback .fb-title { font-weight: 700; font-size: .95rem; margin-bottom: 6px; }
-  .feedback.correct .fb-title { color: #15803d; }
-  .feedback.wrong   .fb-title { color: #b91c1c; }
-  .feedback .fb-body { font-size: .88rem; line-height: 1.6; color: var(--text); }
-  .feedback .comp-tag {
-    display: inline-block; margin-top: 10px;
-    background: #dbeafe; color: #1d4ed8;
-    border-radius: 99px; padding: 3px 10px; font-size: .75rem; font-weight: 600;
-  }
-
-  /* ── BUTTONS ── */
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: none; border-radius: 10px; padding: 12px 22px;
-    font-size: .95rem; font-weight: 700; cursor: pointer;
-    transition: background .15s, transform .1s;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: linear-gradient(135deg, #1a56db, #5145cd); color: #fff; }
-  .btn-primary:hover { background: linear-gradient(135deg, #1d4ed8, #4338ca); }
-  .btn-ghost { background: var(--border); color: var(--text); }
-  .btn-ghost:hover { background: #cbd5e1; }
-  .btn-row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
-
-  /* ── RESULTS ── */
-  #results { padding-top: 28px; }
-  .result-hero {
-    background: linear-gradient(135deg, #1e3a8a, #5b21b6);
-    color: #fff; border-radius: var(--radius);
-    padding: 32px 24px; text-align: center;
-    margin-bottom: 20px;
-  }
-  .score-circle {
-    width: 110px; height: 110px; border-radius: 50%;
-    background: rgba(255,255,255,.18); border: 4px solid rgba(255,255,255,.4);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    margin: 0 auto 16px;
-  }
-  .score-circle .num { font-size: 2.2rem; font-weight: 900; line-height: 1; }
-  .score-circle .den { font-size: .85rem; opacity: .8; }
-  .result-hero h2 { font-size: 1.4rem; }
-  .result-hero p { opacity: .85; margin-top: 4px; font-size: .9rem; }
-
-  .comp-results { display: grid; gap: 12px; margin-bottom: 20px; }
-  .comp-row {
-    background: var(--card); border-radius: 12px;
-    padding: 16px 18px; box-shadow: var(--shadow);
-  }
-  .comp-row .cr-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .comp-row .cr-label { font-weight: 600; font-size: .9rem; }
-  .comp-row .cr-score { font-weight: 800; font-size: 1rem; }
-  .comp-bar { background: #e2e8f0; border-radius: 99px; height: 6px; overflow: hidden; }
-  .comp-bar-fill { height: 100%; border-radius: 99px; }
-  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
-
-  /* ── QUESTION CARD WRAPPER ── */
-  #quiz { padding-top: 12px; }
-  .q-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 24px 24px 20px;
     margin-bottom: 16px;
   }
-  .eval-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    border-radius: 99px; padding: 4px 12px; font-size: .78rem; font-weight: 700;
-    margin-bottom: 14px;
+  header h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -.5px;
+    line-height: 1.2;
+    margin-bottom: 10px;
   }
-  .eval-tag.e1 { background: #dbeafe; color: #1a56db; }
-  .eval-tag.e2 { background: #ede9fe; color: #5145cd; }
-  .eval-tag.e3 { background: #ccfbf1; color: #0694a2; }
+  header h1 span { color: #a5f3fc; }
+  header p.subtitle {
+    font-size: 1rem;
+    opacity: .85;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── CARDS GRID ── */
+  main {
+    flex: 1;
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 28px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    transition: transform .2s, box-shadow .2s;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(0,0,0,.14);
+  }
+
+  .card-banner {
+    height: 10px;
+  }
+  .card-1 .card-banner { background: linear-gradient(90deg, #1a56db, #7e3af2); }
+  .card-2 .card-banner { background: linear-gradient(90deg, #0694a2, #10b981); }
+
+  .card-body {
+    padding: 28px 28px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-icon {
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .card-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: .9rem;
+    color: #475569;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  /* pill tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .tag {
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .card-1 .tag { background: #dbeafe; color: #1e40af; }
+  .card-2 .tag { background: #ccfbf1; color: #065f46; }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .88rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: filter .15s, transform .15s;
+  }
+  .card-cta:hover { filter: brightness(1.1); transform: scale(1.03); }
+  .card-1 .card-cta { background: linear-gradient(135deg, #1a56db, #7e3af2); color: #fff; }
+  .card-2 .card-cta { background: linear-gradient(135deg, #0694a2, #10b981); color: #fff; }
+
+  .card-meta {
+    display: flex;
+    gap: 18px;
+    padding: 14px 28px;
+    border-top: 1px solid #f1f5f9;
+    background: #fafbff;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .meta-val {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .meta-lbl {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #94a3b8;
+  }
+
+  /* ── INFO STRIP ── */
+  .info-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+    padding: 20px 24px;
+  }
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+    color: #64748b;
+  }
+  .info-item strong { color: #0f172a; }
 
   /* ── FOOTER ── */
   footer {
+    background: #0f172a;
+    color: #94a3b8;
     text-align: center;
-    padding: 24px 16px 0;
-    color: var(--muted);
-    font-size: .8rem;
+    padding: 18px 24px;
+    font-size: .78rem;
+    line-height: 1.7;
   }
+  footer strong { color: #e2e8f0; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 520px) {
-    .q-card { padding: 16px 14px; }
-    header { padding: 20px 16px; }
-    .btn { padding: 11px 16px; font-size: .88rem; }
+    header { padding: 36px 18px 28px; }
+    .card-body { padding: 22px 20px 18px; }
+    .card-meta { padding: 12px 20px; gap: 14px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ═══════════════ HEADER ═══════════════ -->
 <header>
-  <div class="badge">⚛️ Ciencias Naturales</div>
-  <h1>Evaluaciones Tipo Saber 11<br>Física · Grado 11</h1>
-  <p>Práctica interactiva basada en las falencias identificadas en los resultados ICFES 2025</p>
-  <div class="meta">
-    <span>🏫 IED Los Rosales</span>
-    <span>📐 15 preguntas · 3 evaluaciones</span>
-    <span>👨‍🏫 Hayzar Hernández B.</span>
-  </div>
+  <div class="school-badge">IED Los Rosales · Barranquilla</div>
+  <h1>Evaluaciones de <span>Física</span><br>Grado 11</h1>
+  <p class="subtitle">Material de refuerzo basado en los resultados Saber 11 ICFES 2025 · Competencias priorizadas por %PRI</p>
 </header>
 
-<!-- ══════════════════ HOME ══════════════════ -->
-<div class="wrap">
-<div id="home" class="screen active">
-  <div class="progress-wrap" style="padding-bottom:0"></div>
-  <div class="home-intro">
-    <h2>📊 ¿Por qué estas evaluaciones?</h2>
-    <p>Los resultados Saber 11 de 2025 muestran que los <strong>Procesos Físicos</strong> concentran las 4 primeras prioridades de toda la institución, con porcentajes de respuestas incorrectas entre el <strong>58% y el 70%</strong>. Esta práctica ataca directamente las tres falencias más críticas.</p>
-  </div>
+<!-- ═══════════════ CARDS ═══════════════ -->
+<main>
+  <p class="section-label">Selecciona una evaluación para comenzar</p>
+  <div class="grid">
 
-  <div class="eval-grid">
-    <div class="eval-card e1" onclick="startEval(0)">
-      <div class="pri-badge">%PRI 70%</div>
-      <span class="icon">🔬</span>
-      <h3>Evaluación 1</h3>
-      <p>Derivar conclusiones sobre fenómenos físicos basándose en datos e investigación.</p>
-      <span class="pill">5 preguntas · Indagación</span>
-    </div>
-    <div class="eval-card e2" onclick="startEval(1)">
-      <div class="pri-badge">%PRI 69%</div>
-      <span class="icon">🧪</span>
-      <h3>Evaluación 2</h3>
-      <p>Utilizar habilidades de pensamiento para evaluar predicciones en física.</p>
-      <span class="pill">5 preguntas · Indagación</span>
-    </div>
-    <div class="eval-card e3" onclick="startEval(2)">
-      <div class="pri-badge">%PRI 69%</div>
-      <span class="icon">🌍</span>
-      <h3>Evaluación 3</h3>
-      <p>Asociar fenómenos naturales con conceptos propios del conocimiento físico.</p>
-      <span class="pill">5 preguntas · Uso comprensivo</span>
-    </div>
-  </div>
-
-  <div style="text-align:center; margin-top:28px;">
-    <button class="btn btn-primary" onclick="startAll()">
-      ▶️ Hacer las 3 evaluaciones completas
-    </button>
-  </div>
-</div>
-
-<!-- ══════════════════ QUIZ ══════════════════ -->
-<div id="quiz" class="screen">
-  <div class="progress-wrap">
-    <div class="progress-meta">
-      <span id="prog-label">Pregunta 1 de 15</span>
-      <span id="prog-score">✅ 0 correctas</span>
-    </div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-  </div>
-
-  <div class="q-card">
-    <div id="eval-tag" class="eval-tag e1"></div>
-    <div class="q-header">
-      <div class="q-num" id="q-num">1</div>
-      <div class="q-meta">
-        <strong id="q-comp"></strong><br>
-        <span id="q-comp-sub"></span>
+    <!-- Card 1 -->
+    <a class="card card-1" href="saber11_fisica.html">
+      <div class="card-banner"></div>
+      <div class="card-body">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Evaluaciones Tipo Saber</div>
+        <div class="card-desc">
+          Tres evaluaciones con preguntas de selección múltiple en el formato oficial ICFES. Trabaja las competencias con mayor índice de respuestas incorrectas: <em>derivar conclusiones, evaluar predicciones y asociar fenómenos</em>.
+        </div>
+        <div class="tags">
+          <span class="tag">Indagación</span>
+          <span class="tag">Explicación de fenómenos</span>
+          <span class="tag">Uso comprensivo</span>
+          <span class="tag">Formato ICFES</span>
+        </div>
+        <a class="card-cta" href="saber11_fisica.html">Iniciar evaluación →</a>
       </div>
-    </div>
-    <div class="context-box" id="q-context" style="display:none"></div>
-    <div class="q-stem" id="q-stem"></div>
-    <div class="options" id="q-options"></div>
-    <div class="feedback" id="feedback">
-      <div class="fb-title" id="fb-title"></div>
-      <div class="fb-body" id="fb-body"></div>
-      <span class="comp-tag" id="fb-tag"></span>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-ghost" onclick="goHome()">🏠 Inicio</button>
-      <button class="btn btn-primary" id="next-btn" onclick="nextQ()" style="display:none">Siguiente →</button>
-    </div>
+      <div class="card-meta">
+        <div class="meta-item"><span class="meta-val">3</span><span class="meta-lbl">Evaluaciones</span></div>
+        <div class="meta-item"><span class="meta-val">15</span><span class="meta-lbl">Preguntas</span></div>
+        <div class="meta-item"><span class="meta-val">100%</span><span class="meta-lbl">Retroalimentación</span></div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a class="card card-2" href="saber11_contextos.html">
+      <div class="card-banner"></div>
+      <div class="card-body">
+        <div class="card-icon">🌍</div>
+        <div class="card-title">Problemas con Contexto Real</div>
+        <div class="card-desc">
+          Física aplicada a situaciones cercanas y motivadoras: el Río Magdalena, el Carnaval de Barranquilla, figuras del deporte colombiano, tecnología actual e hitos de la historia de la ciencia.
+        </div>
+        <div class="tags">
+          <span class="tag">🌊 Local</span>
+          <span class="tag">⚽ Deportes</span>
+          <span class="tag">🚀 Tecnología</span>
+          <span class="tag">🔭 Historia</span>
+        </div>
+        <a class="card-cta" href="saber11_contextos.html">Explorar contextos →</a>
+      </div>
+      <div class="card-meta">
+        <div class="meta-item"><span class="meta-val">4</span><span class="meta-lbl">Bloques</span></div>
+        <div class="meta-item"><span class="meta-val">12</span><span class="meta-lbl">Preguntas</span></div>
+        <div class="meta-item"><span class="meta-val">100%</span><span class="meta-lbl">Retroalimentación</span></div>
+      </div>
+    </a>
+
   </div>
+</main>
+
+<!-- ═══════════════ INFO STRIP ═══════════════ -->
+<div class="info-strip">
+  <div class="info-item">📊 <span>Basado en resultados <strong>Saber 11 · 2025</strong></span></div>
+  <div class="info-item">🎯 <span>Competencias priorizadas por <strong>%PRI</strong></span></div>
+  <div class="info-item">📱 <span>Compatible con <strong>móvil y PC</strong></span></div>
+  <div class="info-item">✅ <span><strong>Sin registro</strong> · funciona sin conexión</span></div>
 </div>
 
-<!-- ══════════════════ RESULTS ══════════════════ -->
-<div id="results" class="screen">
-  <div class="result-hero">
-    <div class="score-circle">
-      <span class="num" id="res-score">0</span>
-      <span class="den" id="res-den">/ 15</span>
-    </div>
-    <h2 id="res-title">¡Muy bien!</h2>
-    <p id="res-msg">Sigue practicando para mejorar tu desempeño en Saber 11.</p>
-  </div>
-
-  <div class="comp-results" id="comp-results"></div>
-
-  <div class="result-actions">
-    <button class="btn btn-ghost" onclick="goHome()">🏠 Volver al inicio</button>
-    <button class="btn btn-primary" onclick="startAll()">🔄 Repetir evaluación</button>
-  </div>
-</div>
-
-</div><!-- /wrap -->
-
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <p>Hayzar Hernández B. · IED Los Rosales · Física Grado 11<br>
-  Basado en resultados Saber 11 ICFES 2025 · Barranquilla</p>
+  <strong>Hayzar Hernández B.</strong> · Docente de Física · IED Los Rosales · Barranquilla<br>
+  Material pedagógico de uso libre para fines educativos · 2025
 </footer>
 
-<script>
-// ════════════════════════════════════════════════════════════
-//  DATA
-// ════════════════════════════════════════════════════════════
-const EVALS = [
-  { id: 0, label: "Evaluación 1", icon: "🔬", cls: "e1",
-    title: "Derivar conclusiones sobre fenómenos físicos",
-    comp: "Indagación", pri: "70% PRI" },
-  { id: 1, label: "Evaluación 2", icon: "🧪", cls: "e2",
-    title: "Evaluar predicciones en Física",
-    comp: "Indagación", pri: "69% PRI" },
-  { id: 2, label: "Evaluación 3", icon: "🌍", cls: "e3",
-    title: "Asociar fenómenos con conceptos físicos",
-    comp: "Uso comprensivo del conocimiento científico", pri: "69% PRI" }
-];
-
-const QUESTIONS = [
-  // ─── EVAL 1 ───────────────────────────────────────────────
-  {
-    eval: 0, num: 1,
-    context: `<p>Un estudiante investiga el movimiento de un carro sobre una rampa. Mide la fuerza de empuje aplicada (F) y la aceleración resultante (a), obteniendo:</p><table><tr><th>F (N)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr><tr><th>a (m/s²)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr></table>`,
-    stem: "A partir de los datos obtenidos, ¿cuál de las siguientes conclusiones se puede derivar correctamente del experimento?",
-    opts: [
-      "La aceleración del carro es independiente de la fuerza aplicada, porque la masa no cambia.",
-      "La aceleración es directamente proporcional a la fuerza aplicada, consistente con la Segunda Ley de Newton.",
-      "La relación entre fuerza y aceleración solo es válida cuando la fuerza es mayor que 5 N.",
-      "La masa del carro disminuye al aumentar la fuerza, lo que explica el incremento de la aceleración."
-    ],
-    answer: 1,
-    justification: "Los datos muestran que al duplicar la fuerza se duplica la aceleración (relación lineal F = ma). Esto es consistente con la Segunda Ley de Newton: la aceleración es directamente proporcional a la fuerza neta cuando la masa es constante.",
-    sub: "Dinámica – Segunda Ley de Newton"
-  },
-  {
-    eval: 0, num: 2,
-    context: `<p>Una estudiante suelta una pelota desde lo alto de un edificio y mide su velocidad en distintos instantes durante la caída libre:</p><table><tr><th>Tiempo (s)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><th>Velocidad (m/s)</th><td>0</td><td>9,8</td><td>19,6</td><td>29,4</td></tr></table>`,
-    stem: "Basándose en los datos del experimento, ¿cuáles son las conclusiones más válidas?",
-    opts: [
-      "La velocidad aumenta de forma no uniforme y la pelota alcanza velocidad máxima al tercer segundo.",
-      "La velocidad aumenta uniformemente y la aceleración es constante e igual a 9,8 m/s².",
-      "La aceleración disminuye con el tiempo porque la velocidad aumenta.",
-      "La fuerza gravitacional sobre la pelota aumenta a medida que se aleja del edificio."
-    ],
-    answer: 1,
-    justification: "El incremento constante de 9,8 m/s en cada segundo indica aceleración constante (g = 9,8 m/s²), que corresponde exactamente a la caída libre bajo acción exclusiva de la gravedad sin resistencia del aire.",
-    sub: "Cinemática – Caída libre"
-  },
-  {
-    eval: 0, num: 3,
-    context: "Un ingeniero diseña una montaña rusa. En el punto más alto (h₁ = 40 m) el vagón tiene velocidad cero. En el punto más bajo (h₂ = 0 m) tiene su máxima velocidad. Se ignora la fricción.",
-    stem: "Considerando la conservación de la energía mecánica, ¿cuál es la conclusión correcta sobre la velocidad del vagón en el punto más bajo?",
-    opts: [
-      "La velocidad en el punto más bajo es igual a la velocidad inicial en el punto más alto.",
-      "La velocidad es v = √(2gh) ≈ 28 m/s, porque toda la energía potencial se transformó en energía cinética.",
-      "La velocidad en el punto más bajo es el doble de la del punto más alto, independientemente de las alturas.",
-      "La velocidad en el punto más bajo depende exclusivamente de la masa del vagón."
-    ],
-    answer: 1,
-    justification: "Por conservación de energía: mgh = ½mv², entonces v = √(2gh) = √(2 × 9,8 × 40) = √784 ≈ 28 m/s. La masa no aparece en el resultado porque se cancela en ambos lados de la ecuación.",
-    sub: "Energía mecánica – Conservación"
-  },
-  {
-    eval: 0, num: 4,
-    context: "Estudiantes forman un electroimán enrollando alambre alrededor de un tornillo de hierro. Observan que a medida que agregan más vueltas de alambre, el electroimán atrae mayor cantidad de clips metálicos.",
-    stem: "Basándose en los resultados, ¿cuál es la conclusión más válida?",
-    opts: [
-      "El número de vueltas no influye en la fuerza magnética, ya que la corriente permanece constante.",
-      "El tornillo es el único responsable del campo magnético, independientemente del número de vueltas.",
-      "El campo magnético del electroimán aumenta al incrementar el número de vueltas, pues cada vuelta contribuye al campo total.",
-      "La fuerza del electroimán depende únicamente de la intensidad de corriente y no del número de vueltas."
-    ],
-    answer: 2,
-    justification: "En un solenoide, el campo magnético B es proporcional al número de vueltas por unidad de longitud (N/L) y a la corriente I: B = μ₀ × (N/L) × I. Al aumentar las vueltas manteniendo los demás factores constantes, el campo magnético total aumenta.",
-    sub: "Electromagnetismo – Electroimán"
-  },
-  {
-    eval: 0, num: 5,
-    context: `<p>Un investigador mide la velocidad del sonido en tres medios:</p><table><tr><th>Medio</th><th>Velocidad del sonido (m/s)</th></tr><tr><td>Aire (20°C)</td><td>343</td></tr><tr><td>Agua (25°C)</td><td>1 480</td></tr><tr><td>Hierro (20°C)</td><td>5 120</td></tr></table>`,
-    stem: "A partir de los datos, ¿cuál es la conclusión correcta sobre la propagación del sonido?",
-    opts: [
-      "El sonido se propaga más rápido en el aire porque es el medio menos denso y opone menor resistencia.",
-      "La velocidad del sonido es la misma en todos los medios materiales, independientemente de su estado.",
-      "El sonido se propaga más rápidamente en sólidos que en líquidos, y en líquidos más que en gases, porque en los sólidos las moléculas transmiten la perturbación con mayor velocidad.",
-      "La velocidad del sonido depende exclusivamente de la temperatura, no del medio de propagación."
-    ],
-    answer: 2,
-    justification: "Los datos muestran: v_sólido (5120) > v_líquido (1480) > v_gaseoso (343). En sólidos, la mayor rigidez y menor compresibilidad del medio permiten que las perturbaciones mecánicas se propaguen más rápidamente.",
-    sub: "Ondas – Propagación del sonido"
-  },
-
-  // ─── EVAL 2 ───────────────────────────────────────────────
-  {
-    eval: 1, num: 6,
-    context: "Un estudiante genera ondas en una cuerda tensa con frecuencia de 2 Hz. La velocidad de propagación en la cuerda es 10 m/s.",
-    stem: "Usando la relación v = f × λ, ¿cuál de las siguientes predicciones es correcta si se duplica la frecuencia a 4 Hz?",
-    opts: [
-      "La longitud de onda también se duplica a 10 m, porque la velocidad de la onda aumenta.",
-      "La longitud de onda se reduce a la mitad (2,5 m), ya que la velocidad permanece constante.",
-      "La longitud de onda permanece constante en 5 m, independientemente de los cambios en la frecuencia.",
-      "Si se duplica la frecuencia, la velocidad de la onda también se duplica, manteniendo la longitud de onda igual."
-    ],
-    answer: 1,
-    justification: "Con v = 10 m/s constante: λ = v/f. Si f = 2 Hz → λ = 5 m. Si f = 4 Hz → λ = 10/4 = 2,5 m. La longitud de onda se reduce a la mitad. La velocidad depende del medio, no de la frecuencia.",
-    sub: "Ondas – Relación v = fλ"
-  },
-  {
-    eval: 1, num: 7,
-    context: "Una pelota de 0,5 kg se lanza horizontalmente desde una mesa con velocidad inicial de 4 m/s. Al mismo tiempo, otra pelota idéntica se suelta desde el borde de la mesa sin velocidad horizontal. Ambas caen desde la misma altura.",
-    stem: "¿Cuál es la predicción correcta sobre el tiempo que tardan las dos pelotas en llegar al suelo?",
-    opts: [
-      "La pelota lanzada horizontalmente tarda menos tiempo, porque su velocidad inicial le da ventaja en la caída.",
-      "La pelota soltada verticalmente tarda menos tiempo, porque no tiene movimiento horizontal que la retrase.",
-      "Ambas pelotas llegan al suelo al mismo tiempo, porque el movimiento horizontal es independiente del movimiento vertical.",
-      "La pelota lanzada horizontalmente llega primero si la velocidad inicial es mayor que 9,8 m/s."
-    ],
-    answer: 2,
-    justification: "El principio de independencia de los movimientos establece que el movimiento horizontal no afecta el movimiento vertical. Ambas pelotas experimentan la misma aceleración gravitacional vertical (g = 9,8 m/s²) y caen en el mismo tiempo.",
-    sub: "Cinemática – Independencia de movimientos"
-  },
-  {
-    eval: 1, num: 8,
-    context: "Un bloque metálico a 80°C se introduce en un recipiente con 500 g de agua a 20°C. El calor específico del agua es mayor que el del metal.",
-    stem: "¿Cuál de las siguientes predicciones sobre la temperatura de equilibrio es la más válida?",
-    opts: [
-      "La temperatura de equilibrio será exactamente 50°C, el promedio entre las dos temperaturas iniciales.",
-      "La temperatura de equilibrio estará más cerca de los 20°C del agua, porque el agua tiene mayor capacidad para absorber calor.",
-      "La temperatura del bloque aumentará al entrar en contacto con el agua, porque el metal cede calor lentamente.",
-      "La temperatura de equilibrio dependerá exclusivamente del volumen del recipiente."
-    ],
-    answer: 1,
-    justification: "Por conservación de energía térmica: Q_cedido = Q_absorbido. Como c_agua > c_metal y la masa de agua es significativa, la temperatura de equilibrio se desplaza más cerca de la temperatura del agua (20°C). No es simplemente el promedio.",
-    sub: "Energía térmica – Equilibrio térmico"
-  },
-  {
-    eval: 1, num: 9,
-    context: "En un circuito en serie: R₁ = 2 Ω, R₂ = 3 Ω, R₃ = 5 Ω, conectadas a una batería de 20 V. Un estudiante predice que si se desconecta R₂, la corriente en R₁ aumentará.",
-    stem: "¿La predicción del estudiante es correcta? Use la Ley de Ohm (I = V/Rt) para evaluarla.",
-    opts: [
-      "Sí, es correcta. La corriente en R₁ aumenta porque al quitar R₂, la resistencia total disminuye.",
-      "No es correcta. Al quitar R₂, el circuito en serie queda abierto y la corriente en todos los componentes es cero.",
-      "Sí, es correcta. La corriente en R₁ aumenta porque la tensión en R₁ aumenta al quitar R₂.",
-      "No es correcta. En un circuito en serie, la corriente es independiente del número de resistencias."
-    ],
-    answer: 1,
-    justification: "En un circuito en serie, al quitar cualquier resistencia el circuito queda abierto (interrumpido). Esto hace que la corriente sea cero en todos los componentes, incluida R₁. La predicción del estudiante es incorrecta.",
-    sub: "Electromagnetismo – Circuitos en serie"
-  },
-  {
-    eval: 1, num: 10,
-    context: "Un estudiante lanza verticalmente hacia arriba una pelota con velocidad inicial de 20 m/s y predice que la altura máxima será 25 m. (g = 10 m/s²)",
-    stem: "Usando v² = v₀² − 2gh, ¿la predicción del estudiante es correcta?",
-    opts: [
-      "Sí, es correcta, porque la altura máxima de 25 m se calcula dividiendo la velocidad inicial entre la gravedad.",
-      "No es correcta. La altura máxima real es de 20 m, ya que la pelota pierde 1 m/s de velocidad por cada metro.",
-      "Sí, es correcta porque h = v₀²/(2g) = 400/20 = 20 m… pero el enunciado dice 25 m, que es incorrecto.",
-      "No es correcta. En la altura máxima v = 0, entonces h = v₀²/(2g) = 400/20 = 20 m, no 25 m."
-    ],
-    answer: 3,
-    justification: "En la altura máxima la velocidad es cero: 0 = v₀² − 2gh, por lo tanto h = v₀²/(2g) = (20)²/(2×10) = 400/20 = 20 m. La predicción del estudiante de 25 m es incorrecta; la altura máxima real es 20 m.",
-    sub: "Cinemática – Lanzamiento vertical"
-  },
-
-  // ─── EVAL 3 ───────────────────────────────────────────────
-  {
-    eval: 2, num: 11,
-    context: "Cuando una persona salta desde un trampolín al agua, se producen diferentes transformaciones de energía en distintos momentos del movimiento.",
-    stem: "¿Cuál opción describe correctamente la secuencia de transformaciones de energía durante el salto?",
-    opts: [
-      "Energía cinética → Energía potencial gravitacional → Energía cinética → Energía térmica.",
-      "Energía potencial gravitacional → Energía cinética → Energía potencial elástica → Energía cinética.",
-      "Energía química (muscular) → Energía potencial gravitacional → Energía cinética → Energía cinética y térmica al impacto.",
-      "Energía potencial gravitacional → Energía nuclear → Energía cinética → Energía sonora."
-    ],
-    answer: 2,
-    justification: "El saltador usa energía química (muscular) para subir → energía potencial gravitacional. Al caer → energía cinética. Al impactar con el agua → energía cinética se transforma en energía calorífica (térmica) y sonora.",
-    sub: "Energía – Transformaciones energéticas"
-  },
-  {
-    eval: 2, num: 12,
-    context: "Los astronautas del programa Apolo reportaron que en la Luna su peso era aproximadamente 1/6 del peso en la Tierra.",
-    stem: "¿Con cuál de los siguientes conceptos físicos se asocia correctamente este fenómeno?",
-    opts: [
-      "La Luna ejerce una fuerza eléctrica sobre los astronautas, que disminuye a mayor distancia de la Tierra.",
-      "El peso depende de la aceleración gravitacional del cuerpo celeste: en la Luna, g ≈ 1,6 m/s² (1/6 de g_Tierra = 9,8 m/s²).",
-      "La masa de los astronautas disminuye al alejarse de la Tierra, lo que reduce su peso en la Luna.",
-      "La fuerza gravitacional desaparece en el espacio, por lo que el peso en la Luna es un error de medición."
-    ],
-    answer: 1,
-    justification: "El peso es W = mg, donde g es la aceleración gravitacional del astro. La Luna tiene menor masa y radio que la Tierra, resultando en g_Luna ≈ 1,6 m/s² ≈ g_Tierra/6. La masa del astronauta no cambia; solo cambia su peso al variar el campo gravitacional.",
-    sub: "Campo gravitacional – Peso y masa"
-  },
-  {
-    eval: 2, num: 13,
-    context: "Un objeto sólido de madera (densidad: 0,6 g/cm³) se introduce en agua (densidad: 1,0 g/cm³). El objeto flota con parte de su volumen por encima del nivel del agua.",
-    stem: "¿Con cuál principio físico y qué relación se asocia correctamente este fenómeno?",
-    opts: [
-      "Principio de Pascal: la presión del agua empuja el objeto hacia arriba con una fuerza igual al peso del agua.",
-      "Principio de Arquímedes: la fuerza de empuje es igual al peso del fluido desplazado; como ρ_madera < ρ_agua, el objeto flota.",
-      "Segunda Ley de Newton: la aceleración del objeto en el agua es cero porque la fricción cancela la gravedad.",
-      "Ley de conservación de la masa: el objeto flota porque su masa es menor que la masa del agua en el recipiente."
-    ],
-    answer: 1,
-    justification: "El Principio de Arquímedes establece que la fuerza de empuje E = ρ_fluido × V_sumergido × g. Como ρ_madera (0,6) < ρ_agua (1,0), el objeto flota. El 60% de su volumen queda sumergido hasta que el empuje iguala su peso.",
-    sub: "Dinámica de fluidos – Principio de Arquímedes"
-  },
-  {
-    eval: 2, num: 14,
-    context: "Dos cargas eléctricas positivas (q₁ = q₂ = 2×10⁻⁶ C) se ubican a 0,1 m entre sí. La distancia se duplica a 0,2 m. (Ley de Coulomb: F = k q₁q₂/r²)",
-    stem: "Si se duplica la distancia entre las cargas, ¿cómo cambia la fuerza eléctrica entre ellas?",
-    opts: [
-      "La fuerza se duplica, porque al aumentar la distancia hay más espacio para que actúe la fuerza.",
-      "La fuerza permanece igual, ya que las cargas no han cambiado.",
-      "La fuerza se reduce a la cuarta parte (1/4), porque la fuerza es inversamente proporcional al cuadrado de la distancia.",
-      "La fuerza se reduce a la mitad (1/2), porque la distancia se duplicó."
-    ],
-    answer: 2,
-    justification: "Por la Ley de Coulomb: F = k q₁q₂/r². Si r se duplica (r' = 2r): F' = k q₁q₂/(2r)² = F/4. La fuerza se reduce a 1/4 de su valor original. La dependencia es con r² (cuadrado), no con r.",
-    sub: "Electromagnetismo – Ley de Coulomb"
-  },
-  {
-    eval: 2, num: 15,
-    context: "En bungee jumping, se distinguen tres momentos: (1) deportista en el punto más alto, en reposo; (2) a la mitad de la caída libre, antes de que la cuerda se tense; (3) en el punto más bajo, cuerda completamente estirada, velocidad instantánea = 0.",
-    stem: "¿Cuál opción describe correctamente la distribución de energías en el momento 3?",
-    opts: [
-      "Solo hay energía cinética, porque el deportista estuvo en movimiento justo antes de detenerse.",
-      "Solo hay energía potencial gravitacional, porque el deportista está en el punto más bajo.",
-      "Hay energía potencial elástica almacenada en la cuerda; la energía cinética es cero porque la velocidad es cero.",
-      "Toda la energía se ha disipado como calor por la fricción de la cuerda con el aire."
-    ],
-    answer: 2,
-    justification: "En el momento 3: v = 0 → Ec = 0. El deportista está en el punto más bajo → Epg mínima. Toda la energía se ha transformado en energía potencial elástica (Ee) almacenada en la cuerda estirada. Es la demostración perfecta de conservación de energía mecánica.",
-    sub: "Energía mecánica – Energía elástica"
-  }
-];
-
-// ════════════════════════════════════════════════════════════
-//  STATE
-// ════════════════════════════════════════════════════════════
-let queue = [];        // indices into QUESTIONS
-let current = 0;       // index in queue
-let correctCount = 0;
-let answered = false;
-let compScores = {};   // { evalId: {correct:0, total:0} }
-
-// ════════════════════════════════════════════════════════════
-//  NAVIGATION
-// ════════════════════════════════════════════════════════════
-function show(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function goHome() { show('home'); }
-
-function startEval(evalId) {
-  queue = QUESTIONS.map((q, i) => i).filter(i => QUESTIONS[i].eval === evalId);
-  beginQuiz();
-}
-
-function startAll() {
-  queue = QUESTIONS.map((_, i) => i);
-  beginQuiz();
-}
-
-function beginQuiz() {
-  current = 0;
-  correctCount = 0;
-  compScores = {};
-  queue.forEach(qi => {
-    const e = QUESTIONS[qi].eval;
-    if (!compScores[e]) compScores[e] = { correct: 0, total: 0 };
-    compScores[e].total++;
-  });
-  show('quiz');
-  renderQ();
-}
-
-// ════════════════════════════════════════════════════════════
-//  RENDER QUESTION
-// ════════════════════════════════════════════════════════════
-function renderQ() {
-  answered = false;
-  const qi = queue[current];
-  const q = QUESTIONS[qi];
-  const ev = EVALS[q.eval];
-  const total = queue.length;
-
-  // progress
-  document.getElementById('prog-label').textContent = `Pregunta ${current + 1} de ${total}`;
-  document.getElementById('prog-score').textContent = `✅ ${correctCount} correctas`;
-  document.getElementById('prog-fill').style.width = `${(current / total) * 100}%`;
-
-  // eval tag
-  const tag = document.getElementById('eval-tag');
-  tag.className = `eval-tag ${ev.cls}`;
-  tag.textContent = `${ev.icon} ${ev.label} · ${ev.pri}`;
-
-  // question header
-  document.getElementById('q-num').textContent = q.num;
-  document.getElementById('q-comp').textContent = ev.comp;
-  document.getElementById('q-comp-sub').textContent = q.sub;
-
-  // context
-  const ctx = document.getElementById('q-context');
-  if (q.context) {
-    ctx.style.display = '';
-    ctx.innerHTML = q.context;
-  } else {
-    ctx.style.display = 'none';
-  }
-
-  // stem
-  document.getElementById('q-stem').textContent = q.stem;
-
-  // options
-  const opts = document.getElementById('q-options');
-  opts.innerHTML = '';
-  const letters = ['A', 'B', 'C', 'D'];
-  q.opts.forEach((text, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn';
-    btn.innerHTML = `<span class="letter">${letters[i]}</span><span>${text}</span>`;
-    btn.onclick = () => selectAnswer(i);
-    opts.appendChild(btn);
-  });
-
-  // reset feedback
-  const fb = document.getElementById('feedback');
-  fb.style.display = 'none';
-  fb.className = 'feedback';
-  document.getElementById('next-btn').style.display = 'none';
-}
-
-// ════════════════════════════════════════════════════════════
-//  SELECT ANSWER
-// ════════════════════════════════════════════════════════════
-function selectAnswer(chosen) {
-  if (answered) return;
-  answered = true;
-
-  const qi = queue[current];
-  const q = QUESTIONS[qi];
-  const correct = q.answer;
-  const isRight = chosen === correct;
-
-  // disable buttons and style them
-  const btns = document.querySelectorAll('.opt-btn');
-  btns.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === chosen && isRight) btn.classList.add('correct');
-    else if (i === chosen && !isRight) btn.classList.add('wrong');
-    else if (i === correct) btn.classList.add('reveal');
-  });
-
-  // update score
-  if (isRight) {
-    correctCount++;
-    compScores[q.eval].correct++;
-  }
-  document.getElementById('prog-score').textContent = `✅ ${correctCount} correctas`;
-
-  // show feedback
-  const fb = document.getElementById('feedback');
-  fb.style.display = 'block';
-  fb.className = `feedback ${isRight ? 'correct' : 'wrong'}`;
-  document.getElementById('fb-title').textContent = isRight
-    ? '✅ ¡Correcto! ' : '❌ Incorrecto';
-  document.getElementById('fb-body').textContent = q.justification;
-  document.getElementById('fb-tag').textContent = `📚 ${EVALS[q.eval].comp} · ${q.sub}`;
-
-  // show next button
-  document.getElementById('next-btn').style.display = 'inline-flex';
-  document.getElementById('next-btn').textContent =
-    current < queue.length - 1 ? 'Siguiente →' : 'Ver resultados 🏆';
-}
-
-// ════════════════════════════════════════════════════════════
-//  NEXT QUESTION
-// ════════════════════════════════════════════════════════════
-function nextQ() {
-  current++;
-  if (current >= queue.length) {
-    showResults();
-  } else {
-    renderQ();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-
-// ════════════════════════════════════════════════════════════
-//  RESULTS
-// ════════════════════════════════════════════════════════════
-function showResults() {
-  const total = queue.length;
-  const pct = Math.round((correctCount / total) * 100);
-
-  document.getElementById('res-score').textContent = correctCount;
-  document.getElementById('res-den').textContent = `/ ${total}`;
-
-  let title, msg;
-  if (pct >= 80) { title = '🏆 ¡Excelente desempeño!'; msg = 'Estás demostrando un nivel adecuado o sobresaliente (Nivel 3-4) en estas competencias.'; }
-  else if (pct >= 60) { title = '📈 ¡Buen progreso!'; msg = 'Estás mejorando. Con práctica constante puedes alcanzar el nivel adecuado en Saber 11.'; }
-  else if (pct >= 40) { title = '💪 ¡Sigue practicando!'; msg = 'Tienes bases, pero estas competencias requieren más trabajo. Revisa las justificaciones de cada pregunta.'; }
-  else { title = '🔄 ¡Hay que reforzar!'; msg = 'Es importante revisar los conceptos clave de física y practicar más con preguntas tipo Saber.'; }
-
-  document.getElementById('res-title').textContent = title;
-  document.getElementById('res-msg').textContent = msg;
-
-  // per-competencia
-  const container = document.getElementById('comp-results');
-  container.innerHTML = '';
-  const evalIds = [...new Set(queue.map(i => QUESTIONS[i].eval))];
-  const barColors = ['#1a56db', '#7e3af2', '#0694a2'];
-
-  evalIds.forEach(eid => {
-    const ev = EVALS[eid];
-    const sc = compScores[eid];
-    if (!sc) return;
-    const epct = Math.round((sc.correct / sc.total) * 100);
-    const col = barColors[eid];
-
-    const div = document.createElement('div');
-    div.className = 'comp-row';
-    div.innerHTML = `
-      <div class="cr-top">
-        <span class="cr-label">${ev.icon} ${ev.label} — ${ev.title}</span>
-        <span class="cr-score" style="color:${col}">${sc.correct}/${sc.total}</span>
-      </div>
-      <div class="comp-bar">
-        <div class="comp-bar-fill" style="width:${epct}%; background:${col}"></div>
-      </div>
-      <div style="font-size:.78rem;color:#64748b;margin-top:6px">${ev.comp} · ${ev.pri}</div>
-    `;
-    container.appendChild(div);
-  });
-
-  show('results');
-}
-</script>
 </body>
 </html>
