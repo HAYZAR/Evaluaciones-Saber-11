@@ -18,6 +18,10 @@
     /* bloque deporte */ --sport:  #b45309; --sport-bg:  #fef3c7; --sport-dark:  #78350f;
     /* bloque tecno */  --tech:   #6d28d9; --tech-bg:   #ede9fe; --tech-dark:   #3b0764;
     /* bloque historia*/ --hist:  #be123c; --hist-bg:   #ffe4e6; --hist-dark:   #881337;
+    /* bloque clima */   --clim:  #047857; --clim-bg:   #d1fae5; --clim-dark:   #064e3b;
+    /* bloque ing. */    --ing:   #0284c7; --ing-bg:    #e0f2fe; --ing-dark:    #075985;
+    /* bloque música */  --mus:   #a21caf; --mus-bg:    #fae8ff; --mus-dark:    #701a75;
+    /* bloque elec. */   --elec:  #ea580c; --elec-bg:   #ffedd5; --elec-dark:   #7c2d12;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 0 0 60px; }
@@ -60,6 +64,10 @@
   .block-card.bs  { border-color: var(--sport); }
   .block-card.bt  { border-color: var(--tech);  }
   .block-card.bh  { border-color: var(--hist);  }
+  .block-card.bc  { border-color: var(--clim);  }
+  .block-card.bi  { border-color: var(--ing);   }
+  .block-card.bmu { border-color: var(--mus);   }
+  .block-card.be  { border-color: var(--elec);  }
   .block-card .icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
   .block-card h3  { font-size: .98rem; font-weight: 700; margin-bottom: 5px; }
   .block-card p   { font-size: .8rem; color: var(--muted); line-height: 1.5; }
@@ -68,6 +76,10 @@
   .bs .pill { background: var(--sport-bg); color: var(--sport); }
   .bt .pill { background: var(--tech-bg);  color: var(--tech);  }
   .bh .pill { background: var(--hist-bg);  color: var(--hist);  }
+  .bc .pill { background: var(--clim-bg);  color: var(--clim);  }
+  .bi .pill { background: var(--ing-bg);   color: var(--ing);   }
+  .bmu .pill{ background: var(--mus-bg);   color: var(--mus);   }
+  .be .pill { background: var(--elec-bg);  color: var(--elec);  }
   .block-card .qs-badge { position: absolute; top: 12px; right: 12px; background: var(--border); color: var(--muted); border-radius: 99px; padding: 2px 8px; font-size: .72rem; font-weight: 700; }
 
   .all-btn-row { text-align: center; margin-bottom: 10px; }
@@ -86,14 +98,22 @@
   .block-tag.bl { background: var(--local-bg); color: var(--local); }
   .block-tag.bs { background: var(--sport-bg); color: var(--sport); }
   .block-tag.bt { background: var(--tech-bg);  color: var(--tech);  }
-  .block-tag.bh { background: var(--hist-bg);  color: var(--hist);  }
+  .block-tag.bh  { background: var(--hist-bg);  color: var(--hist);  }
+  .block-tag.bc  { background: var(--clim-bg);  color: var(--clim);  }
+  .block-tag.bi  { background: var(--ing-bg);   color: var(--ing);   }
+  .block-tag.bmu { background: var(--mus-bg);   color: var(--mus);   }
+  .block-tag.be  { background: var(--elec-bg);  color: var(--elec);  }
 
   .q-header { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
   .q-num { min-width: 36px; height: 36px; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; flex-shrink: 0; color: #fff; }
   .bl .q-num { background: var(--local); }
   .bs .q-num { background: var(--sport); }
   .bt .q-num { background: var(--tech);  }
-  .bh .q-num { background: var(--hist);  }
+  .bh  .q-num { background: var(--hist);  }
+  .bc  .q-num { background: var(--clim);  }
+  .bi  .q-num { background: var(--ing);   }
+  .bmu .q-num { background: var(--mus);   }
+  .be  .q-num { background: var(--elec);  }
   .q-meta { font-size: .78rem; color: var(--muted); }
   .q-meta strong { color: var(--text); font-weight: 600; }
 
@@ -112,11 +132,19 @@
   .bl .context-box { border-left: 4px solid var(--local); }
   .bs .context-box { border-left: 4px solid var(--sport); }
   .bt .context-box { border-left: 4px solid var(--tech);  }
-  .bh .context-box { border-left: 4px solid var(--hist);  }
+  .bh  .context-box { border-left: 4px solid var(--hist);  }
+  .bc  .context-box { border-left: 4px solid var(--clim);  }
+  .bi  .context-box { border-left: 4px solid var(--ing);   }
+  .bmu .context-box { border-left: 4px solid var(--mus);   }
+  .be  .context-box { border-left: 4px solid var(--elec);  }
   .bl .context-box th { background: var(--local-bg); color: var(--local-dark); border-color: #99f6e4; }
   .bs .context-box th { background: var(--sport-bg); color: var(--sport-dark); border-color: #fde68a; }
   .bt .context-box th { background: var(--tech-bg);  color: var(--tech-dark);  border-color: #c4b5fd; }
-  .bh .context-box th { background: var(--hist-bg);  color: var(--hist-dark);  border-color: #fecdd3; }
+  .bh  .context-box th { background: var(--hist-bg);  color: var(--hist-dark);  border-color: #fecdd3; }
+  .bc  .context-box th { background: var(--clim-bg);  color: var(--clim-dark);  border-color: #a7f3d0; }
+  .bi  .context-box th { background: var(--ing-bg);   color: var(--ing-dark);   border-color: #bae6fd; }
+  .bmu .context-box th { background: var(--mus-bg);   color: var(--mus-dark);   border-color: #e879f9; }
+  .be  .context-box th { background: var(--elec-bg);  color: var(--elec-dark);  border-color: #fed7aa; }
 
   .q-stem { font-size: 1rem; font-weight: 600; line-height: 1.6; margin: 14px 0 18px; color: var(--text); }
 
@@ -199,7 +227,7 @@
   <p>Preguntas basadas en situaciones locales, deportivas, tecnológicas e históricas</p>
   <div class="meta">
     <span>🏫 IED Los Rosales</span>
-    <span>📐 12 preguntas · 4 bloques</span>
+    <span>📐 24 preguntas · 8 bloques</span>
     <span>👨‍🏫 Hayzar Hernández B.</span>
   </div>
 </header>
@@ -209,6 +237,13 @@
 <!-- ══ HOME ══════════════════════════════════════════════ -->
 <div id="home" class="screen active">
   <div style="padding-top:32px"></div>
+  <div class="intro-box" style="margin-bottom:16px">
+    <h2 style="margin-bottom:10px">📝 Ingresa tu nombre antes de comenzar</h2>
+    <input id="student-name" type="text" placeholder="Nombre y apellido..."
+      style="width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s"
+      onfocus="this.style.borderColor='#1e3a8a'" onblur="this.style.borderColor='#e2e8f0'">
+    <p style="font-size:.78rem;color:#94a3b8;margin-top:6px">Requerido para registrar tu resultado.</p>
+  </div>
   <div class="intro-box">
     <h2>🎯 ¿Por qué contextos reales?</h2>
     <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 12 preguntas refuerzan los tres aprendizajes más críticos usando contextos cercanos: <strong>Barranquilla, el deporte colombiano, la tecnología actual y los grandes descubrimientos de la historia de la ciencia.</strong></p>
@@ -243,10 +278,38 @@
       <p>Galileo, Newton y Marie Curie: los experimentos que cambiaron la física.</p>
       <span class="pill">Historia de la ciencia</span>
     </div>
+    <div class="block-card bc" onclick="startBlock(4)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🌡️</span>
+      <h3>Clima y ambiente</h3>
+      <p>Efecto invernadero, energía eólica en La Guajira y paneles solares.</p>
+      <span class="pill">Medio ambiente</span>
+    </div>
+    <div class="block-card bi" onclick="startBlock(5)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🏗️</span>
+      <h3>Ingeniería</h3>
+      <p>Puente Pumarejo, arcos estructurales y materiales de construcción.</p>
+      <span class="pill">Construcción · Barranquilla</span>
+    </div>
+    <div class="block-card bmu" onclick="startBlock(6)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🎵</span>
+      <h3>Música y acústica</h3>
+      <p>La caja vallenata, la gaita colombiana y el eco en un teatro.</p>
+      <span class="pill">Vallenato · Colombia</span>
+    </div>
+    <div class="block-card be" onclick="startBlock(7)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">💡</span>
+      <h3>Electricidad cotidiana</h3>
+      <p>Factura de energía, circuitos del hogar y transmisión eléctrica.</p>
+      <span class="pill">Vida cotidiana</span>
+    </div>
   </div>
 
   <div class="all-btn-row">
-    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 4 bloques completos (12 preguntas)</button>
+    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 8 bloques completos (24 preguntas)</button>
   </div>
 </div>
 
@@ -296,11 +359,16 @@
     </div>
     <h2 id="res-title">¡Excelente!</h2>
     <p  id="res-msg"></p>
+    <p id="res-name" style="margin-top:10px;font-size:.9rem;opacity:.85;display:none"></p>
   </div>
   <div class="block-results" id="block-results"></div>
   <div class="result-actions">
     <button class="btn btn-ghost"   onclick="goHome()">🏠 Inicio</button>
     <button class="btn btn-primary" onclick="startAll()">🔄 Repetir</button>
+    <a id="form-btn" class="btn" target="_blank" rel="noopener"
+      style="background:linear-gradient(135deg,#16a34a,#0d9488);color:#fff;display:none;text-decoration:none">
+      📤 Enviar resultado al docente
+    </a>
   </div>
 </div>
 
@@ -321,6 +389,27 @@ const BLOCKS = [
   { id:2, cls:"bt", icon:"🚀", label:"Tecnología", color:"#6d28d9" },
   { id:3, cls:"bh", icon:"🔭", label:"Historia",   color:"#be123c" },
 ];
+
+// ════════════════════════════════════════════════════════
+//  GOOGLE FORMS CONFIG
+//  ─────────────────────────────────────────────────────
+//  1. Crea un formulario en forms.google.com con 4 campos:
+//     • Nombre del estudiante  (respuesta corta)
+//     • Puntaje                (respuesta corta)
+//     • Bloques evaluados      (respuesta corta)
+//     • Fecha                  (respuesta corta)
+//  2. Abre el formulario, haz clic en "Rellenar previamente"
+//     y obtén los IDs de cada campo (entry.XXXXXXXXX)
+//  3. Pega la URL base y los IDs aquí debajo:
+// ════════════════════════════════════════════════════════
+const FORMS_CONFIG = {
+  url:    "https://docs.google.com/forms/d/e/TU_FORM_ID/viewform",
+  nombre: "entry.000000001",   // ← reemplaza con el ID real
+  puntaje:"entry.000000002",
+  bloques:"entry.000000003",
+  fecha:  "entry.000000004",
+  enabled: false               // ← cambia a true cuando configures el formulario
+};
 
 // ════════════════════════════════════════════════════════
 //  QUESTIONS
@@ -381,11 +470,11 @@ const Q = [
     stem: "¿La predicción del estudiante es correcta? Use la relación entre energía potencial y energía eléctrica generada.",
     opts: [
       "No es correcta. La energía generada depende solo del caudal (volumen de agua por segundo), no de la altura.",
-      "Sí es correcta. Al duplicar la altura, la energía potencial gravitacional (Ep = mgh) se duplica, y si la eficiencia es constante, la energía eléctrica también se duplica.",
       "No es correcta. Al duplicar la altura, la presión del agua disminuye porque las tuberías son más largas.",
+      "Sí es correcta. Al duplicar la altura, la energía potencial gravitacional (Ep = mgh) se duplica, y si la eficiencia es constante, la energía eléctrica también se duplica.",
       "Sí es correcta, pero solo si la masa del agua también se duplica al mismo tiempo."
     ],
-    answer: 1,
+    answer: 2,
     just: "La energía potencial gravitacional es Ep = mgh. Si h se duplica (de 420 m a 840 m) y la masa de agua por segundo (caudal × densidad) se mantiene constante, Ep se duplica. Con eficiencia constante, la energía eléctrica generada también se duplica. La predicción del estudiante es correcta.",
     topic: "Energía potencial gravitacional – Ep = mgh"
   },
@@ -420,11 +509,11 @@ const Q = [
     stem: "¿La predicción del comentarista es correcta? Use la componente horizontal del movimiento: x = v₀ · cos(θ) · t.",
     opts: [
       "Sí es correcta. La pelota sube y baja, por lo que siempre tardará más de 2 segundos en recorrer 25 m.",
-      "No es correcta. La componente horizontal es v_x = 28 × cos(30°) ≈ 24,2 m/s. El tiempo para recorrer 25 m es t = 25/24,2 ≈ 1,03 s, mucho menos de 2 segundos.",
       "Sí es correcta. El ángulo de 30° hace que la pelota tarde más porque debe subir antes de ir hacia la portería.",
-      "No se puede determinar sin conocer la altura de la portería y la masa de la pelota."
+      "No se puede determinar sin conocer la altura de la portería y la masa de la pelota.",
+      "No es correcta. La componente horizontal es v_x = 28 × cos(30°) ≈ 24,2 m/s. El tiempo para recorrer 25 m es t = 25/24,2 ≈ 1,03 s, mucho menos de 2 segundos."
     ],
-    answer: 1,
+    answer: 3,
     just: "La componente horizontal de la velocidad es v_x = 28 × cos(30°) ≈ 28 × 0,866 ≈ 24,2 m/s. Esta componente es constante (no hay fricción del aire en este modelo). El tiempo es t = 25/24,2 ≈ 1,03 s. El comentarista está equivocado; la pelota llega en poco más de 1 segundo.",
     topic: "Cinemática – Tiro parabólico (componente horizontal)"
   },
@@ -435,12 +524,12 @@ const Q = [
     context: `<p><strong>Nairo Quintana</strong> inicia el descenso de una etapa de montaña. En la cima (punto A, altura = 1 200 m) su velocidad es de 4 m/s. En el punto más bajo (punto B, altura = 0 m) su velocidad es de 50 m/s. La masa del ciclista más la bicicleta es 70 kg. Se ignora la fricción.</p>`,
     stem: "¿Con cuál principio físico se asocia correctamente la relación entre las velocidades en los puntos A y B?",
     opts: [
-      "Segunda Ley de Newton: la fuerza gravitacional aumenta la velocidad de Nairo al bajar la montaña.",
       "Principio de conservación de la energía mecánica: la energía potencial gravitacional en la cima se transforma en energía cinética en el punto más bajo.",
+      "Segunda Ley de Newton: la fuerza gravitacional aumenta la velocidad de Nairo al bajar la montaña.",
       "Principio de Arquímedes: el aire ejerce una fuerza de empuje sobre el ciclista que lo impulsa hacia adelante.",
       "Ley de Hooke: la energía almacenada en los neumáticos de la bicicleta se libera durante el descenso."
     ],
-    answer: 1,
+    answer: 0,
     just: "Por conservación de energía mecánica (sin fricción): E_A = E_B → ½mv_A² + mgh_A = ½mv_B² + mgh_B. La energía potencial gravitacional (mgh) en la cima se convierte en energía cinética (½mv²) al bajar. La masa se cancela en ambos lados. Este es el principio de conservación de la energía mecánica.",
     topic: "Energía mecánica – Conservación Ep ↔ Ec"
   },
@@ -455,11 +544,11 @@ const Q = [
     stem: "¿La conclusión del estudiante es correcta? Use la Segunda Ley de Newton: F_neta = F_empuje − Peso = m × a.",
     opts: [
       "No es correcta. El cohete no puede acelerar hacia arriba porque su peso es mayor que el empuje.",
-      "Sí es correcta. F_neta = 7 607 000 − (549 000 × 9,8) = 7 607 000 − 5 380 200 = 2 226 800 N. a = F_neta/m ≈ 4,06 m/s², cercano al valor calculado.",
       "No es correcta. La aceleración de un cohete siempre es igual a g = 9,8 m/s² durante el despegue.",
+      "Sí es correcta. F_neta = 7 607 000 − (549 000 × 9,8) = 7 607 000 − 5 380 200 = 2 226 800 N. a = F_neta/m ≈ 4,06 m/s², cercano al valor calculado.",
       "Sí es correcta, pero solo porque el cohete expulsa gases que reducen su masa durante el vuelo."
     ],
-    answer: 1,
+    answer: 2,
     just: "F_neta = Empuje − Peso = 7 607 000 − (549 000 × 9,8) = 7 607 000 − 5 380 200 = 2 226 800 N. a = F_neta / m = 2 226 800 / 549 000 ≈ 4,06 m/s². La estimación del estudiante (3,9 m/s²) es razonablemente cercana y la conclusión es correcta en su razonamiento.",
     topic: "Dinámica – Segunda Ley de Newton (F_neta = ma)"
   },
@@ -477,11 +566,11 @@ const Q = [
     stem: "¿La predicción es correcta? Use la relación λ = c / f.",
     opts: [
       "Sí es correcta. A mayor frecuencia, mayor longitud de onda, porque la onda viaja más rápido.",
-      "No es correcta. λ(2,4 GHz) = 3×10⁸ / 2,4×10⁹ ≈ 0,125 m y λ(5 GHz) = 3×10⁸ / 5×10⁹ = 0,06 m. La banda de 5 GHz tiene una longitud de onda MENOR.",
       "Sí es correcta. Las ondas de mayor frecuencia siempre recorren mayor distancia por ciclo.",
-      "No se puede determinar sin conocer la potencia de emisión del router."
+      "No se puede determinar sin conocer la potencia de emisión del router.",
+      "No es correcta. λ(2,4 GHz) = 3×10⁸ / 2,4×10⁹ ≈ 0,125 m y λ(5 GHz) = 3×10⁸ / 5×10⁹ = 0,06 m. La banda de 5 GHz tiene una longitud de onda MENOR."
     ],
-    answer: 1,
+    answer: 3,
     just: "λ = c/f. Para 2,4 GHz: λ = (3×10⁸)/(2,4×10⁹) = 0,125 m = 12,5 cm. Para 5 GHz: λ = (3×10⁸)/(5×10⁹) = 0,06 m = 6 cm. A mayor frecuencia, menor longitud de onda (son inversamente proporcionales). La predicción del estudiante es incorrecta.",
     topic: "Ondas electromagnéticas – λ = c/f"
   },
@@ -492,12 +581,12 @@ const Q = [
     context: `<p>Un <strong>panel solar fotovoltaico</strong> instalado en una escuela de Barranquilla transforma la radiación solar en electricidad. En un día soleado, el panel recibe 1 000 W/m² de irradiancia solar y tiene una eficiencia del 20%. El panel tiene un área de 2 m².</p>`,
     stem: "¿Con cuál secuencia de transformaciones de energía se asocia correctamente el funcionamiento del panel solar?",
     opts: [
-      "Energía química → Energía luminosa → Energía eléctrica.",
       "Energía radiante (solar) → Energía eléctrica, mediante el efecto fotovoltaico (los fotones excitan electrones en el material semiconductor).",
+      "Energía química → Energía luminosa → Energía eléctrica.",
       "Energía térmica → Energía mecánica → Energía eléctrica, igual que una turbina de vapor.",
       "Energía potencial gravitacional → Energía cinética → Energía eléctrica."
     ],
-    answer: 1,
+    answer: 0,
     just: "En un panel solar fotovoltaico, la energía radiante del sol (fotones) excita electrones en el material semiconductor (silicio), generando directamente corriente eléctrica. Este proceso se llama efecto fotovoltaico. La potencia generada es: P = Irradiancia × Área × Eficiencia = 1000 × 2 × 0,20 = 400 W.",
     topic: "Energía – Efecto fotovoltaico (conversión solar)"
   },
@@ -532,11 +621,11 @@ const Q = [
     stem: "¿La predicción del estudiante es correcta?",
     opts: [
       "Sí es correcta. Si r se reduce a la mitad, F disminuye a la mitad, porque la distancia y la fuerza son inversamente proporcionales.",
-      "No es correcta. Si r se reduce a la mitad, F aumenta 4 veces (se cuadruplica), porque la fuerza es inversamente proporcional al cuadrado de la distancia.",
       "Sí es correcta. Al reducirse r a la mitad, F = G·m₁·m₂/(r/2)² = 2F, es decir, se duplica.",
+      "No es correcta. Si r se reduce a la mitad, F aumenta 4 veces (se cuadruplica), porque la fuerza es inversamente proporcional al cuadrado de la distancia.",
       "No es correcta. La fuerza gravitacional no depende de la distancia, solo de las masas."
     ],
-    answer: 1,
+    answer: 2,
     just: "Por la Ley de Gravitación Universal: F = G·m₁·m₂/r². Si r' = r/2: F' = G·m₁·m₂/(r/2)² = G·m₁·m₂/(r²/4) = 4·F. La fuerza se cuadruplica, no se duplica. La predicción del estudiante es incorrecta. La fuerza gravitacional depende del cuadrado de la distancia (ley del cuadrado inverso).",
     topic: "Gravitación – Ley del cuadrado inverso (Newton)"
   },
@@ -549,13 +638,245 @@ const Q = [
     stem: "¿Cuál de las siguientes opciones describe mejor el tipo de razonamiento científico que Marie Curie empleó para llegar a su conclusión?",
     opts: [
       "Razonamiento deductivo: Curie partió de una teoría atómica ya establecida y la aplicó al uranio para predecir los resultados.",
-      "Razonamiento inductivo: Curie observó un patrón repetido en los datos experimentales (la radioactividad era proporcional a la cantidad de uranio, sin importar el compuesto) y derivó una conclusión general sobre la naturaleza atómica de la radioactividad.",
       "Razonamiento por analogía: Curie comparó el uranio con otros metales conocidos y concluyó que todos son radioactivos.",
-      "Razonamiento matemático: Curie usó ecuaciones previas de la física clásica para calcular la radioactividad del uranio."
+      "Razonamiento matemático: Curie usó ecuaciones previas de la física clásica para calcular la radioactividad del uranio.",
+      "Razonamiento inductivo: Curie observó un patrón repetido en los datos experimentales (la radioactividad era proporcional a la cantidad de uranio, sin importar el compuesto) y derivó una conclusión general sobre la naturaleza atómica de la radioactividad."
     ],
-    answer: 1,
+    answer: 3,
     just: "Curie partió de observaciones experimentales repetidas (datos) y derivó una conclusión general: esto es razonamiento inductivo. Al observar que la radioactividad era proporcional a la cantidad de uranio independientemente del compuesto, infirió que era una propiedad del átomo mismo. Este proceso es la base de la construcción de conocimiento científico a través de la investigación.",
     topic: "Naturaleza de la ciencia – Razonamiento inductivo (Curie)"
+  },
+  // ─── BLOQUE 4: CLIMA Y MEDIO AMBIENTE ────────────────────
+  {
+    block: 4, num: 13,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Radiación infrarroja · Efecto invernadero",
+    context: `<p>La siguiente tabla muestra la concentración de CO₂ en la atmósfera y la temperatura media global registradas en distintos años:</p>
+<table>
+  <tr><th>Año</th><th>CO₂ (ppm)</th><th>Temperatura media (°C)</th></tr>
+  <tr><td>1880</td><td>290</td><td>13,8</td></tr>
+  <tr><td>1960</td><td>320</td><td>14,0</td></tr>
+  <tr><td>2000</td><td>370</td><td>14,4</td></tr>
+  <tr><td>2023</td><td>420</td><td>14,9</td></tr>
+</table>`,
+    stem: "¿Con qué proceso físico se asocia correctamente el aumento de temperatura observado?",
+    opts: [
+      "La reflexión de la luz solar por las nubes aumenta la energía disponible en la superficie terrestre.",
+      "Los gases como el CO₂ absorben la radiación infrarroja emitida por la Tierra y la re-emiten hacia la superficie, aumentando la temperatura global.",
+      "El ozono actúa como lente que concentra la energía solar y calienta la superficie.",
+      "El viento solar transfiere energía cinética extra a la atmósfera en períodos de alta actividad."
+    ],
+    answer: 1,
+    just: "El efecto invernadero ocurre porque los gases como el CO₂ absorben la radiación infrarroja (calor) que la Tierra emite hacia el espacio y la devuelven hacia la superficie. A mayor concentración de CO₂, mayor absorción y mayor temperatura. Los datos confirman esta correlación positiva.",
+    topic: "Radiación infrarroja – Efecto invernadero"
+  },
+  {
+    block: 4, num: 14,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Energía solar · Ciudades colombianas",
+    context: `<p>La siguiente tabla muestra la irradiancia solar promedio y la energía generada por un panel de 1 m² con 20% de eficiencia en tres ciudades colombianas:</p>
+<table>
+  <tr><th>Ciudad</th><th>Irradiancia (kWh/m²/día)</th><th>Energía generada (kWh/m²/día)</th></tr>
+  <tr><td>Barranquilla</td><td>5,5</td><td>1,10</td></tr>
+  <tr><td>Bogotá</td><td>4,0</td><td>0,80</td></tr>
+  <tr><td>Medellín</td><td>4,5</td><td>0,90</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál de las siguientes conclusiones es correcta?",
+    opts: [
+      "Bogotá genera más energía porque está más cerca del sol por su altitud.",
+      "La energía generada no depende de la irradiancia, sino solo del área del panel.",
+      "Medellín y Bogotá producen la misma energía porque tienen temperaturas similares.",
+      "Barranquilla genera más energía solar por m² que las demás ciudades gracias a su mayor irradiancia; E = Irradiancia × Área × Eficiencia."
+    ],
+    answer: 3,
+    just: "La fórmula E = Irradiancia × Área × Eficiencia confirma los datos: Barranquilla 5,5 × 1 × 0,20 = 1,10 kWh/m²/día. A mayor irradiancia, mayor energía generada. La altura de Bogotá no aumenta la irradiancia en sus condiciones reales de nubosidad.",
+    topic: "Energía solar – E = Irradiancia × Área × Eficiencia"
+  },
+  {
+    block: 4, num: 15,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Energía eólica · Parque La Guajira",
+    context: `<p>Un parque eólico en La Guajira tiene turbinas cuya potencia se calcula con: <strong>P = ½ · ρ · A · v³</strong>, donde A es el área del rotor, v la velocidad del viento y ρ la densidad del aire. Con v = 8 m/s genera 1 200 kW. Un ingeniero predice que si el viento aumenta a 16 m/s, la potencia se <em>duplicará</em>.</p>`,
+    stem: "¿La predicción del ingeniero es correcta?",
+    opts: [
+      "No es correcta. La potencia es proporcional a v³: si v se duplica (×2), P aumenta 2³ = 8 veces. A 16 m/s se generarían 9 600 kW, no 2 400 kW.",
+      "Sí es correcta. Si la velocidad se duplica, la potencia también se duplica porque P es proporcional a v.",
+      "Sí es correcta. El área A permanece constante, por lo que P solo depende de v de forma lineal.",
+      "No se puede determinar sin conocer la densidad exacta del aire en La Guajira."
+    ],
+    answer: 0,
+    just: "P ∝ v³ (potencia proporcional al cubo de la velocidad). Si v se duplica: P' = P × (2v/v)³ = P × 8. Entonces P' = 1 200 × 8 = 9 600 kW. La predicción del ingeniero es incorrecta: la potencia se multiplica por 8, no por 2.",
+    topic: "Energía eólica – P = ½ρAv³ (proporcionalidad cúbica)"
+  },
+
+  // ─── BLOQUE 5: INGENIERÍA ─────────────────────────────────
+  {
+    block: 5, num: 16,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Presión · Puente Pumarejo",
+    context: `<p>El <strong>Puente Pumarejo</strong> sobre el río Magdalena soporta tráfico pesado. Un camión de 20 000 kg cruza el puente. Sus 8 llantas tienen un área de contacto de 0,05 m² cada una. Un estudiante predice que la presión ejercida por cada llanta sobre el pavimento es de 500 000 Pa. (g = 10 m/s²)</p>`,
+    stem: "¿La predicción es correcta? Use P = F / A.",
+    opts: [
+      "No es correcta. La presión se calcula con el peso total dividido entre el área total: P = 200 000 / 0,40 = 500 000 Pa, pero eso es la presión total, no por llanta.",
+      "No es correcta. La presión de las llantas depende de la velocidad del camión, no de su peso.",
+      "Sí es correcta. Cada llanta soporta: F = 200 000 N ÷ 8 = 25 000 N; P = 25 000 / 0,05 = 500 000 Pa.",
+      "No es correcta. El peso de 20 000 kg equivale a 200 N, que es insuficiente para calcular la presión."
+    ],
+    answer: 2,
+    just: "Peso total = 20 000 kg × 10 m/s² = 200 000 N. Fuerza por llanta = 200 000 / 8 = 25 000 N. Presión = F/A = 25 000 / 0,05 = 500 000 Pa. La predicción del estudiante es correcta.",
+    topic: "Presión – P = F/A (distribución de carga)"
+  },
+  {
+    block: 5, num: 17,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Vectores · Arco estructural de un puente",
+    context: `<p>En los puentes de arco (como los empleados en el <strong>Metro de Medellín</strong>), el peso de la estructura se distribuye mediante fuerzas de compresión que viajan a lo largo del arco hasta los apoyos en el suelo. El arco convierte fuerzas verticales (peso) en componentes diagonales dirigidas hacia los extremos.</p>`,
+    stem: "¿Con cuál principio físico se asocia mejor el funcionamiento estructural del arco?",
+    opts: [
+      "Descomposición vectorial de fuerzas: el peso vertical se descompone en componentes a lo largo de las curvas del arco, transmitiendo la carga hacia los extremos en compresión.",
+      "Principio de Arquímedes: el arco genera un empuje hacia arriba igual al peso del material desplazado.",
+      "Ley de Hooke: el arco se deforma elásticamente para absorber la carga sin romperse.",
+      "Conservación de la cantidad de movimiento: el impulso del peso se transfiere lateralmente a los apoyos."
+    ],
+    answer: 0,
+    just: "El arco funciona por descomposición vectorial: la carga vertical (peso) se descompone en componentes a lo largo de la geometría curva del arco, generando fuerzas de compresión dirigidas hacia los apoyos. Este principio permite que el arco soporte grandes cargas con materiales que resisten bien la compresión (piedra, concreto).",
+    topic: "Vectores – Descomposición de fuerzas en estructuras"
+  },
+  {
+    block: 5, num: 18,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Conducción de calor · Materiales en Barranquilla",
+    context: `<p>En Barranquilla, donde la temperatura exterior puede superar 38 °C, se busca construir viviendas frescas. La tabla muestra la conductividad térmica de materiales de uso común:</p>
+<table>
+  <tr><th>Material</th><th>Conductividad térmica (W/m·K)</th></tr>
+  <tr><td>Concreto</td><td>1,70</td></tr>
+  <tr><td>Ladrillo cocido</td><td>0,90</td></tr>
+  <tr><td>Madera</td><td>0,15</td></tr>
+  <tr><td>Lana de vidrio</td><td>0,04</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál conclusión sobre los materiales es correcta para mantener el interior fresco?",
+    opts: [
+      "El concreto es el mejor material porque su alta conductividad permite evacuar el calor rápidamente.",
+      "La lana de vidrio es el mejor aislante térmico (k = 0,04 W/m·K): transfiere menos calor del exterior al interior que cualquier otro material de la tabla.",
+      "Madera y lana de vidrio son igualmente efectivos porque tienen conductividades del mismo orden.",
+      "El ladrillo cocido es el mejor material porque su densidad retiene el calor durante la noche."
+    ],
+    answer: 1,
+    just: "Menor conductividad térmica → menor transferencia de calor. Lana de vidrio (0,04) < Madera (0,15) < Ladrillo (0,90) < Concreto (1,70). La lana de vidrio reduce más eficientemente el flujo de calor del exterior caliente al interior. En Barranquilla, usar aislantes en techos y paredes disminuye significativamente el uso de aire acondicionado.",
+    topic: "Conducción de calor – Conductividad térmica (k)"
+  },
+
+  // ─── BLOQUE 6: MÚSICA Y ACÚSTICA ─────────────────────────
+  {
+    block: 6, num: 19,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Frecuencia · La caja vallenata",
+    context: `<p>La <strong>caja</strong> es el tambor fundamental del vallenato. Al tensar más el parche de cuero, el músico puede cambiar el tono del instrumento. Un músico observa que al aumentar la tensión del parche, el sonido producido tiene mayor frecuencia (tono más agudo).</p>`,
+    stem: "¿Con cuál principio físico se asocia correctamente la relación entre tensión del parche y frecuencia del sonido?",
+    opts: [
+      "Principio de Bernoulli: la mayor tensión aumenta la velocidad del aire que sale por los costados.",
+      "Ley de Hooke: la tensión es directamente proporcional a la deformación del parche al golpearlo.",
+      "Efecto Doppler: la tensión del parche cambia la velocidad del sonido en el interior de la caja.",
+      "En una membrana vibrante, mayor tensión implica mayor frecuencia de vibración (f ∝ √T), produciendo un tono más agudo."
+    ],
+    answer: 3,
+    just: "La frecuencia fundamental de una membrana circular (como el parche de la caja) es proporcional a la raíz cuadrada de la tensión: f ∝ √T. Al aumentar la tensión, aumenta la frecuencia y el sonido se vuelve más agudo. Este principio aplica a todos los instrumentos de membrana (tambores, timbales, etc.).",
+    topic: "Ondas – Frecuencia en membranas vibrantes (f ∝ √T)"
+  },
+  {
+    block: 6, num: 20,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Columna de aire · Gaita colombiana",
+    context: `<p>La <strong>gaita</strong> es un instrumento de viento indígena colombiano que funciona como una columna de aire. Un estudiante midió las frecuencias de tres notas:</p>
+<table>
+  <tr><th>Nota</th><th>Longitud de columna (cm)</th><th>Frecuencia (Hz)</th></tr>
+  <tr><td>Do grave</td><td>60</td><td>142</td></tr>
+  <tr><td>Sol</td><td>40</td><td>213</td></tr>
+  <tr><td>Do agudo</td><td>30</td><td>284</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál conclusión es correcta?",
+    opts: [
+      "La frecuencia disminuye cuando la columna es más corta, porque hay menos espacio para la onda.",
+      "La frecuencia es inversamente proporcional a la longitud: al reducir la longitud a la mitad (60→30 cm), la frecuencia se duplica (142→284 Hz).",
+      "La velocidad del sonido dentro de la gaita varía según la longitud de la columna.",
+      "Las notas más agudas tienen mayor longitud de onda que las notas graves."
+    ],
+    answer: 1,
+    just: "Para una columna de aire cerrada: f = v / (4L). Al reducir L a la mitad, f se duplica. Comprobación: 60/30 = 2 y 284/142 ≈ 2. La frecuencia es inversamente proporcional a la longitud de la columna, lo que permite producir notas más agudas acortando la columna (tapando orificios).",
+    topic: "Ondas sonoras – f = v/(4L) en columna de aire"
+  },
+  {
+    block: 6, num: 21,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Reflexión de ondas · Teatro Amira de la Rosa",
+    context: `<p>El <strong>Teatro Amira de la Rosa</strong> en Barranquilla tiene paredes de concreto. Un acústico calcula que si un músico toca a 5 m de la pared posterior y el sonido viaja a 340 m/s, el eco llegará al músico después de <strong>0,029 s</strong> (≈ 29 ms).</p>`,
+    stem: "¿La predicción del tiempo de eco es correcta? (El sonido recorre la distancia de ida y vuelta.)",
+    opts: [
+      "No es correcta. En espacios cerrados el sonido se absorbe totalmente y no hay eco.",
+      "No es correcta. t = 5 / 340 = 0,0147 s. El eco llega en ~15 ms, no en 29 ms.",
+      "Sí es correcta. El sonido recorre 5 m (ida) + 5 m (vuelta) = 10 m. t = 10 / 340 ≈ 0,029 s = 29 ms.",
+      "No es correcta. El eco depende de la frecuencia del sonido, no solo de la distancia a la pared."
+    ],
+    answer: 2,
+    just: "El eco es la reflexión del sonido en la pared. El sonido recorre la distancia de ida (5 m) y vuelta (5 m) = 10 m en total. t = d/v = 10/340 ≈ 0,0294 s ≈ 29 ms. La predicción es correcta. En acústica arquitectónica, ecos superiores a 50 ms generan problemas de reverberación.",
+    topic: "Reflexión de ondas – Eco (t = 2d/v)"
+  },
+
+  // ─── BLOQUE 7: ELECTRICIDAD COTIDIANA ────────────────────
+  {
+    block: 7, num: 22,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Potencia · Factura de energía del hogar",
+    context: `<p>Una familia en Barranquilla registra el consumo de sus principales electrodomésticos. El costo de la energía es $800 por kWh.</p>
+<table>
+  <tr><th>Electrodoméstico</th><th>Potencia (W)</th><th>Horas/día</th></tr>
+  <tr><td>Aire acondicionado</td><td>1 500</td><td>8</td></tr>
+  <tr><td>Nevera</td><td>200</td><td>24</td></tr>
+  <tr><td>Televisor</td><td>150</td><td>5</td></tr>
+  <tr><td>Bombillos (5)</td><td>60 c/u</td><td>6</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál conclusión sobre el consumo diario es correcta?",
+    opts: [
+      "El aire acondicionado consume 12 kWh/día (1,5 kW × 8 h) y es el mayor consumidor. Su costo diario es $9 600. La nevera consume 4,8 kWh/día.",
+      "La nevera consume más energía por día que el AA porque funciona las 24 horas.",
+      "Los bombillos consumen más energía total que el televisor porque son 5 unidades.",
+      "El consumo total diario es inferior a 10 kWh porque ningún electrodoméstico supera 200 W de promedio."
+    ],
+    answer: 0,
+    just: "AA: 1,5 kW × 8 h = 12 kWh/día → costo = 12 × $800 = $9 600. Nevera: 0,2 kW × 24 h = 4,8 kWh/día. Bombillos: 5 × 0,06 kW × 6 h = 1,8 kWh/día. Televisor: 0,15 × 5 = 0,75 kWh/día. El AA es el mayor consumidor, un resultado típico en Barranquilla por el calor.",
+    topic: "Potencia eléctrica – E = P × t (kWh)"
+  },
+  {
+    block: 7, num: 23,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Ley de Ohm · Circuito domiciliario",
+    context: `<p>En una instalación domiciliaria de Barranquilla el voltaje de la red es <strong>110 V</strong>. Un electricista instala una bombilla de 60 W y predice que la corriente que circula por ella es <strong>0,55 A</strong>.</p>`,
+    stem: "¿La predicción del electricista es correcta? Use la relación P = V × I.",
+    opts: [
+      "No es correcta. La corriente depende solo de la resistencia del cable, no de la potencia de la bombilla.",
+      "Sí es correcta, pero únicamente si la bombilla es de corriente alterna (AC), no de continua (DC).",
+      "Sí es correcta. I = P / V = 60 / 110 ≈ 0,545 A ≈ 0,55 A. La relación P = V × I permite calcular la corriente directamente.",
+      "No es correcta. En Colombia el voltaje domiciliario es 220 V, por lo que la corriente sería 0,27 A."
+    ],
+    answer: 2,
+    just: "Despejando I de P = V × I: I = P/V = 60/110 ≈ 0,545 A ≈ 0,55 A. La predicción es correcta. Nota: en Colombia coexisten redes de 110 V y 220 V; Barranquilla usa principalmente 110 V para uso residencial general.",
+    topic: "Ley de Ohm – P = V × I (corriente eléctrica)"
+  },
+  {
+    block: 7, num: 24,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Transformador · Transmisión eléctrica",
+    context: `<p>La energía eléctrica generada en el <strong>Embalse El Guájaro</strong> (Atlántico) se transmite a larga distancia a muy alto voltaje (115 000 V) para reducir pérdidas. Luego, transformadores la reducen a los 110 V que llegan a los hogares de Barranquilla.</p>`,
+    stem: "¿Con cuál principio físico se asocia correctamente el funcionamiento de los transformadores eléctricos?",
+    opts: [
+      "Ley de Coulomb: a mayor voltaje, las cargas eléctricas viajan más fácilmente a larga distancia.",
+      "Efecto Joule: al aumentar el voltaje, la resistencia de los cables disminuye, reduciendo las pérdidas.",
+      "Principio de superposición: los voltajes de varias líneas se suman para lograr la transmisión eficiente.",
+      "Inducción electromagnética (Faraday): un campo magnético variable en el bobinado primario induce una corriente en el secundario, permitiendo cambiar el voltaje según la relación de espiras (V₁/V₂ = N₁/N₂)."
+    ],
+    answer: 3,
+    just: "Un transformador aplica la ley de Faraday: la corriente alterna en el bobinado primario genera un campo magnético variable que induce una corriente en el secundario. La relación de voltajes es V₁/V₂ = N₁/N₂ (número de espiras). Transmitir a alto voltaje reduce la corriente y, por tanto, las pérdidas por efecto Joule (P = I²R).",
+    topic: "Inducción electromagnética – Transformador (Faraday)"
   }
 ];
 
@@ -732,6 +1053,30 @@ function showResults() {
     `;
     cont.appendChild(div);
   });
+  // ── Google Forms ──
+  const nameVal = (document.getElementById('student-name').value || '').trim();
+  const formBtn = document.getElementById('form-btn');
+  if (FORMS_CONFIG.enabled && nameVal) {
+    const bloques = [...new Set(queue.map(i => Q[i].block))].map(b => BLOCKS[b].label).join(', ');
+    const fecha = new Date().toLocaleDateString('es-CO');
+    const url = FORMS_CONFIG.url
+      + '?' + FORMS_CONFIG.nombre  + '=' + encodeURIComponent(nameVal)
+      + '&' + FORMS_CONFIG.puntaje + '=' + encodeURIComponent(correct + '/' + total + ' (' + pct + '%)')
+      + '&' + FORMS_CONFIG.bloques + '=' + encodeURIComponent(bloques)
+      + '&' + FORMS_CONFIG.fecha   + '=' + encodeURIComponent(fecha);
+    formBtn.href = url;
+    formBtn.style.display = 'inline-flex';
+  } else if (!FORMS_CONFIG.enabled) {
+    formBtn.style.display = 'none';
+  } else {
+    formBtn.style.display = 'none';
+  }
+
+  // Mostrar nombre si lo ingresó
+  const nameDisplay = document.getElementById('res-name');
+  if (nameVal) { nameDisplay.textContent = '👤 ' + nameVal; nameDisplay.style.display = 'block'; }
+  else { nameDisplay.style.display = 'none'; }
+
   show('results');
 }
 </script>
