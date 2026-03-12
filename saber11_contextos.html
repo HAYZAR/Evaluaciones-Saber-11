@@ -263,9 +263,14 @@
   <div style="padding-top:32px"></div>
   <div class="intro-box" style="margin-bottom:16px">
     <h2 style="margin-bottom:10px">📝 Ingresa tu nombre antes de comenzar</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
     <input id="student-name" type="text" placeholder="Nombre y apellido..."
+      style="flex:2;min-width:160px;padding:10px 14px;border:2px solid #e2e8f0;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s"
+      onfocus="this.style.borderColor='#1e3a8a'" onblur="this.style.borderColor='#e2e8f0'">
+    <input id="student-grade" type="text" placeholder="Grado (ej. 11-01)"
       style="width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s"
       onfocus="this.style.borderColor='#1e3a8a'" onblur="this.style.borderColor='#e2e8f0'">
+    </div>
     <p style="font-size:.78rem;color:#94a3b8;margin-top:6px">Requerido para registrar tu resultado.</p>
   </div>
   <div class="intro-box">
@@ -463,12 +468,13 @@ const BLOCKS = [
 //  3. Pega la URL base y los IDs aquí debajo:
 // ════════════════════════════════════════════════════════
 const FORMS_CONFIG = {
-  url:    "https://docs.google.com/forms/d/e/TU_FORM_ID/viewform",
-  nombre: "entry.000000001",   // ← reemplaza con el ID real
-  puntaje:"entry.000000002",
-  bloques:"entry.000000003",
-  fecha:  "entry.000000004",
-  enabled: false               // ← cambia a true cuando configures el formulario
+  url:    "https://docs.google.com/forms/d/e/1FAIpQLSdI9wEgVRIq1Kn4WbN9vxBgwz6nVfIsPLmL62VaMyF6RYCUMw/viewform",
+  nombre: "entry.850982644",
+  puntaje:"entry.251763391",
+  bloques:"entry.1612915478",
+  fecha:  "entry.2102059145",
+  grado:  "entry.112458585",
+  enabled: true
 };
 
 // ════════════════════════════════════════════════════════
@@ -1335,7 +1341,8 @@ function showResults() {
     cont.appendChild(div);
   });
   // ── Google Forms ──
-  const nameVal = (document.getElementById('student-name').value || '').trim();
+  const nameVal  = (document.getElementById('student-name').value  || '').trim();
+  const gradeVal = (document.getElementById('student-grade').value || '').trim();
   const formBtn = document.getElementById('form-btn');
   if (FORMS_CONFIG.enabled && nameVal) {
     const bloques = [...new Set(queue.map(i => Q[i].block))].map(b => BLOCKS[b].label).join(', ');
@@ -1344,7 +1351,8 @@ function showResults() {
       + '?' + FORMS_CONFIG.nombre  + '=' + encodeURIComponent(nameVal)
       + '&' + FORMS_CONFIG.puntaje + '=' + encodeURIComponent(correct + '/' + total + ' (' + pct + '%)')
       + '&' + FORMS_CONFIG.bloques + '=' + encodeURIComponent(bloques)
-      + '&' + FORMS_CONFIG.fecha   + '=' + encodeURIComponent(fecha);
+      + '&' + FORMS_CONFIG.fecha   + '=' + encodeURIComponent(fecha)
+      + '&' + FORMS_CONFIG.grado   + '=' + encodeURIComponent(gradeVal);
     formBtn.href = url;
     formBtn.style.display = 'inline-flex';
   } else if (!FORMS_CONFIG.enabled) {
@@ -1355,7 +1363,8 @@ function showResults() {
 
   // Mostrar nombre si lo ingresó
   const nameDisplay = document.getElementById('res-name');
-  if (nameVal) { nameDisplay.textContent = '👤 ' + nameVal; nameDisplay.style.display = 'block'; }
+  const displayLabel = nameVal + (gradeVal ? '  ·  Grado ' + gradeVal : '');
+  if (nameVal) { nameDisplay.textContent = '👤 ' + displayLabel; nameDisplay.style.display = 'block'; }
   else { nameDisplay.style.display = 'none'; }
 
   show('results');
