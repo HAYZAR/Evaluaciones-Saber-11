@@ -68,6 +68,10 @@
   .block-card.bi  { border-color: var(--ing);   }
   .block-card.bmu { border-color: var(--mus);   }
   .block-card.be  { border-color: var(--elec);  }
+  .block-card.bsa { border-color: var(--sal);   }
+  .block-card.bfe { border-color: var(--fen);   }
+  .block-card.btr { border-color: var(--tra);   }
+  .block-card.bco { border-color: var(--coc);   }
   .block-card .icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
   .block-card h3  { font-size: .98rem; font-weight: 700; margin-bottom: 5px; }
   .block-card p   { font-size: .8rem; color: var(--muted); line-height: 1.5; }
@@ -79,7 +83,11 @@
   .bc .pill { background: var(--clim-bg);  color: var(--clim);  }
   .bi .pill { background: var(--ing-bg);   color: var(--ing);   }
   .bmu .pill{ background: var(--mus-bg);   color: var(--mus);   }
-  .be .pill { background: var(--elec-bg);  color: var(--elec);  }
+  .be  .pill { background: var(--elec-bg);  color: var(--elec);  }
+  .bsa .pill { background: var(--sal-bg);   color: var(--sal);   }
+  .bfe .pill { background: var(--fen-bg);   color: var(--fen);   }
+  .btr .pill { background: var(--tra-bg);   color: var(--tra);   }
+  .bco .pill { background: var(--coc-bg);   color: var(--coc);   }
   .block-card .qs-badge { position: absolute; top: 12px; right: 12px; background: var(--border); color: var(--muted); border-radius: 99px; padding: 2px 8px; font-size: .72rem; font-weight: 700; }
 
   .all-btn-row { text-align: center; margin-bottom: 10px; }
@@ -103,6 +111,10 @@
   .block-tag.bi  { background: var(--ing-bg);   color: var(--ing);   }
   .block-tag.bmu { background: var(--mus-bg);   color: var(--mus);   }
   .block-tag.be  { background: var(--elec-bg);  color: var(--elec);  }
+  .block-tag.bsa { background: var(--sal-bg);   color: var(--sal);   }
+  .block-tag.bfe { background: var(--fen-bg);   color: var(--fen);   }
+  .block-tag.btr { background: var(--tra-bg);   color: var(--tra);   }
+  .block-tag.bco { background: var(--coc-bg);   color: var(--coc);   }
 
   .q-header { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
   .q-num { min-width: 36px; height: 36px; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; flex-shrink: 0; color: #fff; }
@@ -114,6 +126,10 @@
   .bi  .q-num { background: var(--ing);   }
   .bmu .q-num { background: var(--mus);   }
   .be  .q-num { background: var(--elec);  }
+  .bsa .q-num { background: var(--sal);   }
+  .bfe .q-num { background: var(--fen);   }
+  .btr .q-num { background: var(--tra);   }
+  .bco .q-num { background: var(--coc);   }
   .q-meta { font-size: .78rem; color: var(--muted); }
   .q-meta strong { color: var(--text); font-weight: 600; }
 
@@ -137,6 +153,10 @@
   .bi  .context-box { border-left: 4px solid var(--ing);   }
   .bmu .context-box { border-left: 4px solid var(--mus);   }
   .be  .context-box { border-left: 4px solid var(--elec);  }
+  .bsa .context-box { border-left: 4px solid var(--sal);   }
+  .bfe .context-box { border-left: 4px solid var(--fen);   }
+  .btr .context-box { border-left: 4px solid var(--tra);   }
+  .bco .context-box { border-left: 4px solid var(--coc);   }
   .bl .context-box th { background: var(--local-bg); color: var(--local-dark); border-color: #99f6e4; }
   .bs .context-box th { background: var(--sport-bg); color: var(--sport-dark); border-color: #fde68a; }
   .bt .context-box th { background: var(--tech-bg);  color: var(--tech-dark);  border-color: #c4b5fd; }
@@ -145,6 +165,10 @@
   .bi  .context-box th { background: var(--ing-bg);   color: var(--ing-dark);   border-color: #bae6fd; }
   .bmu .context-box th { background: var(--mus-bg);   color: var(--mus-dark);   border-color: #e879f9; }
   .be  .context-box th { background: var(--elec-bg);  color: var(--elec-dark);  border-color: #fed7aa; }
+  .bsa .context-box th { background: var(--sal-bg);   color: var(--sal-dark);   border-color: #a5f3fc; }
+  .bfe .context-box th { background: var(--fen-bg);   color: var(--fen-dark);   border-color: #c7d2fe; }
+  .btr .context-box th { background: var(--tra-bg);   color: var(--tra-dark);   border-color: #86efac; }
+  .bco .context-box th { background: var(--coc-bg);   color: var(--coc-dark);   border-color: #fcd34d; }
 
   .q-stem { font-size: 1rem; font-weight: 600; line-height: 1.6; margin: 14px 0 18px; color: var(--text); }
 
@@ -227,7 +251,7 @@
   <p>Preguntas basadas en situaciones locales, deportivas, tecnológicas e históricas</p>
   <div class="meta">
     <span>🏫 IED Los Rosales</span>
-    <span>📐 24 preguntas · 8 bloques</span>
+    <span>📐 36 preguntas · 12 bloques</span>
     <span>👨‍🏫 Hayzar Hernández B.</span>
   </div>
 </header>
@@ -246,7 +270,7 @@
   </div>
   <div class="intro-box">
     <h2>🎯 ¿Por qué contextos reales?</h2>
-    <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 12 preguntas refuerzan los tres aprendizajes más críticos usando contextos cercanos: <strong>Barranquilla, el deporte colombiano, la tecnología actual y los grandes descubrimientos de la historia de la ciencia.</strong></p>
+    <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 12 preguntas refuerzan los tres aprendizajes más críticos usando contextos cercanos: <strong>Barranquilla, el deporte, la tecnología, la historia de la ciencia, el clima, la ingeniería, la música, la electricidad, la salud, los fenómenos naturales, el transporte y la cocina.</strong></p>
   </div>
 
   <div class="block-grid">
@@ -306,10 +330,38 @@
       <p>Factura de energía, circuitos del hogar y transmisión eléctrica.</p>
       <span class="pill">Vida cotidiana</span>
     </div>
+    <div class="block-card bsa" onclick="startBlock(8)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🏥</span>
+      <h3>Salud y biofísica</h3>
+      <p>Ultrasonido médico, rayos X y presión arterial. Física aplicada a la salud.</p>
+      <span class="pill">Medicina · Biofísica</span>
+    </div>
+    <div class="block-card bfe" onclick="startBlock(9)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🌊</span>
+      <h3>Fenómenos naturales</h3>
+      <p>Ondas sísmicas, velocidad del tsunami y formación del arcoíris.</p>
+      <span class="pill">Naturaleza · Colombia</span>
+    </div>
+    <div class="block-card btr" onclick="startBlock(10)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🚗</span>
+      <h3>Transporte y movilidad</h3>
+      <p>Distancia de frenado, fuerza centrípeta en curvas y cinturón de seguridad.</p>
+      <span class="pill">Seguridad vial</span>
+    </div>
+    <div class="block-card bco" onclick="startBlock(11)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🍳</span>
+      <h3>Física en la cocina</h3>
+      <p>Olla a presión, mecanismos de transferencia de calor y horno microondas.</p>
+      <span class="pill">Vida cotidiana</span>
+    </div>
   </div>
 
   <div class="all-btn-row">
-    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 8 bloques completos (24 preguntas)</button>
+    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 12 bloques completos (36 preguntas)</button>
   </div>
 </div>
 
@@ -387,7 +439,15 @@ const BLOCKS = [
   { id:0, cls:"bl", icon:"🌊", label:"Locales",    color:"#0f766e" },
   { id:1, cls:"bs", icon:"⚽", label:"Deportes",   color:"#b45309" },
   { id:2, cls:"bt", icon:"🚀", label:"Tecnología", color:"#6d28d9" },
-  { id:3, cls:"bh", icon:"🔭", label:"Historia",   color:"#be123c" },
+  { id:3,  cls:"bh",  icon:"🔭", label:"Historia",      color:"#be123c" },
+  { id:4,  cls:"bc",  icon:"🌡️", label:"Clima",         color:"#047857" },
+  { id:5,  cls:"bi",  icon:"🏗️", label:"Ingeniería",    color:"#0284c7" },
+  { id:6,  cls:"bmu", icon:"🎵", label:"Música",         color:"#a21caf" },
+  { id:7,  cls:"be",  icon:"💡", label:"Electricidad",   color:"#ea580c" },
+  { id:8,  cls:"bsa", icon:"🏥", label:"Salud",          color:"#0e7490" },
+  { id:9,  cls:"bfe", icon:"🌊", label:"Fenómenos",      color:"#4338ca" },
+  { id:10, cls:"btr", icon:"🚗", label:"Transporte",     color:"#166534" },
+  { id:11, cls:"bco", icon:"🍳", label:"Cocina",         color:"#92400e" },
 ];
 
 // ════════════════════════════════════════════════════════
@@ -877,6 +937,227 @@ const Q = [
     answer: 3,
     just: "Un transformador aplica la ley de Faraday: la corriente alterna en el bobinado primario genera un campo magnético variable que induce una corriente en el secundario. La relación de voltajes es V₁/V₂ = N₁/N₂ (número de espiras). Transmitir a alto voltaje reduce la corriente y, por tanto, las pérdidas por efecto Joule (P = I²R).",
     topic: "Inducción electromagnética – Transformador (Faraday)"
+  },
+  // ─── BLOQUE 8: SALUD Y BIOFÍSICA ────────────────────────
+  {
+    block: 8, num: 25,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Ondas sonoras · Ultrasonido médico",
+    context: `<p>El ultrasonido médico emite ondas de 2-18 MHz desde un transductor hacia el cuerpo. Al encontrar interfaces entre tejidos de distinta densidad, parte de la onda <strong>se refleja</strong> y regresa al transductor. La profundidad del órgano se calcula: <strong>d = v · t / 2</strong>, con v ≈ 1 540 m/s en tejidos blandos.</p>`,
+    stem: "¿Con cuál principio físico se asocia correctamente la formación de imágenes por ultrasonido?",
+    opts: [
+      "Efecto fotoeléctrico: los tejidos absorben fotones de alta energía y emiten señales detectables.",
+      "Resonancia magnética: ondas de radio hacen vibrar los núcleos de hidrógeno de los tejidos.",
+      "Difracción: las ondas de ultrasonido se doblan alrededor de los órganos y revelan su forma.",
+      "Reflexión de ondas sonoras: al encontrar interfaces entre tejidos de distinta densidad, la onda regresa al transductor; el tiempo de retorno permite calcular la profundidad del órgano."
+    ],
+    answer: 3,
+    just: "El ultrasonido se basa en la reflexión de ondas sonoras de alta frecuencia. Cuando la onda encuentra la frontera entre dos tejidos con distinta impedancia acústica (ρ·v), parte se refleja. Con d = v·t/2 se calcula la distancia: si el eco regresa en t = 0,001 s, d = 1540 × 0,001 / 2 = 0,77 m. Este principio es el mismo del sonar y el radar.",
+    topic: "Reflexión de ondas – Ultrasonido (d = v·t/2)"
+  },
+  {
+    block: 8, num: 26,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Espectro electromagnético · Radiografía",
+    context: `<p>La tabla muestra las longitudes de onda de diferentes tipos de radiación electromagnética:</p>
+<table>
+  <tr><th>Tipo de radiación</th><th>Longitud de onda (nm)</th></tr>
+  <tr><td>Luz visible</td><td>400 – 700</td></tr>
+  <tr><td>Rayos X</td><td>0,001 – 10</td></tr>
+  <tr><td>Rayos gamma</td><td>&lt; 0,001</td></tr>
+</table>
+<p>(La energía del fotón E = h·c/λ; a menor λ, mayor E.)</p>`,
+    stem: "A partir de los datos, ¿cuál conclusión sobre los rayos X es correcta?",
+    opts: [
+      "Los rayos X tienen menor longitud de onda y mayor energía por fotón que la luz visible, lo que les permite atravesar tejidos blandos y revelar estructuras internas como huesos.",
+      "Los rayos X tienen mayor longitud de onda que la luz visible, por lo que son menos energéticos.",
+      "Los rayos X viajan a menor velocidad que la luz visible porque son más energéticos.",
+      "Los rayos X y la luz visible tienen la misma longitud de onda; solo difieren en su origen."
+    ],
+    answer: 0,
+    just: "E = h·c/λ: a menor λ, mayor energía. Los rayos X (0,001-10 nm) tienen λ mucho menor que la luz visible (400-700 nm), por lo que su energía es miles de veces mayor. Esta alta energía les permite ionizar átomos y penetrar tejidos blandos, siendo absorbidos diferencialmente por tejidos densos como el hueso (Ca), formando la imagen radiográfica.",
+    topic: "Espectro electromagnético – E = hc/λ (rayos X)"
+  },
+  {
+    block: 8, num: 27,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Presión en fluidos · Presión arterial",
+    context: `<p>La presión arterial de una persona se mide en el brazo a la altura del corazón y da 120/80 mmHg de pie. Un estudiante predice que si la persona se acuesta (posición horizontal), la presión en el brazo será <em>exactamente igual</em>. (ΔP = ρ · g · Δh, con ρ_sangre ≈ 1 060 kg/m³)</p>`,
+    stem: "¿La predicción es correcta?",
+    opts: [
+      "No es correcta. Al acostarse, la presión disminuye porque el corazón no tiene que vencer la gravedad.",
+      "No es correcta. Al acostarse, la presión aumenta porque el corazón bombea mayor volumen al estar horizontal.",
+      "Sí es correcta. Al acostarse, la diferencia de altura entre el corazón y el brazo (Δh ≈ 0) hace que ΔP = ρgh ≈ 0, por lo que la presión arterial en el brazo es prácticamente igual que de pie a esa misma altura.",
+      "No se puede determinar sin medir la frecuencia cardíaca en ambas posiciones."
+    ],
+    answer: 2,
+    just: "Según ΔP = ρgh, la diferencia de presión entre dos puntos de un fluido depende de la diferencia de altura. De pie, el brazo y el corazón están aproximadamente a la misma altura (Δh ≈ 0), y al acostarse también. Por eso la predicción es correcta para el brazo. La presión sí cambia significativamente en puntos muy alejados verticalmente (p.ej., pies vs. cabeza).",
+    topic: "Presión hidrostática – ΔP = ρgh (circulación sanguínea)"
+  },
+
+  // ─── BLOQUE 9: FENÓMENOS NATURALES ───────────────────────
+  {
+    block: 9, num: 28,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Ondas sísmicas · Terremoto en Colombia",
+    context: `<p>Colombia está en zona sísmica activa. En un sismo se generan ondas <strong>P</strong> (compresión, v ≈ 6 km/s) y ondas <strong>S</strong> (corte, v ≈ 3,5 km/s). Una estación detecta primero las ondas P y después las ondas S del mismo evento.</p>`,
+    stem: "¿Con cuál principio se asocia correctamente que las ondas P lleguen antes que las S?",
+    opts: [
+      "Las ondas P tienen mayor amplitud y transportan más energía, por eso llegan primero.",
+      "Las ondas P viajan más rápido (v_P > v_S). A igual distancia, t = d/v; mayor velocidad implica menor tiempo de viaje, por lo que las P llegan antes.",
+      "Las ondas S viajan más rápido porque son transversales y producen mayor desplazamiento.",
+      "La diferencia de llegada solo ocurre en roca blanda; en roca dura P y S llegan simultáneamente."
+    ],
+    answer: 1,
+    just: "La relación t = d/v muestra que, a igual distancia d, menor tiempo implica mayor velocidad. v_P ≈ 6 km/s > v_S ≈ 3,5 km/s, por eso las ondas P siempre llegan antes. La diferencia de tiempo (t_S - t_P) se usa para calcular la distancia al epicentro: d = (v_P · v_S · Δt) / (v_P - v_S).",
+    topic: "Ondas mecánicas – t = d/v (ondas sísmicas P y S)"
+  },
+  {
+    block: 9, num: 29,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Velocidad de onda · Tsunami en el Pacífico",
+    context: `<p>La velocidad de un tsunami en mar abierto se calcula con <strong>v = √(g · h)</strong>, donde h es la profundidad. Datos:</p>
+<table>
+  <tr><th>Profundidad (m)</th><th>Velocidad (m/s)</th><th>Velocidad (km/h)</th></tr>
+  <tr><td>4 000</td><td>198</td><td>713</td></tr>
+  <tr><td>1 000</td><td>99</td><td>356</td></tr>
+  <tr><td>100</td><td>31</td><td>113</td></tr>
+</table>`,
+    stem: "A partir de los datos, ¿cuál conclusión es correcta?",
+    opts: [
+      "La velocidad del tsunami es constante sin importar la profundidad del océano.",
+      "A menor profundidad, mayor velocidad, porque la ola tiene menos agua que mover.",
+      "La velocidad del tsunami en mar abierto (~700 km/h) es similar a la de un tren bala.",
+      "Al acercarse a la costa (h disminuye), la velocidad cae pero la altura de la ola aumenta, porque la energía de la onda se conserva y se concentra en menor columna de agua."
+    ],
+    answer: 3,
+    just: "v = √(gh): a menor h, menor v. En mar abierto (h=4000m): v≈713 km/h; en costa (h=100m): v≈113 km/h. La energía de la onda E ∝ A²·v se conserva: al reducirse v, la amplitud A (altura) debe aumentar. Por eso un tsunami indetectable en mar abierto (A < 1 m) puede alcanzar alturas destructivas de 10-30 m al llegar a la costa.",
+    topic: "Energía de onda – Tsunami: v = √(gh), conservación de energía"
+  },
+  {
+    block: 9, num: 30,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Refracción · Arcoíris en el Caribe",
+    context: `<p>Un arcoíris se forma cuando la luz solar entra en gotas de lluvia, se refracta al entrar, se refleja en la pared interior y se refracta al salir. Un estudiante predice que el arcoíris se forma porque la luz se <em>refleja</em> en las gotas como en espejos, sin cambiar de velocidad ni dirección.</p>`,
+    stem: "¿La predicción es correcta?",
+    opts: [
+      "No es correcta. El arcoíris se debe principalmente a la refracción: al entrar en la gota la luz cambia de velocidad (n_agua > n_aire) y se desvía; como el índice varía con λ, cada color se refracta a distinto ángulo, separando el espectro visible.",
+      "Sí es correcta. Las gotas actúan como espejos curvos que separan los colores de la luz por reflexión pura.",
+      "Sí es correcta, pero solo cuando la humedad relativa supera el 90% y las gotas son perfectamente esféricas.",
+      "No es correcta. El arcoíris se forma por difracción de la luz alrededor de las gotas, no por refracción ni reflexión."
+    ],
+    answer: 0,
+    just: "El arcoíris combina refracción, reflexión interna total y refracción de salida. La clave es la dispersión: el índice de refracción del agua varía con la longitud de onda (n_rojo < n_violeta). Por eso cada color se refracta a distinto ángulo al entrar y salir de la gota, separando la luz blanca en el espectro. La reflexión interna es necesaria pero no es la causa de la separación de colores.",
+    topic: "Refracción de la luz – Dispersión y arcoíris (Ley de Snell)"
+  },
+
+  // ─── BLOQUE 10: TRANSPORTE Y MOVILIDAD ───────────────────
+  {
+    block: 10, num: 31,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Energía cinética · Distancia de frenado",
+    context: `<p>Un automóvil frena de emergencia con desaceleración a = 8 m/s². La distancia de frenado es d = v²/(2a). Datos:</p>
+<table>
+  <tr><th>Velocidad (km/h)</th><th>Velocidad (m/s)</th><th>Distancia de frenado (m)</th></tr>
+  <tr><td>40</td><td>11,1</td><td>7,7</td></tr>
+  <tr><td>80</td><td>22,2</td><td>30,8</td></tr>
+  <tr><td>120</td><td>33,3</td><td>69,4</td></tr>
+</table>`,
+    stem: "¿Cuál conclusión sobre la relación entre velocidad y distancia de frenado es correcta?",
+    opts: [
+      "La distancia de frenado es directamente proporcional a la velocidad: si v se duplica, d también se duplica.",
+      "La distancia de frenado no depende de la velocidad, sino solo del coeficiente de fricción.",
+      "La distancia es proporcional al cuadrado de la velocidad (d ∝ v²): si v se duplica (40→80 km/h), d se cuadruplica (7,7→30,8 m, ×4). Duplicar la velocidad cuadruplica la distancia necesaria para frenar.",
+      "La distancia es proporcional a la raíz cuadrada de la velocidad."
+    ],
+    answer: 2,
+    just: "d = v²/(2a) → d ∝ v². Comprobación: al pasar de 40 a 80 km/h (×2), d pasa de 7,7 a 30,8 m (×4 = 2²). De 40 a 120 km/h (×3): d pasa de 7,7 a 69,4 m (×9 = 3²). Esta relación cuadrática explica por qué exceder el límite de velocidad aumenta drásticamente el riesgo de accidente.",
+    topic: "Energía cinética – d = v²/(2a) (distancia de frenado)"
+  },
+  {
+    block: 10, num: 32,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Fuerza centrípeta · Motocicleta en curva",
+    context: `<p>Una motocicleta (masa total conductor + moto = 280 kg) toma una curva circular de radio 50 m a 60 km/h (16,7 m/s). Un estudiante calcula que la fuerza centrípeta necesaria es 1 568 N. (Fc = mv²/r)</p>`,
+    stem: "¿La predicción del estudiante es correcta?",
+    opts: [
+      "No es correcta. La fuerza centrípeta no depende de la masa, solo de la velocidad y el radio.",
+      "Sí es correcta. Fc = mv²/r = 280 × (16,7)² / 50 = 280 × 278,9 / 50 ≈ 1 562 N ≈ 1 568 N.",
+      "No es correcta. La fuerza centrípeta es igual al peso: 280 × 9,8 = 2 744 N.",
+      "No es correcta. En una curva, la fuerza centrípeta actúa siempre hacia afuera (fuerza centrífuga)."
+    ],
+    answer: 1,
+    just: "Fc = mv²/r = 280 × (16,7)² / 50 = 280 × 278,89 / 50 = 78 089 / 50 ≈ 1 562 N. El estudiante obtiene 1 568 N, una diferencia de ~0,4% debida al redondeo de 60 km/h = 16,67 m/s. La predicción es correcta. Esta fuerza la provee la fricción entre los neumáticos y el asfalto; si es insuficiente, la moto derrapa.",
+    topic: "Dinámica circular – Fc = mv²/r"
+  },
+  {
+    block: 10, num: 33,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Inercia · Cinturón de seguridad",
+    context: `<p>En un choque frontal, el vehículo se detiene bruscamente. Los ocupantes tienden a seguir moviéndose hacia adelante si no llevan cinturón. El cinturón ejerce una fuerza sobre el cuerpo del ocupante para detenerlo junto con el vehículo.</p>`,
+    stem: "¿Con cuál principio físico se asocia correctamente la función del cinturón de seguridad?",
+    opts: [
+      "Tercera Ley de Newton: el ocupante ejerce sobre el asiento una fuerza igual y opuesta a la que el asiento ejerce sobre él.",
+      "Conservación de la energía: el cinturón absorbe la energía cinética del ocupante y la convierte en calor.",
+      "Segunda Ley de Newton: el cinturón aplica al ocupante una fuerza igual a su peso multiplicado por la aceleración.",
+      "Primera Ley de Newton (inercia): un cuerpo en movimiento tiende a continuar en línea recta; el cinturón provee la fuerza para cambiar el estado de movimiento del ocupante y detenerlo junto con el vehículo."
+    ],
+    answer: 3,
+    just: "La Primera Ley de Newton establece que un cuerpo en movimiento continúa así si no actúa una fuerza neta sobre él. En el choque, el vehículo para pero el ocupante (sin cinturón) continúa a la velocidad previa. El cinturón aplica la fuerza necesaria (F = ma) para desacelerarlo de forma controlada, distribuyendo el impacto en el tiempo y evitando lesiones graves.",
+    topic: "Primera Ley de Newton – Inercia (cinturón de seguridad)"
+  },
+
+  // ─── BLOQUE 11: FÍSICA EN LA COCINA ──────────────────────
+  {
+    block: 11, num: 34,
+    comp: "Evaluar predicciones sobre fenómenos físicos",
+    sub: "Presión y ebullición · Olla a presión",
+    context: `<p>En una olla a presión, el vapor queda atrapado y la presión interna sube hasta ≈ 2 atm (202 000 Pa). A 1 atm el agua hierve a 100 °C. Un cocinero predice que dentro de la olla el agua hierve a más de 100 °C, lo que permite cocinar más rápido.</p>`,
+    stem: "¿La predicción del cocinero es correcta?",
+    opts: [
+      "Sí es correcta. Al aumentar la presión, el punto de ebullición del agua sube (≈120 °C a 2 atm). El agua más caliente transfiere calor más rápido a los alimentos, reduciendo el tiempo de cocción.",
+      "No es correcta. La temperatura de ebullición siempre es 100 °C sin importar la presión.",
+      "No es correcta. La mayor presión reduce el punto de ebullición, por lo que el agua hierve antes de 100 °C.",
+      "Sí es correcta, pero solo porque la olla hermética retiene el vapor y este transfiere más calor que el agua líquida."
+    ],
+    answer: 0,
+    just: "El punto de ebullición depende de la presión: a mayor presión, mayor temperatura necesaria para que el vapor sea igual a la presión exterior (clausius-clapeyron). A 2 atm el agua hierve a ≈120 °C. Esta temperatura más alta aumenta el gradiente térmico con los alimentos, acelerando la cocción. En Bogotá (0,75 atm), el agua hierve a ≈92 °C, por eso la olla a presión es muy útil en altitud.",
+    topic: "Presión y cambios de fase – Punto de ebullición P(T)"
+  },
+  {
+    block: 11, num: 35,
+    comp: "Asociar fenómenos con conceptos físicos",
+    sub: "Transferencia de calor · Cocción en la estufa",
+    context: `<p>Al calentar una olla de sopa se observan tres fenómenos simultáneos:<br>
+(1) El mango metálico de la olla se calienta aunque no esté en contacto directo con el fuego.<br>
+(2) La sopa circula en corrientes visibles: el líquido caliente sube y el frío baja.<br>
+(3) La cara del cocinero se calienta aunque esté a 40 cm de la llama, sin tocar nada.</p>`,
+    stem: "¿Cuál opción asocia correctamente cada fenómeno con su mecanismo de transferencia de calor?",
+    opts: [
+      "(1) Convección, (2) Conducción, (3) Radiación.",
+      "(1) Radiación, (2) Conducción, (3) Convección.",
+      "(1) Conducción – el calor fluye a través del metal de la olla; (2) Convección – el fluido caliente sube y el frío baja formando corrientes; (3) Radiación – el calor viaja en ondas infrarrojas sin necesitar medio material.",
+      "Los tres son conducción, porque en todos los casos hay transferencia de calor por contacto directo."
+    ],
+    answer: 2,
+    just: "(1) Conducción: el calor se transfiere por vibración de átomos en el metal, sin flujo de materia. (2) Convección: el fluido caliente (menor densidad) sube y el frío (mayor densidad) baja, creando corrientes. (3) Radiación: el calor se propaga como radiación infrarroja (EM) y no necesita medio material; por eso el sol nos calienta a través del vacío del espacio.",
+    topic: "Transferencia de calor – Conducción, convección y radiación"
+  },
+  {
+    block: 11, num: 36,
+    comp: "Derivar conclusiones sobre fenómenos físicos",
+    sub: "Ondas electromagnéticas · Horno microondas",
+    context: `<p>Un horno microondas emite ondas con frecuencia de <strong>2,45 GHz</strong> (2,45 × 10⁹ Hz). Estas ondas hacen vibrar las moléculas de agua de los alimentos, generando calor por fricción molecular. (c = 3 × 10⁸ m/s)</p>`,
+    stem: "¿Cuál conclusión sobre el funcionamiento del microondas es correcta?",
+    opts: [
+      "Las microondas calientan porque tienen mayor frecuencia que la luz visible, siendo más energéticas y penetrando mejor.",
+      "λ = c/f = 3×10⁸ / 2,45×10⁹ ≈ 0,122 m = 12,2 cm. Esta longitud de onda específica entra en resonancia con las moléculas de agua, provocando su vibración rotacional y generando calor por fricción molecular. Solo los alimentos con agua se calientan.",
+      "Las microondas calientan por efecto fotoeléctrico: los electrones de las moléculas de agua absorben fotones y los re-emiten como calor.",
+      "Las microondas son radiación ionizante similar a los rayos X; rompen los enlaces moleculares del alimento y lo cocinan."
+    ],
+    answer: 1,
+    just: "λ = c/f = (3×10⁸)/(2,45×10⁹) ≈ 0,122 m. Esta λ específica coincide con la frecuencia de rotación dipolar de las moléculas de agua (resonancia), provocando su vibración intensa → temperatura. Las microondas NO son ionizantes (tienen energía ~10⁻⁵ eV vs. los ~10 eV de los rayos UV). Los recipientes sin agua no se calientan directamente.",
+    topic: "Ondas EM – λ = c/f (microondas y resonancia molecular)"
   }
 ];
 
