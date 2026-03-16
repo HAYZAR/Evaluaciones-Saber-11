@@ -3,339 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Física 11 · IED Los Rosales</title>
+<title>Física 11 · IED Los Rosales · Banco de Evaluaciones</title>
 <style>
   :root {
-    --blue:   #1a56db;
-    --violet: #7e3af2;
-    --teal:   #059669;
-    --bg:     #eef2ff;
+    --bg:      #f0f4ff;
+    --card-bg: #ffffff;
+    --pri-red:    #dc2626; --pri-red-bg:    #fef2f2;
+    --pri-orange: #ea580c; --pri-orange-bg: #fff7ed;
+    --pri-yellow: #d97706; --pri-yellow-bg: #fffbeb;
+    --pri-green:  #059669; --pri-green-bg:  #f0fdf4;
+    --ind:  #1d4ed8; --ind-bg:  #eff6ff; --ind-lt: #dbeafe;
+    --exp:  #7c3aed; --exp-bg:  #f5f3ff; --exp-lt: #ede9fe;
+    --uso:  #0e7490; --uso-bg:  #ecfeff; --uso-lt: #cffafe;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
 
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(135deg, #1e1b4b 0%, #1a56db 55%, #6d28d9 100%);
-    color: #fff;
-    text-align: center;
-    padding: 56px 24px 44px;
-    position: relative;
-    overflow: hidden;
-  }
-  header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px; left: 0; right: 0;
-    height: 40px;
-    background: var(--bg);
-    clip-path: ellipse(55% 100% at 50% 100%);
-  }
-  .badge {
-    display: inline-block;
-    background: rgba(255,255,255,.18);
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 999px;
-    padding: 5px 20px;
-    font-size: .75rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  header h1 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 900;
-    letter-spacing: -.5px;
-    line-height: 1.15;
-    margin-bottom: 14px;
-  }
+  header { background: linear-gradient(135deg, #1e1b4b 0%, #1a56db 55%, #6d28d9 100%); color: #fff; text-align: center; padding: 52px 24px 48px; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 44px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+  .hbadge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 5px 22px; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 22px; }
+  header h1 { font-size: clamp(1.75rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -.5px; line-height: 1.15; margin-bottom: 12px; }
   header h1 em { font-style: normal; color: #a5f3fc; }
-  header p {
-    font-size: .95rem;
-    opacity: .82;
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.65;
-  }
+  header p { font-size: .93rem; opacity: .82; max-width: 480px; margin: 0 auto; line-height: 1.65; }
 
-  /* ── STATS ROW ── */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,.08);
-    max-width: 580px;
-    margin: 36px auto 0;
-    overflow: hidden;
-  }
-  .stat {
-    flex: 1;
-    padding: 16px 10px;
-    text-align: center;
-    border-right: 1px solid #f1f5f9;
-  }
+  .stats { display: flex; background: #fff; border-radius: 16px; box-shadow: 0 2px 18px rgba(0,0,0,.10); max-width: 620px; margin: 36px auto 0; overflow: hidden; }
+  .stat { flex: 1; padding: 16px 10px; text-align: center; border-right: 1px solid #f1f5f9; }
   .stat:last-child { border-right: none; }
-  .stat-val {
-    font-size: 1.5rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #1a56db, #7e3af2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .stat-lbl {
-    font-size: .65rem;
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    color: #94a3b8;
-    margin-top: 2px;
-  }
+  .stat-val { font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #1a56db, #7e3af2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat-lbl { font-size: .62rem; text-transform: uppercase; letter-spacing: .07em; color: #94a3b8; margin-top: 2px; }
 
-  /* ── MAIN ── */
-  main {
-    flex: 1;
-    max-width: 860px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 48px 20px 64px;
-  }
-  .section-label {
-    text-align: center;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #94a3b8;
-    margin-bottom: 30px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
+  main { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 44px 20px 68px; }
 
-  /* ── CARD ── */
-  .card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,.07);
-    cursor: pointer;
-    transition: transform .22s, box-shadow .22s;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 40px rgba(0,0,0,.13);
-  }
-  .card:hover .cta-btn { filter: brightness(1.1); }
+  .quick-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+  .ql-btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 26px; border-radius: 13px; border: none; cursor: pointer; font-size: .92rem; font-weight: 700; color: #fff; text-decoration: none; transition: transform .18s, box-shadow .18s; box-shadow: 0 4px 14px rgba(0,0,0,.14); }
+  .ql-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,.20); }
+  .ql-saber { background: linear-gradient(135deg, #1a56db 0%, #7e3af2 100%); }
+  .ql-ctx   { background: linear-gradient(135deg, #0694a2 0%, #059669 100%); }
+  .ql-badge { background: rgba(255,255,255,.25); border-radius: 999px; padding: 2px 9px; font-size: .72rem; font-weight: 800; }
 
-  .card-stripe {
-    height: 6px;
-  }
-  .c1 .card-stripe { background: linear-gradient(90deg, #1a56db 0%, #7e3af2 100%); }
-  .c2 .card-stripe { background: linear-gradient(90deg, #0694a2 0%, #059669 100%); }
+  .legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 36px; padding: 14px 18px; background: #fff; border-radius: 12px; box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+  .legend-title { width: 100%; text-align: center; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 6px; }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: .76rem; color: #475569; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
-  .card-inner { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .comp-section { margin-bottom: 40px; }
+  .comp-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 14px 14px 0 0; }
+  .comp-header.ind { background: var(--ind-lt); border-bottom: 3px solid var(--ind); }
+  .comp-header.exp { background: var(--exp-lt); border-bottom: 3px solid var(--exp); }
+  .comp-header.uso { background: var(--uso-lt); border-bottom: 3px solid var(--uso); }
+  .comp-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+  .ind .comp-icon { background: var(--ind-bg); }
+  .exp .comp-icon { background: var(--exp-bg); }
+  .uso .comp-icon { background: var(--uso-bg); }
+  .comp-title { font-size: 1.1rem; font-weight: 800; }
+  .ind .comp-title { color: var(--ind); }
+  .exp .comp-title { color: var(--exp); }
+  .uso .comp-title { color: var(--uso); }
+  .comp-sub { font-size: .76rem; color: #64748b; margin-top: 2px; }
 
-  .card-emoji {
-    width: 52px; height: 52px;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.7rem;
-    margin-bottom: 18px;
-    flex-shrink: 0;
-  }
-  .c1 .card-emoji { background: #ede9fe; }
-  .c2 .card-emoji { background: #d1fae5; }
+  .apr-list { background: var(--card-bg); border-radius: 0 0 16px 16px; box-shadow: 0 4px 20px rgba(0,0,0,.07); overflow: hidden; }
+  .apr-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 20px 22px; border-bottom: 1px solid #f1f5f9; transition: background .15s; }
+  .apr-card:last-child { border-bottom: none; }
+  .apr-card:hover { background: #fafbff; }
 
-  .card-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  .card-desc {
-    font-size: .88rem;
-    color: #475569;
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 20px;
-  }
-  .card-desc em { font-style: italic; color: #334155; }
+  .pri-badge { width: 68px; flex-shrink: 0; border-radius: 12px; padding: 10px 6px; text-align: center; }
+  .pri-badge .pct { font-size: 1.35rem; font-weight: 900; line-height: 1; display: block; }
+  .pri-badge .plbl { font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; display: block; margin-top: 3px; }
+  .pri-badge .prio { font-size: .6rem; color: #94a3b8; display: block; margin-top: 4px; }
+  .pri-red    { background: var(--pri-red-bg); }
+  .pri-red    .pct,.pri-red    .plbl { color: var(--pri-red); }
+  .pri-orange { background: var(--pri-orange-bg); }
+  .pri-orange .pct,.pri-orange .plbl { color: var(--pri-orange); }
 
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
-  .tag {
-    font-size: .7rem; font-weight: 600;
-    padding: 4px 11px; border-radius: 999px;
-  }
-  .c1 .tag { background: #ede9fe; color: #5b21b6; }
-  .c2 .tag { background: #d1fae5; color: #065f46; }
+  .apr-info { min-width: 0; }
+  .apr-name { font-size: .95rem; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 5px; }
+  .apr-desc { font-size: .8rem; color: #64748b; line-height: 1.55; }
 
-  .cta-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: .87rem; font-weight: 700;
-    padding: 11px 22px; border-radius: 11px;
-    border: none; cursor: pointer;
-    color: #fff; align-self: flex-start;
-    transition: transform .15s, filter .15s;
-    text-decoration: none;
-  }
-  .c1 .cta-btn { background: linear-gradient(135deg, #1a56db, #7e3af2); }
-  .c2 .cta-btn { background: linear-gradient(135deg, #0694a2, #059669); }
+  .apr-links { display: flex; flex-direction: column; gap: 7px; flex-shrink: 0; }
+  .res-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 9px; border: none; cursor: pointer; font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: transform .15s, filter .15s; }
+  .res-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+  .res-saber { background: #ede9fe; color: #4f46e5; }
+  .res-ctx   { background: #d1fae5; color: #065f46; }
+  .res-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .res-saber .res-dot { background: #4f46e5; }
+  .res-ctx   .res-dot { background: #059669; }
 
-  .card-footer {
-    display: flex; gap: 0;
-    border-top: 1px solid #f1f5f9;
-    background: #fafbff;
-  }
-  .c2 .card-footer { background: #f0fdf8; }
-  .kpi {
-    flex: 1; text-align: center;
-    padding: 14px 8px;
-    border-right: 1px solid #f1f5f9;
-  }
-  .kpi:last-child { border-right: none; }
-  .kpi-val { font-size: 1.15rem; font-weight: 900; color: #0f172a; }
-  .kpi-lbl { font-size: .63rem; text-transform: uppercase; letter-spacing: .07em; color: #94a3b8; margin-top: 2px; }
+  .sec-title { text-align: center; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #94a3b8; margin-bottom: 20px; margin-top: 44px; }
 
-  /* ── FEATURES ── */
-  .features {
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 10px; margin-top: 40px;
-  }
-  .feat {
-    display: flex; align-items: center; gap: 7px;
-    background: #fff; border-radius: 999px;
-    padding: 7px 16px;
-    font-size: .8rem; color: #475569;
-    box-shadow: 0 1px 6px rgba(0,0,0,.06);
-  }
+  .entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; }
+  .entry-card { background: var(--card-bg); border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,.07); overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+  .entry-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,.13); }
+  .entry-stripe { height: 5px; }
+  .ec1 .entry-stripe { background: linear-gradient(90deg, #1a56db 0%, #7e3af2 100%); }
+  .ec2 .entry-stripe { background: linear-gradient(90deg, #0694a2 0%, #059669 100%); }
+  .entry-inner { padding: 26px 26px 22px; flex: 1; display: flex; flex-direction: column; }
+  .entry-emoji { width: 50px; height: 50px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; margin-bottom: 16px; flex-shrink: 0; }
+  .ec1 .entry-emoji { background: #ede9fe; }
+  .ec2 .entry-emoji { background: #d1fae5; }
+  .entry-title { font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+  .entry-desc { font-size: .85rem; color: #475569; line-height: 1.6; flex: 1; margin-bottom: 20px; }
+  .entry-cta { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 700; padding: 11px 20px; border-radius: 10px; border: none; cursor: pointer; color: #fff; text-decoration: none; align-self: flex-start; transition: transform .15s, filter .15s; }
+  .entry-cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
+  .ec1 .entry-cta { background: linear-gradient(135deg, #1a56db, #7e3af2); }
+  .ec2 .entry-cta { background: linear-gradient(135deg, #0694a2, #059669); }
+  .entry-footer { display: flex; border-top: 1px solid #f1f5f9; background: #fafbff; }
+  .ec2 .entry-footer { background: #f0fdf8; }
+  .ekpi { flex: 1; text-align: center; padding: 13px 8px; border-right: 1px solid #f1f5f9; }
+  .ekpi:last-child { border-right: none; }
+  .ekpi-val { font-size: 1.1rem; font-weight: 900; color: #0f172a; }
+  .ekpi-lbl { font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin-top: 2px; }
+
+  .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 40px; }
+  .feat { display: flex; align-items: center; gap: 7px; background: #fff; border-radius: 999px; padding: 7px 16px; font-size: .79rem; color: #475569; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
   .feat strong { color: #0f172a; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #0f172a;
-    color: #64748b;
-    text-align: center;
-    padding: 20px 24px;
-    font-size: .78rem;
-    line-height: 1.8;
-  }
+  footer { background: #0f172a; color: #64748b; text-align: center; padding: 20px 24px; font-size: .78rem; line-height: 1.8; }
   footer strong { color: #cbd5e1; }
-  footer a { color: #818cf8; text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 500px) {
-    header { padding: 40px 18px 36px; }
-    .card-inner { padding: 22px 20px 18px; }
+  @media (max-width: 600px) {
+    .apr-card { grid-template-columns: auto 1fr; gap: 12px; }
+    .apr-links { flex-direction: row; flex-wrap: wrap; grid-column: 1 / -1; }
+    header { padding: 38px 16px 40px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
 <header>
-  <div class="badge">IED Los Rosales · Barranquilla</div>
+  <div class="hbadge">IED Los Rosales · Barranquilla · Saber 11 2025</div>
   <h1>Evaluaciones de <em>Física</em><br>Grado 11</h1>
-  <p>Material de refuerzo basado en los resultados<br><strong>Saber 11 ICFES 2025</strong> · Competencias priorizadas por %PRI</p>
-
+  <p>Refuerzo basado en los <strong>aprendizajes priorizados por %PRI</strong><br>Ciencias Naturales · Procesos Físicos</p>
   <div class="stats">
-    <div class="stat"><div class="stat-val">27</div><div class="stat-lbl">Preguntas</div></div>
-    <div class="stat"><div class="stat-val">7</div><div class="stat-lbl">Bloques</div></div>
-    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Competencias</div></div>
-    <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Retroalimentación</div></div>
+    <div class="stat"><div class="stat-val">40</div><div class="stat-lbl">Preguntas<br>Tipo Saber</div></div>
+    <div class="stat"><div class="stat-val">42</div><div class="stat-lbl">Preguntas<br>Contextos</div></div>
+    <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">Aprendizajes<br>cubiertos</div></div>
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Competencias<br>Saber 11</div></div>
   </div>
 </header>
 
-<!-- ═══ CARDS ═══ -->
 <main>
-  <p class="section-label">Elige una evaluación para comenzar</p>
+  <div class="quick-links" style="margin-top:44px">
+    <a class="ql-btn ql-saber" href="saber11_fisica.html">
+      📋 Evaluaciones Tipo Saber 11
+      <span class="ql-badge">8 evals · 40 Qs</span>
+    </a>
+    <a class="ql-btn ql-ctx" href="saber11_contextos.html">
+      🌍 Problemas por Contexto
+      <span class="ql-badge">14 bloques · 42 Qs</span>
+    </a>
+  </div>
 
-  <div class="grid">
+  <div class="legend">
+    <div class="legend-title">Porcentaje Promedio de Respuestas Incorrectas (%PRI) — Saber 11 · IED Los Rosales 2025</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#dc2626"></div>&nbsp;≥ 70% &nbsp;<strong style="color:#dc2626">Crítico</strong></div>
+    <div class="leg-item"><div class="leg-dot" style="background:#ea580c"></div>&nbsp;40–69% &nbsp;<strong style="color:#ea580c">Alto</strong></div>
+    <div class="leg-item"><div class="leg-dot" style="background:#d97706"></div>&nbsp;20–39% &nbsp;<strong style="color:#d97706">Moderado</strong></div>
+    <div class="leg-item"><div class="leg-dot" style="background:#059669"></div>&nbsp;&lt; 20% &nbsp;<strong style="color:#059669">Bajo</strong></div>
+  </div>
 
-    <!-- Card 1 -->
-    <div class="card c1" onclick="location.href='saber11_fisica.html'">
-      <div class="card-stripe"></div>
-      <div class="card-inner">
-        <div class="card-emoji">📋</div>
-        <div class="card-title">Evaluaciones Tipo Saber</div>
-        <p class="card-desc">
-          Tres evaluaciones en el formato oficial ICFES. Trabaja las competencias con mayor %PRI en tu institución:
-          <em>derivar conclusiones, evaluar predicciones y asociar fenómenos</em>.
-        </p>
-        <div class="tags">
-          <span class="tag">Indagación</span>
-          <span class="tag">Explicación de fenómenos</span>
-          <span class="tag">Uso comprensivo</span>
-          <span class="tag">Formato ICFES</span>
-        </div>
-        <a class="cta-btn" href="saber11_fisica.html" onclick="event.stopPropagation()">
-          Iniciar evaluación &rarr;
-        </a>
-      </div>
-      <div class="card-footer">
-        <div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Evaluaciones</div></div>
-        <div class="kpi"><div class="kpi-val">15</div><div class="kpi-lbl">Preguntas</div></div>
-        <div class="kpi"><div class="kpi-val">~25 min</div><div class="kpi-lbl">Por sesión</div></div>
+  <!-- COMPETENCIA 1: INDAGACIÓN -->
+  <div class="comp-section">
+    <div class="comp-header ind">
+      <div class="comp-icon ind">🔍</div>
+      <div>
+        <div class="comp-title ind">Indagación</div>
+        <div class="comp-sub">Usar la metodología científica para hacer preguntas, diseñar experimentos y derivar conclusiones a partir de evidencia.</div>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="card c2" onclick="location.href='saber11_contextos.html'">
-      <div class="card-stripe"></div>
-      <div class="card-inner">
-        <div class="card-emoji">🌍</div>
-        <div class="card-title">Problemas con Contexto Real</div>
-        <p class="card-desc">
-          Física en situaciones cercanas y motivadoras: el Río Magdalena, el Carnaval, figuras del deporte colombiano,
-          tecnología actual e hitos de la historia de la ciencia.
-        </p>
-        <div class="tags">
-          <span class="tag">🌊 Local</span>
-          <span class="tag">⚽ Deportes</span>
-          <span class="tag">🚀 Tecnología</span>
-          <span class="tag">🔭 Historia</span>
+    <div class="apr-list">
+      <div class="apr-card">
+        <div class="pri-badge pri-red">
+          <span class="pct">70%</span>
+          <span class="plbl">%PRI</span>
+          <span class="prio">Prio. #2</span>
         </div>
-        <a class="cta-btn" href="saber11_contextos.html" onclick="event.stopPropagation()">
-          Explorar contextos &rarr;
-        </a>
+        <div class="apr-info">
+          <div class="apr-name">Derivar conclusiones a partir de información y fenómenos físicos</div>
+          <div class="apr-desc">Analizar datos experimentales, identificar relaciones entre variables y formular conclusiones válidas sustentadas en evidencia cuantitativa.</div>
+        </div>
+        <div class="apr-links">
+          <a class="res-btn res-saber" href="saber11_fisica.html"><span class="res-dot"></span>Evaluación 1 · Saber</a>
+        </div>
       </div>
-      <div class="card-footer">
-        <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Bloques</div></div>
-        <div class="kpi"><div class="kpi-val">12</div><div class="kpi-lbl">Preguntas</div></div>
-        <div class="kpi"><div class="kpi-val">~20 min</div><div class="kpi-lbl">Por sesión</div></div>
+      <div class="apr-card">
+        <div class="pri-badge pri-orange">
+          <span class="pct">69%</span>
+          <span class="plbl">%PRI</span>
+          <span class="prio">Prio. #3</span>
+        </div>
+        <div class="apr-info">
+          <div class="apr-name">Utilizar habilidades científicas para evaluar predicciones</div>
+          <div class="apr-desc">Aplicar procedimientos de indagación para comprobar o refutar hipótesis, identificar variables e interpretar resultados frente a predicciones formuladas.</div>
+        </div>
+        <div class="apr-links">
+          <a class="res-btn res-saber" href="saber11_fisica.html"><span class="res-dot"></span>Evaluación 2 · Saber</a>
+        </div>
+      </div>
+      <div class="apr-card">
+        <div class="pri-badge pri-orange">
+          <span class="pct">63%</span>
+          <span class="plbl">%PRI</span>
+          <span class="prio">Prio. #10</span>
+        </div>
+        <div class="apr-info">
+          <div class="apr-name">Comprender que a partir de la investigación científica se construyen explicaciones sobre el mundo natural</div>
+          <div class="apr-desc">Reconocer el rol del método científico — observación, hipótesis, diseño experimental, análisis y conclusión — en la construcción del conocimiento científico.</div>
+        </div>
+        <div class="apr-links">
+          <a class="res-btn res-saber" href="saber11_fisica.html"><span class="res-dot"></span>Evaluación 8 · Saber</a>
+          <a class="res-btn res-ctx"   href="saber11_contextos.html"><span class="res-dot"></span>Bloque 13 · Contextos</a>
+        </div>
       </div>
     </div>
+  </div>
 
-  </div><!-- /grid -->
+  <!-- COMPETENCIA 2: EXPLICACIÓN DE FENÓMENOS -->
+  <div class="comp-section">
+    <div class="comp-header exp">
+      <div class="comp-icon exp">💡</div>
+      <div>
+        <div class="comp-title exp">Explicación de fenómenos</div>
+        <div class="comp-sub">Construir explicaciones causales de fenómenos físicos y asociarlos con los conceptos científicos que los describen.</div>
+      </div>
+    </div>
+    <div class="apr-list">
+      <div class="apr-card">
+        <div class="pri-badge pri-orange">
+          <span class="pct">69%</span>
+          <span class="plbl">%PRI</span>
+          <span class="prio">Prio. #4</span>
+        </div>
+        <div class="apr-info">
+          <div class="apr-name">Asociar fenómenos físicos con conceptos, teorías o leyes que los explican</div>
+          <div class="apr-desc">Identificar el principio físico subyacente en una situación y vincular correctamente el fenómeno observado con la ley o concepto que lo explica (conservación de energía, dinámica, termodinámica, etc.).</div>
+        </div>
+        <div class="apr-links">
+          <a class="res-btn res-saber" href="saber11_fisica.html"><span class="res-dot"></span>Evaluación 3 · Saber</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- feature pills -->
+  <!-- COMPETENCIA 3: USO COMPRENSIVO -->
+  <div class="comp-section">
+    <div class="comp-header uso">
+      <div class="comp-icon uso">⚙️</div>
+      <div>
+        <div class="comp-title uso">Uso comprensivo del conocimiento científico</div>
+        <div class="comp-sub">Aplicar conceptos, leyes y modelos para interpretar situaciones, resolver problemas y construir representaciones formales de fenómenos.</div>
+      </div>
+    </div>
+    <div class="apr-list">
+      <div class="apr-card">
+        <div class="pri-badge pri-orange">
+          <span class="pct">62%</span>
+          <span class="plbl">%PRI</span>
+          <span class="prio">Prio. #11</span>
+        </div>
+        <div class="apr-info">
+          <div class="apr-name">Modelar fenómenos de la naturaleza basado en el análisis de variables y la relación entre conceptos científicos</div>
+          <div class="apr-desc">Identificar variables relevantes y construir modelos matemáticos (gráficas, ecuaciones, tablas) que representen relaciones entre magnitudes físicas observadas experimentalmente.</div>
+        </div>
+        <div class="apr-links">
+          <a class="res-btn res-saber" href="saber11_fisica.html"><span class="res-dot"></span>Evaluación 7 · Saber</a>
+          <a class="res-btn res-ctx"   href="saber11_contextos.html"><span class="res-dot"></span>Bloque 12 · Contextos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCESO COMPLETO -->
+  <p class="sec-title">Acceso completo a los recursos</p>
+  <div class="entry-grid">
+    <div class="entry-card ec1" onclick="location.href='saber11_fisica.html'">
+      <div class="entry-stripe"></div>
+      <div class="entry-inner">
+        <div class="entry-emoji">📋</div>
+        <div class="entry-title">Evaluaciones Tipo Saber 11</div>
+        <p class="entry-desc">8 evaluaciones con formato oficial ICFES y gráficas SVG. Cubre los 5 aprendizajes priorizados con retroalimentación inmediata y registro de resultados.</p>
+        <a class="entry-cta" href="saber11_fisica.html" onclick="event.stopPropagation()">Iniciar evaluación →</a>
+      </div>
+      <div class="entry-footer">
+        <div class="ekpi"><div class="ekpi-val">8</div><div class="ekpi-lbl">Evaluaciones</div></div>
+        <div class="ekpi"><div class="ekpi-val">40</div><div class="ekpi-lbl">Preguntas</div></div>
+        <div class="ekpi"><div class="ekpi-val">~50 min</div><div class="ekpi-lbl">Completo</div></div>
+      </div>
+    </div>
+    <div class="entry-card ec2" onclick="location.href='saber11_contextos.html'">
+      <div class="entry-stripe"></div>
+      <div class="entry-inner">
+        <div class="entry-emoji">🌍</div>
+        <div class="entry-title">Problemas por Contextos Reales</div>
+        <p class="entry-desc">14 bloques temáticos: Barranquilla, deportes, tecnología, historia de la ciencia, modelado experimental e investigación científica. Física viva y cercana.</p>
+        <a class="entry-cta" href="saber11_contextos.html" onclick="event.stopPropagation()">Explorar contextos →</a>
+      </div>
+      <div class="entry-footer">
+        <div class="ekpi"><div class="ekpi-val">14</div><div class="ekpi-lbl">Bloques</div></div>
+        <div class="ekpi"><div class="ekpi-val">42</div><div class="ekpi-lbl">Preguntas</div></div>
+        <div class="ekpi"><div class="ekpi-val">~55 min</div><div class="ekpi-lbl">Completo</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="features">
     <div class="feat">📊 <span>Basado en <strong>Saber 11 · 2025</strong></span></div>
     <div class="feat">📱 <span>Compatible con <strong>móvil y PC</strong></span></div>
-    <div class="feat">⚡ <span><strong>Sin registro</strong> · sin conexión</span></div>
-    <div class="feat">✅ <span>Respuesta y <strong>justificación</strong> inmediata</span></div>
+    <div class="feat">⚡ <span><strong>Sin instalación</strong> · funciona offline</span></div>
+    <div class="feat">✅ <span>Justificación <strong>inmediata</strong> por pregunta</span></div>
+    <div class="feat">📝 <span>Registro via <strong>Google Forms</strong></span></div>
   </div>
-
 </main>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <strong>Hayzar Hernández B.</strong> · Docente de Física · IED Los Rosales · Barranquilla<br>
-  Material pedagógico de uso libre para fines educativos · 2025
+  Material pedagógico de uso libre para fines educativos · 2025–2026
 </footer>
-
 </body>
 </html>

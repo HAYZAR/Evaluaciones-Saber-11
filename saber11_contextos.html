@@ -72,6 +72,8 @@
   .block-card.bfe { border-color: var(--fen);   }
   .block-card.btr { border-color: var(--tra);   }
   .block-card.bco { border-color: var(--coc);   }
+  .block-card.bmod { border-color: var(--bmod);  }
+  .block-card.bci  { border-color: var(--bci);   }
   .block-card .icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
   .block-card h3  { font-size: .98rem; font-weight: 700; margin-bottom: 5px; }
   .block-card p   { font-size: .8rem; color: var(--muted); line-height: 1.5; }
@@ -88,6 +90,8 @@
   .bfe .pill { background: var(--fen-bg);   color: var(--fen);   }
   .btr .pill { background: var(--tra-bg);   color: var(--tra);   }
   .bco .pill { background: var(--coc-bg);   color: var(--coc);   }
+  .bmod .pill { background: var(--bmod-bg); color: var(--bmod);  }
+  .bci  .pill { background: var(--bci-bg);  color: var(--bci);   }
   .block-card .qs-badge { position: absolute; top: 12px; right: 12px; background: var(--border); color: var(--muted); border-radius: 99px; padding: 2px 8px; font-size: .72rem; font-weight: 700; }
 
   .all-btn-row { text-align: center; margin-bottom: 10px; }
@@ -115,6 +119,8 @@
   .block-tag.bfe { background: var(--fen-bg);   color: var(--fen);   }
   .block-tag.btr { background: var(--tra-bg);   color: var(--tra);   }
   .block-tag.bco { background: var(--coc-bg);   color: var(--coc);   }
+  .block-tag.bmod { background: var(--bmod-bg); color: var(--bmod);  }
+  .block-tag.bci  { background: var(--bci-bg);  color: var(--bci);   }
 
   .q-header { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
   .q-num { min-width: 36px; height: 36px; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; flex-shrink: 0; color: #fff; }
@@ -130,6 +136,8 @@
   .bfe .q-num { background: var(--fen);   }
   .btr .q-num { background: var(--tra);   }
   .bco .q-num { background: var(--coc);   }
+  .bmod .q-num { background: var(--bmod);  }
+  .bci  .q-num { background: var(--bci);   }
   .q-meta { font-size: .78rem; color: var(--muted); }
   .q-meta strong { color: var(--text); font-weight: 600; }
 
@@ -157,6 +165,8 @@
   .bfe .context-box { border-left: 4px solid var(--fen);   }
   .btr .context-box { border-left: 4px solid var(--tra);   }
   .bco .context-box { border-left: 4px solid var(--coc);   }
+  .bmod .context-box { border-left: 4px solid var(--bmod);  }
+  .bci  .context-box { border-left: 4px solid var(--bci);   }
   .bl .context-box th { background: var(--local-bg); color: var(--local-dark); border-color: #99f6e4; }
   .bs .context-box th { background: var(--sport-bg); color: var(--sport-dark); border-color: #fde68a; }
   .bt .context-box th { background: var(--tech-bg);  color: var(--tech-dark);  border-color: #c4b5fd; }
@@ -169,6 +179,8 @@
   .bfe .context-box th { background: var(--fen-bg);   color: var(--fen-dark);   border-color: #c7d2fe; }
   .btr .context-box th { background: var(--tra-bg);   color: var(--tra-dark);   border-color: #86efac; }
   .bco .context-box th { background: var(--coc-bg);   color: var(--coc-dark);   border-color: #fcd34d; }
+  .bmod .context-box th { background: var(--bmod-bg); color: var(--bmod-dark); border-color: #a5f3fc; }
+  .bci  .context-box th { background: var(--bci-bg);  color: var(--bci-dark);  border-color: #6ee7b7; }
 
   .q-stem { font-size: 1rem; font-weight: 600; line-height: 1.6; margin: 14px 0 18px; color: var(--text); }
 
@@ -251,7 +263,7 @@
   <p>Preguntas basadas en situaciones locales, deportivas, tecnológicas e históricas</p>
   <div class="meta">
     <span>🏫 IED Los Rosales</span>
-    <span>📐 36 preguntas · 12 bloques</span>
+    <span>📐 42 preguntas · 14 bloques</span>
     <span>👨‍🏫 Hayzar Hernández B.</span>
   </div>
 </header>
@@ -275,7 +287,7 @@
   </div>
   <div class="intro-box">
     <h2>🎯 ¿Por qué contextos reales?</h2>
-    <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 12 preguntas refuerzan los tres aprendizajes más críticos usando contextos cercanos: <strong>Barranquilla, el deporte, la tecnología, la historia de la ciencia, el clima, la ingeniería, la música, la electricidad, la salud, los fenómenos naturales, el transporte y la cocina.</strong></p>
+    <p>Saber 11 evalúa competencias, no memorización. Cada pregunta parte de una situación real o histórica que el estudiante debe analizar usando conceptos físicos. Estas 14 bloques refuerzan aprendizajes críticos usando contextos cercanos: <strong>Barranquilla, el deporte, la tecnología, la historia de la ciencia, el clima, la ingeniería, la música, la electricidad, la salud, los fenómenos naturales, el transporte, la cocina, el modelado científico y la investigación experimental.</strong></p>
   </div>
 
   <div class="block-grid">
@@ -363,10 +375,24 @@
       <p>Olla a presión, mecanismos de transferencia de calor y horno microondas.</p>
       <span class="pill">Vida cotidiana</span>
     </div>
+    <div class="block-card bmod" onclick="startBlock(12)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">📊</span>
+      <h3>Modelado científico</h3>
+      <p>Hooke, Boyle y caída libre: construye modelos matemáticos a partir de datos experimentales.</p>
+      <span class="pill">Variables · Relaciones · Modelos</span>
+    </div>
+    <div class="block-card bci" onclick="startBlock(13)">
+      <span class="qs-badge">3 preguntas</span>
+      <span class="icon">🔬</span>
+      <h3>Investigación científica</h3>
+      <p>Método científico, diseño experimental y construcción de explicaciones a partir de evidencia.</p>
+      <span class="pill">Método científico · Evidencia</span>
+    </div>
   </div>
 
   <div class="all-btn-row">
-    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 12 bloques completos (36 preguntas)</button>
+    <button class="btn btn-primary" onclick="startAll()">▶️ Hacer los 14 bloques completos (42 preguntas)</button>
   </div>
 </div>
 
@@ -452,7 +478,9 @@ const BLOCKS = [
   { id:8,  cls:"bsa", icon:"🏥", label:"Salud",          color:"#0e7490" },
   { id:9,  cls:"bfe", icon:"🌊", label:"Fenómenos",      color:"#4338ca" },
   { id:10, cls:"btr", icon:"🚗", label:"Transporte",     color:"#166534" },
-  { id:11, cls:"bco", icon:"🍳", label:"Cocina",         color:"#92400e" },
+  { id:11, cls:"bco",  icon:"🍳", label:"Cocina",         color:"#92400e" },
+  { id:12, cls:"bmod", icon:"📊", label:"Modelado",       color:"#0891b2" },
+  { id:13, cls:"bci",  icon:"🔬", label:"Investigación",  color:"#059669" },
 ];
 
 // ════════════════════════════════════════════════════════
@@ -1164,6 +1192,137 @@ const Q = [
     answer: 1,
     just: "λ = c/f = (3×10⁸)/(2,45×10⁹) ≈ 0,122 m. Esta λ específica coincide con la frecuencia de rotación dipolar de las moléculas de agua (resonancia), provocando su vibración intensa → temperatura. Las microondas NO son ionizantes (tienen energía ~10⁻⁵ eV vs. los ~10 eV de los rayos UV). Los recipientes sin agua no se calientan directamente.",
     topic: "Ondas EM – λ = c/f (microondas y resonancia molecular)"
+
+  // ─── BLOQUE 12: MODELADO CIENTÍFICO ───────────────────
+  {
+    block: 12, num: 37,
+    comp: "Modelar fenómenos basado en relaciones entre variables",
+    sub: "Ley de Hooke · Resorte y fuerza",
+    context: `<p>Un estudiante cuelga distintas masas de un resorte y mide el alargamiento producido. Sus datos son:</p>
+<table>
+  <tr><th>Masa (g)</th><th>Fuerza aplicada (N)</th><th>Alargamiento (cm)</th></tr>
+  <tr><td>100</td><td>0,98</td><td>2,0</td></tr>
+  <tr><td>200</td><td>1,96</td><td>4,0</td></tr>
+  <tr><td>300</td><td>2,94</td><td>6,0</td></tr>
+  <tr><td>400</td><td>3,92</td><td>8,0</td></tr>
+</table>
+<p>El estudiante grafica Fuerza (N) vs. Alargamiento (cm) y obtiene una línea recta que pasa por el origen.</p>`,
+    stem: "¿Cuál modelo matemático representa correctamente la relación entre la fuerza aplicada F y el alargamiento x del resorte?",
+    opts: [
+      "F = k / x, donde k es la constante del resorte; la fuerza disminuye al aumentar el alargamiento.",
+      "F = k · x, donde k = 0,49 N/cm; la fuerza es directamente proporcional al alargamiento.",
+      "F = k · x², la relación es cuadrática porque la energía potencial elástica es E = ½kx².",
+      "F = k · √x, porque la gráfica F vs. x muestra una curva cóncava."
+    ],
+    answer: 1,
+    just: "La tabla muestra proporcionalidad directa: al duplicar la fuerza, el alargamiento se duplica. k = F/x = 0,98 N / 2,0 cm = 0,49 N/cm. La relación F = k·x es la Ley de Hooke. La gráfica F vs. x es una línea recta que pasa por el origen, lo cual confirma el modelo lineal.",
+    topic: "Ley de Hooke – Modelo matemático F = kx"
+  },
+  {
+    block: 12, num: 38,
+    comp: "Modelar fenómenos relacionando dos conceptos físicos",
+    sub: "Ley de Boyle · Presión y volumen de un gas",
+    context: `<p>Un estudiante atrapa una cantidad fija de aire en una jeringa y varía el volumen midiendo la presión. Los datos a temperatura constante son:</p>
+<table>
+  <tr><th>Volumen (mL)</th><th>Presión (kPa)</th><th>P × V</th></tr>
+  <tr><td>10</td><td>200</td><td>2000</td></tr>
+  <tr><td>20</td><td>100</td><td>2000</td></tr>
+  <tr><td>40</td><td>50</td><td>2000</td></tr>
+  <tr><td>80</td><td>25</td><td>2000</td></tr>
+</table>`,
+    stem: "Con base en los datos, ¿cuál modelo matemático describe correctamente la relación entre presión P y volumen V del gas?",
+    opts: [
+      "P = k · V; la presión es directamente proporcional al volumen del gas.",
+      "P = k · V²; la relación es cuadrática porque la energía del gas crece con el cuadrado del volumen.",
+      "P = k / V; la presión es inversamente proporcional al volumen, y el producto P × V es constante.",
+      "P = k − V; la presión disminuye linealmente al aumentar el volumen."
+    ],
+    answer: 2,
+    just: "La tabla muestra que P × V = constante (2000 kPa·mL en todos los casos). Esto corresponde a la Ley de Boyle: P = k/V o P·V = k (a temperatura constante). Es una relación de proporcionalidad inversa: al duplicar el volumen, la presión se reduce a la mitad.",
+    topic: "Ley de Boyle – Modelo P·V = cte (proporcionalidad inversa)"
+  },
+  {
+    block: 12, num: 39,
+    comp: "Modelar fenómenos basado en análisis de variables",
+    sub: "Caída libre · Velocidad y tiempo",
+    context: `<p>Una cámara de alta velocidad registra la velocidad de un objeto en caída libre desde el reposo (despreciando la resistencia del aire). Los datos registrados son:</p>
+<table>
+  <tr><th>Tiempo (s)</th><th>Velocidad (m/s)</th></tr>
+  <tr><td>0</td><td>0,0</td></tr>
+  <tr><td>1</td><td>9,8</td></tr>
+  <tr><td>2</td><td>19,6</td></tr>
+  <tr><td>3</td><td>29,4</td></tr>
+  <tr><td>4</td><td>39,2</td></tr>
+</table>`,
+    stem: "¿Qué modelo matemático y qué concepto físico representan correctamente los datos del experimento?",
+    opts: [
+      "v = g / t; la velocidad disminuye con el tiempo porque la gravedad la frena.",
+      "v = g · t²; la relación es cuadrática, similar a la del desplazamiento.",
+      "v = g · t, con g ≈ 9,8 m/s²; la velocidad aumenta de forma linealmente proporcional al tiempo, lo que refleja aceleración constante.",
+      "v = √(2g · t); la relación es de raíz cuadrada porque la energía cinética es E = ½mv²."
+    ],
+    answer: 2,
+    just: "Los datos muestran que v aumenta 9,8 m/s cada segundo → aceleración constante g = 9,8 m/s². El modelo es v = g·t (proporcionalidad directa con el tiempo). Nótese que el desplazamiento sí es cuadrático (d = ½g·t²), pero la velocidad es lineal en t. La gráfica v vs. t es una recta que pasa por el origen con pendiente g.",
+    topic: "Cinemática – Caída libre: v = g·t (aceleración constante)"
+  },
+
+  // ─── BLOQUE 13: INVESTIGACIÓN CIENTÍFICA ──────────────
+  {
+    block: 13, num: 40,
+    comp: "Comprender cómo la investigación científica construye explicaciones",
+    sub: "Método científico · Pasos y etapas",
+    context: `<p>Un estudiante observa que las plantas de su casa que están cerca de la ventana crecen más altas y con tallos más gruesos que las que están en un rincón oscuro. Anota: <em>"Las plantas en el rincón crecen más altas y delgadas, mientras que las de la ventana son más compactas y robustas".</em></p>
+<p>El estudiante quiere investigar si la <strong>intensidad de luz</strong> afecta el grosor del tallo en frijoles.</p>`,
+    stem: "Tras realizar la observación y definir el problema, ¿cuál es el paso siguiente correcto del método científico para avanzar en la investigación?",
+    opts: [
+      "Publicar los resultados en una revista científica para que otros investigadores los conozcan.",
+      "Recolectar inmediatamente datos de todos los tipos de plantas disponibles en la escuela.",
+      "Formular una hipótesis comprobable, por ejemplo: 'A mayor intensidad de luz, mayor grosor del tallo del frijol'.",
+      "Concluir que la luz es el único factor que afecta el crecimiento de las plantas, porque la observación lo demuestra."
+    ],
+    answer: 2,
+    just: "El método científico sigue: Observación → Formulación del problema → Hipótesis → Diseño experimental → Recogida de datos → Análisis → Conclusión. Tras observar y definir el problema ('¿afecta la luz el grosor del tallo?'), el siguiente paso es formular una hipótesis comprobable y falsable. No se puede concluir ni publicar sin haber experimentado, y recoger datos sin hipótesis es recolección sin propósito.",
+    topic: "Método científico – Pasos: observación → hipótesis"
+  },
+  {
+    block: 13, num: 41,
+    comp: "Comprender que la investigación científica requiere controlar variables",
+    sub: "Diseño experimental · Variables independiente y dependiente",
+    context: `<p>Un equipo de estudiantes quiere investigar si el <strong>ángulo de inclinación</strong> de una rampa afecta la velocidad de un carrito de juguete al llegar al final. Realizan pruebas con ángulos de 10°, 20°, 30° y 40°, usando siempre el mismo carrito y la misma longitud de rampa. Miden la velocidad con un sensor al final de cada recorrido.</p>`,
+    stem: "¿Cuál es la identificación correcta de las variables en este experimento?",
+    opts: [
+      "Variable independiente: velocidad del carrito; variable dependiente: ángulo; variable controlada: masa del carrito.",
+      "Variable independiente: ángulo de inclinación; variable dependiente: velocidad del carrito; variables controladas: masa del carrito y longitud de la rampa.",
+      "Variable independiente: longitud de la rampa; variable dependiente: ángulo; variable controlada: velocidad del carrito.",
+      "Variable independiente: masa del carrito; variable dependiente: velocidad; variable controlada: ángulo."
+    ],
+    answer: 1,
+    just: "La variable independiente es la que el investigador modifica deliberadamente: el ángulo (10°, 20°, 30°, 40°). La variable dependiente es la que se mide como resultado: la velocidad al final. Las variables controladas (iguales en todas las pruebas) son la masa del carrito y la longitud de la rampa, para que solo el ángulo cause diferencias. Sin controlar estas variables, no podría atribuirse el cambio de velocidad únicamente al ángulo.",
+    topic: "Investigación científica – Variables independiente, dependiente y controlada"
+  },
+  {
+    block: 13, num: 42,
+    comp: "Comprender que la ciencia construye explicaciones a partir de evidencia",
+    sub: "Péndulo simple · De datos a modelo",
+    context: `<p>Un grupo de estudiantes realiza un experimento con péndulos de diferentes longitudes. Miden el período T (tiempo de una oscilación completa) para cada longitud L, manteniendo la masa y la amplitud constantes. Sus resultados son:</p>
+<table>
+  <tr><th>Longitud L (m)</th><th>Período T (s)</th><th>T² (s²)</th></tr>
+  <tr><td>0,25</td><td>1,00</td><td>1,00</td></tr>
+  <tr><td>0,50</td><td>1,42</td><td>2,02</td></tr>
+  <tr><td>1,00</td><td>2,01</td><td>4,04</td></tr>
+  <tr><td>1,50</td><td>2,46</td><td>6,05</td></tr>
+</table>
+<p>Al graficar T² vs. L obtienen una línea recta con pendiente ≈ 4,03 s²/m. Saben que g ≈ 9,8 m/s².</p>`,
+    stem: "¿Cómo construyeron correctamente los estudiantes una explicación científica a partir de los datos del péndulo?",
+    opts: [
+      "Memorizaron la fórmula T = 2π√(L/g) del libro y verificaron que los números coincidían con los datos.",
+      "Reportaron solo que 'péndulos más largos oscilan más lento' sin vincular esto a un modelo cuantitativo.",
+      "Asumieron que la fórmula era correcta porque Galileo era un científico famoso y confiable.",
+      "Observaron el patrón T² ∝ L en los datos, propusieron el modelo T = 2π√(L/g), verificaron la pendiente (4π²/g ≈ 4,03) con sus datos, y así construyeron una explicación cuantitativa respaldada por evidencia experimental."
+    ],
+    answer: 3,
+    just: "La construcción científica de explicaciones requiere: (1) observar un patrón en los datos (T² es proporcional a L), (2) proponer un modelo matemático (T = 2π√(L/g)), (3) verificar la consistencia del modelo con los datos (pendiente = 4π²/g = 4×9,87/9,8 ≈ 4,03 s²/m ✓). Esto es diferente de memorizar fórmulas o asumir por autoridad. La ciencia construye explicaciones a partir de evidencia empírica.",
+    topic: "Investigación científica – De la evidencia al modelo: péndulo simple"
   }
 ];
 
